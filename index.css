@@ -1,0 +1,40 @@
+.html{
+    scroll-behavior: smooth;
+}
+
+.navbar{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 60px;
+    margin-bottom: 15px;
+    text-align: center;
+    align-items: center;
+}
+.container-fluid{
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+}
+h1{
+    color: rgb(61, 42, 42);
+    align-items: center;
+    text-align: center;
+    font-family: 'passion one';
+    font-size: 60px;
+}
+.card{
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    transition: all 0.5s;
+}
+.card:hover{
+    z-index: 1;
+    box-shadow: 0 5px 15px rgb(77, 37, 37);
+    transform: scale(1);
+}
+
+footer{
+    color: rgb(98, 83, 83);
+    align-items: center;
+    text-align: center;
+    margin-top: 25px;
+}
