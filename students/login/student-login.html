@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration Form</title> 
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="student-login.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caprasimo&family=Caveat:wght@700&family=Concert+One&family=Fredericka+the+Great&family=Handlee&family=Julee&family=Lobster&family=Montserrat:wght@300;400&family=Noto+Sans+KR:wght@100&family=Patrick+Hand&family=Press+Start+2P&family=Quicksand:wght@300&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caprasimo&family=Caveat:wght@700&family=Concert+One&family=Fredericka+the+Great&family=Handlee&family=Julee&family=Lobster&family=Noto+Sans+KR:wght@100&family=Passion+One&family=Patrick+Hand&family=Press+Start+2P&family=Quicksand:wght@300&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+         
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Learner's Portal</h1>
+        </div>
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+
+                <form id="form" action="#">
+                    <div class="input-field">
+                        <input required id="lrn1" type="text" placeholder="Enter your LRN">
+                        <i class='bx bx-user'></i>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-field">
+                        <input required id="password" type="password" class="password" placeholder="Enter your password">
+                        <i class='bx bx-lock-alt' ></i>
+                        <i class='bx bx-hide showHidePw' ></i>
+                        <div class="error"></div>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Remember me</label>
+                        </div>
+                        
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="input-field button">Login</button>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Don't have an account?
+                        <a href="#" class="text signup-link">Signup Now</a>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form signup">
+                <span class="title">Registration</span>
+
+                <form id="form2" action="#">
+                    <div class="input-field">
+                        <input id="name1" type="text" placeholder="Enter your name" required>
+                        <i class='bx bx-user' ></i>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-field">
+                        <input id="lrn" type="text" placeholder="Enter your LRN" required>
+                        <i class='bx bx-user' ></i>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-field">
+                        <input id="password2" type="password" class="password" placeholder="Create a password" required>
+                        <i class='bx bx-lock-alt' ></i>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-field">
+                        <input id="password3" type="password" class="password" placeholder="Confirm a password" required>
+                        <i class='bx bx-lock-alt' ></i>
+                        <i class='bx bx-hide showHidePw' ></i>
+                        <div class="error"></div>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="termCon" required>
+                            <label for="termCon" class="text">I accepted all terms and conditions</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class=" input-field button">Signup</button>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Already have an account?
+                        <a href="#" class="text login-link">Login Now</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="../../index.html" class="back"><small>← Back to Homepage</small></a>
+        </div>
+    </div>
+
+     <script src="student-login.js"></script> 
+</body>
+</html>
