@@ -45,5 +45,5 @@ const container = document.querySelector(".container"),
         });
     };
 
-    validateForm('#form');
+    
     

@@ -31,17 +31,17 @@
             <div class="form login">
                 <span class="title">Login</span>
 
-                <form id="form" action="#">
+                <form id="form1" action="#" name="myForm1">
                     <div class="input-field">
-                        <input required id="enumber1" type="text" placeholder="Employee Number">
+                        <input id="enumber1" name="employeenumber" type="text" placeholder="Employee Number" required>
                         <i class='bx bx-user'></i>
-                        <div class="error"></div>
+                        <small>Error Message</small>
                     </div>
                     <div class="input-field">
-                        <input required id="password" type="password" class="password" placeholder="Enter your password">
+                        <input id="password" name="password" type="password" class="password" placeholder="Enter your password" required>
                         <i class='bx bx-lock-alt' ></i>
                         <i class='bx bx-hide showHidePw' ></i>
-                        <div class="error"></div>
+                        <small>Error Message</small>
                     </div>
 
                     <div class="checkbox-text">
@@ -67,27 +67,27 @@
             <div class="form signup">
                 <span class="title">Registration</span>
 
-                <form id="form2" action="#">
+                <form id="form2" action="#" name="myForm2">
                     <div class="input-field">
-                        <input id="name1" type="text" placeholder="Enter your name" required>
+                        <input id="name1" name="name1" type="text" placeholder="Enter your name" required>
                         <i class='bx bx-user' ></i>
-                        <div class="error"></div>
+                        <small>Error Message</small>
                     </div>
                     <div class="input-field">
-                        <input id="enumber2" type="text" placeholder="Employee Number" required>
+                        <input id="enumber2" name="employeenumber2" type="text" placeholder="Employee Number" required>
                         <i class='bx bx-user' ></i>
-                        <div class="error"></div>
+                        <small>Error Message</small>
                     </div>
                     <div class="input-field">
-                        <input id="password2" type="password" class="password" placeholder="Create a password" required>
+                        <input id="password2" name="password2" type="password" class="password" placeholder="Create a password" required>
                         <i class='bx bx-lock-alt' ></i>
-                        <div class="error"></div>
+                        <small>Error Message</small>
                     </div>
                     <div class="input-field">
-                        <input id="password3" type="password" class="password" placeholder="Confirm a password" required>
+                        <input id="password3" name="password3" type="password" class="password" placeholder="Confirm a password" required>
                         <i class='bx bx-lock-alt' ></i>
                         <i class='bx bx-hide showHidePw' ></i>
-                        <div class="error"></div>
+                        <small>Error Message</small>
                     </div>
 
                     <div class="checkbox-text">
@@ -102,7 +102,7 @@
 
                 <div class="login-signup">
                     <span class="text">Already have an account?
-                        <a href="#" class="text login-link">Login Now</a>
+                        <a href="#"class="text login-link">Login Now</a>
                     </span>
                 </div>
             </div>
@@ -114,4 +114,5 @@
 
      <script src="teacher-login.js"></script> 
 </body>
+
 </html>
