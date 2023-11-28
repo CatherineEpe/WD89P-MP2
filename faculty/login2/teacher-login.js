@@ -33,17 +33,3 @@ const container = document.querySelector(".container"),
         container.classList.remove("active");
     });
 
-
-
-    const validateForm = formSelector => {
-        const formElement = document.querySelector(formSelector);
-
-        formElement.setAttribute('novalidate', '');
-
-        formElement.addEventListener('submit', event => {
-            event.preventDefault();
-        });
-    };
-
-    
-    

@@ -5,7 +5,13 @@ html{
     align-items: center;
     text-align: center;
     font-family: 'passion one';
-    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 110px;
+}
+.title{
+    margin-top: 15px;
+    font-size: 30px;
+    letter-spacing: 1px;
 }
 *{
     margin: 0;
@@ -32,6 +38,7 @@ body{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin: 0 20px;
+    padding: 10px 20px;
 }
 
 .container .forms{
@@ -130,6 +137,20 @@ body{
     cursor: pointer;
     padding: 10px;
 }
+.input-field small{
+    position: absolute;
+    margin: 3px;
+    margin-top: 50px;
+    visibility: hidden;
+}
+.input-field.success small{
+    font-size: 10px;
+    color: solid rgb(2, 181, 2);
+}
+.input-field.error small{
+    color: red;
+    font-size: 10px;
+}
 
 .form .checkbox-text{
     display: flex;
@@ -195,6 +216,6 @@ body{
     background-color: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 10px;
+    padding-bottom: 10px;
     text-decoration: none;
 }

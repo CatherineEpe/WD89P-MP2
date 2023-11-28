@@ -31,14 +31,14 @@
             <div class="form login">
                 <span class="title">Login</span>
 
-                <form id="form1" action="#" name="myForm1">
+                <form name="myForm" action="#">
                     <div class="input-field">
-                        <input id="enumber1" name="employeenumber" type="text" placeholder="Employee Number" required>
+                        <input id="eNumber1" type="text" placeholder="Employee Number" required>
                         <i class='bx bx-user'></i>
                         <small>Error Message</small>
                     </div>
                     <div class="input-field">
-                        <input id="password" name="password" type="password" class="password" placeholder="Enter your password" required>
+                        <input id="password1" name="password1" type="password" class="password" placeholder="Enter your password" required>
                         <i class='bx bx-lock-alt' ></i>
                         <i class='bx bx-hide showHidePw' ></i>
                         <small>Error Message</small>
@@ -53,7 +53,7 @@
                         <a href="#" class="text">Forgot password?</a>
                     </div>
 
-                    <button type="submit" class="input-field button">Login</button>
+                    <button type="submit" class="input-field button" id="button1">Login</button>
                 </form>
 
                 <div class="login-signup">
@@ -67,24 +67,24 @@
             <div class="form signup">
                 <span class="title">Registration</span>
 
-                <form id="form2" action="#" name="myForm2">
+                <form name="myForm2" action="#">
                     <div class="input-field">
-                        <input id="name1" name="name1" type="text" placeholder="Enter your name" required>
+                        <input id="name1" type="text" placeholder="Enter your name" required>
                         <i class='bx bx-user' ></i>
                         <small>Error Message</small>
                     </div>
                     <div class="input-field">
-                        <input id="enumber2" name="employeenumber2" type="text" placeholder="Employee Number" required>
+                        <input id="eNumber2" type="text" placeholder="Employee Number" required>
                         <i class='bx bx-user' ></i>
                         <small>Error Message</small>
                     </div>
                     <div class="input-field">
-                        <input id="password2" name="password2" type="password" class="password" placeholder="Create a password" required>
+                        <input id="password2" type="password" class="password" placeholder="Create a password" required>
                         <i class='bx bx-lock-alt' ></i>
                         <small>Error Message</small>
                     </div>
                     <div class="input-field">
-                        <input id="password3" name="password3" type="password" class="password" placeholder="Confirm a password" required>
+                        <input id="password3" type="password" class="password" placeholder="Confirm a password" required>
                         <i class='bx bx-lock-alt' ></i>
                         <i class='bx bx-hide showHidePw' ></i>
                         <small>Error Message</small>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class=" input-field button">Signup</button>
+                    <button type="submit" class=" input-field button" id="button2">Signup</button>
                 </form>
 
                 <div class="login-signup">
@@ -113,6 +113,8 @@
     </div>
 
      <script src="teacher-login.js"></script> 
+     <script src="teacher-register.js"></script> 
+     
 </body>
 
 </html>
