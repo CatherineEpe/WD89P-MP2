@@ -1,25 +1,14 @@
 html{
     scroll-behavior: smooth;
 }
-.head{
-    align-items: center;
-    text-align: center;
-    font-family: 'passion one';
-    margin-top: 10px;
-    font-size: 110px;
-}
-.title{
-    margin-top: 15px;
-    font-size: 30px;
-    letter-spacing: 1px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,183 +17,146 @@ body{
     background-size: cover;
     font-family: 'montserrat';
 }
-
-.container{
+::selection{
+  color: #fff;
+  background: #5372F0;
+}
+.head{
+    align-items: center;
+    text-align: center;
+    font-family: 'passion one';
+    margin-top: 10px;
+    font-size: 50px;
+    font-weight: 600;
+    color: rgb(96, 0, 0);
+    letter-spacing: 2px;
+}
+.wrapper{
     position: relative;
-    max-width: 430px;
-    width: 100%;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 0 20px;
-    padding: 10px 20px;
+    margin-top: 10px;
+    padding: 10px 30px;
+    max-width: 540px;
 }
-
-.container .forms{
-    display: flex;
-    align-items: center;
-    height: 440px;
-    width: 200%;
-    transition: height 0.2s ease;
+.header{
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 10px;
 }
-
-
-.container .form{
-    width: 50%;
-    padding: 30px;
-    background-color: #fff;
-    transition: margin-left 0.18s ease;
+.wrapper form{
+  margin: 10px 0;
+  padding-top: 10px;
 }
-
-.container.active .login{
-    margin-left: -50%;
-    opacity: 0;
-    transition: margin-left 0.18s ease, opacity 0.15s ease;
+form .field{
+  width: 100%;
+  margin-bottom: 20px;
 }
-
-.container .signup{
-    opacity: 0;
-    transition: opacity 0.09s ease;
+form .field.shake{
+  animation: shake 0.3s ease-in-out;
 }
-.container.active .signup{
-    opacity: 1;
-    transition: opacity 0.2s ease;
+@keyframes shake {
+  0%, 100%{
+    margin-left: 0px;
+  }
+  20%, 80%{
+    margin-left: -12px;
+  }
+  40%, 60%{
+    margin-left: 12px;
+  }
 }
-
-.container.active .forms{
-    height: 600px;
+form .field .input-area{
+  height: 50px;
+  width: 100%;
+  position: relative;
 }
-.container .form .title{
-    position: relative;
-    font-size: 27px;
-    font-weight: 600;
+form input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0 45px;
+  font-size: 18px;
+  background: none;
+  caret-color: rgb(96, 0, 0);
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  transition: all 0.2s ease;
 }
-
-.form .title::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    background-color: maroon;
-    border-radius: 25px;
+form .field input:focus,
+form .field.valid input{
+  border-color: rgb(96, 0, 0);
 }
-
-.form .input-field{
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin-top: 30px;
+form .field.shake input,
+form .field.error input{
+  border-color: #dc3545;
 }
-
-.input-field input{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 0 35px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    border-bottom: 2px solid #ccc;
-    border-top: 2px solid transparent;
-    transition: all 0.2s ease;
+.field .input-area i{
+  position: absolute;
+  top: 50%;
+  font-size: 18px;
+  pointer-events: none;
+  transform: translateY(-50%);
 }
-
-.input-field input:is(:focus, :valid){
-    border-bottom-color: rgb(141, 0, 0);
+.input-area .icon{
+  left: 15px;
+  color: #bfbfbf;
+  transition: color 0.2s ease;
 }
-
-.input-field i{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-    font-size: 23px;
-    transition: all 0.2s ease;
+.input-area .error-icon{
+  right: 15px;
+  color: #dc3545;
 }
-
-.input-field input:is(:focus, :valid) ~ i{
-    color: rgb(141, 0, 0);
+form input:focus ~ .icon,
+form .field.valid .icon{
+  color: rgb(96, 0, 0);
 }
-
-.input-field i.icon{
-    left: 0;
+form .field.shake input:focus ~ .icon,
+form .field.error input:focus ~ .icon{
+  color: #bfbfbf;
 }
-.input-field i.showHidePw{
-    right: 0;
-    cursor: pointer;
-    padding: 10px;
+form input::placeholder{
+  color: #bfbfbf;
+  font-size: 17px;
 }
-.input-field small{
-    position: absolute;
-    margin: 3px;
-    margin-top: 50px;
-    visibility: hidden;
+form .field .error-txt{
+  color: #dc3545;
+  text-align: left;
+  margin-top: 5px;
 }
-.input-field.success small{
-    font-size: 10px;
-    color: solid rgb(2, 181, 2);
+form .field .error{
+  display: none;
 }
-.input-field.error small{
-    color: red;
-    font-size: 10px;
+form .field.shake .error,
+form .field.error .error{
+  display: block;
 }
-
-.form .checkbox-text{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
+form .pass-txt{
+  text-align: left;
+  margin-top: -10px;
 }
-
-.checkbox-text .checkbox-content{
-    display: flex;
-    align-items: center;
+.wrapper a{
+  color: rgb(96, 0, 0);
+  text-decoration: none;
 }
-
-.checkbox-content input{
-    margin-right: 10px;
-    accent-color: rgb(141, 0, 0);
+.wrapper a:hover{
+  text-decoration: underline;
 }
-
-.form .text{
-    color: #333;
-    font-size: 14px;
+form input[type="submit"]{
+  height: 50px;
+  margin-top: 30px;
+  color: #fff;
+  padding: 0;
+  border: none;
+  background: rgb(96, 0, 0);
+  cursor: pointer;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
-
-.form a.text{
-    color: rgb(141, 0, 0);
-    text-decoration: none;
-}
-.form a:hover{
-    text-decoration: underline;
-}
-
-.form .button{
-    margin-top: 35px;
-}
-
-.form .button{
-    border: none;
-    color: #fff;
-    font-size: 17px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    border-radius: 6px;
-    background-color: rgb(141, 0, 0);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.button:hover{
-    background-color: rgb(74, 8, 8);
-}
-
-.form .login-signup{
-    margin-top: 30px;
-    text-align: center;
+form input[type="submit"]:hover{
+  background: rgb(141, 2, 2);
 }
 .back{
     color: maroon;
@@ -216,6 +168,6 @@ body{
     background-color: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding-bottom: 10px;
     text-decoration: none;
+    padding-top: 10px;
 }
