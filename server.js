@@ -27,7 +27,7 @@ app.post('/login', function (request, response) {
 
     //mysql query to fetch the username and password from the database using the payload from
     //the front end.
-    const myQuery = `SELECT * FROM student.login
+    const myQuery = `SELECT * FROM vnhs.student
     where lrn = "${lrnFromFrontEnd}" and password = "${passwordFromFrontEnd}"`;
     //in short select user from database where username = payload.username and password = payload.password
   
@@ -39,7 +39,7 @@ app.post('/login', function (request, response) {
         port: 3306,        // port if not using default port which is 3306
         user: "catherine8",      //database username 
         password: "Cath@102820",      //database password
-        database: "student" // our database name
+        database: "vnhs" // our database name
       });
       
       //once a connection is created, connect.
@@ -66,7 +66,7 @@ app.post('/register', function (request, response) {
 
     //mysql query to fetch the username and password from the database using the payload from
     //the front end.
-    const myQuery = `INSERT INTO student.login (lrn, password) VALUES ("${lrnFromFrontEnd}", "${passwordFromFrontEnd}")`;
+    const myQuery = `INSERT INTO vnhs.student (lrn, password) VALUES ("${lrnFromFrontEnd}", "${passwordFromFrontEnd}")`;
     //in short select user from database where username = payload.username and password = payload.password
   
 
@@ -77,7 +77,7 @@ app.post('/register', function (request, response) {
         port: 3306,        // port if not using default port which is 3306
         user: "catherine8",      //database username 
         password: "Cath@102820",      //database password
-        database: "student" // our database name
+        database: "vnhs" // our database name
       });
       
       //once a connection is created, connect.
@@ -110,7 +110,7 @@ app.post('/login2', function (request, response) {
 
   //mysql query to fetch the username and password from the database using the payload from
   //the front end.
-  const myQuery = `SELECT * FROM student.teacher
+  const myQuery = `SELECT * FROM vnhs.teacher
   where userName = "${userNameFromFrontEnd}" and password = "${passwordFromFrontEnd}"`;
   //in short select user from database where username = payload.username and password = payload.password
 
@@ -122,7 +122,7 @@ app.post('/login2', function (request, response) {
       port: 3306,        // port if not using default port which is 3306
       user: "catherine8",      //database username 
       password: "Cath@102820",      //database password
-      database: "student" // our database name
+      database: "vnhs" // our database name
     });
     
     //once a connection is created, connect.
@@ -149,7 +149,7 @@ app.post('/register2', function (request, response) {
 
   //mysql query to fetch the username and password from the database using the payload from
   //the front end.
-  const myQuery = `INSERT INTO student.teacher (userName, password) VALUES ("${userNameFromFrontEnd}","${passwordFromFrontEnd}" )`;
+  const myQuery = `INSERT INTO vnhs.teacher (userName, password) VALUES ("${userNameFromFrontEnd}","${passwordFromFrontEnd}" )`;
   //in short select user from database where username = payload.username and password = payload.password
 
 
@@ -160,7 +160,7 @@ app.post('/register2', function (request, response) {
       port: 3306,        // port if not using default port which is 3306
       user: "catherine8",      //database username 
       password: "Cath@102820",      //database password
-      database: "student" // our database name
+      database: "vnhs" // our database name
     });
     
     //once a connection is created, connect.

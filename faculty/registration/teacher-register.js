@@ -60,6 +60,7 @@ function confirmPass() {
   userName();
   createPass();
   confirmPass();
+  
   //calling function on key up
   userNameInput.addEventListener("keyup", userName);
   passInput.addEventListener("keyup", createPass);
