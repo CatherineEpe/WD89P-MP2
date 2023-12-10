@@ -62,5 +62,22 @@ const submit = document.getElementById('login2')
                 userName: userName.value,
                 password: pass3.value,
             })
+        }).then(function(result){
+          return result.json()
+        }).then(function(result){
+          console.log('result:', result)
+          if(result.success){
+            Swal.fire({
+              title: "Login Successful!",
+              text: "Congratulations!",
+              icon: "success"
+            });
+          }else{
+            Swal.fire({
+              title: "Invalid Credentials",
+              text: "Please check your username and password",
+              icon: "error"
+            });
+          }
         })
     }

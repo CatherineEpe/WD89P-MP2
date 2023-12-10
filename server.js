@@ -2,6 +2,7 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+import bcrypt from "bcrypt";
 const app = express();
 
 //auto convert text to json if possible
@@ -10,8 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 
- //mysql package function that we will call to establish or create connection to our database
-  //create connection to our mysql database
+  //Before app start, create connection to our mysql database
   const connection = mysql.createConnection({
     host: "localhost", // ip or hostname
     port: 3306,        // port if not using default port which is 3306
@@ -35,23 +35,28 @@ app.post('/login', function (request, response) {
 
     //mysql query to fetch the username and password from the database using the payload from
     //the front end.
-    const myQuery = `SELECT * FROM vnhs.student
-    where lrn = "${lrnFromFrontEnd}" and password = "${passwordFromFrontEnd}"`;
+    const myQuery = `SELECT * FROM vnhs.student where lrn = "${lrnFromFrontEnd}"`;
     //in short select user from database where username = payload.username and password = payload.password
   
       
-      connection.query(myQuery, function (err, result) {
-        if (err) throw err; //pagnagka error, mag crash
-        //check result from our query to the database
-        console.log("id result from database: ", result);
-        if(result && result[0] && result[0].id){
-          console.log("Login Successful");
-        }else{
-          console.log("Invalid Credentials");
-        }
-      });
+    connection.query(myQuery, function (err, result) {
+      if (err) throw err; 
+      console.log("id result from database: ", result);
+      if (result && result[0] && result[0].id) {
+        const hashedPassword = result[0].password;
+        // password          , $2b$10etc......
+        console.log('password from frontend: ', passwordFromFrontEnd);
+        console.log('hashedPassword: ', hashedPassword);
+  
+        const checkIfPasswordCorrect = bcrypt.compareSync(passwordFromFrontEnd, hashedPassword);
+  
+        response.send({ "success": checkIfPasswordCorrect })
+      } else {
+        response.send({ "success": false, "error": "invalid credentials" })
+      }
+    });
+  
     
-    response.send({"success": true})
 })
 
 app.post('/register', function (request, response) {
@@ -61,22 +66,19 @@ app.post('/register', function (request, response) {
     console.log('lrnFromFrontEnd: ', lrnFromFrontEnd);
     console.log('passwordFromFrontEnd: ', passwordFromFrontEnd);
 
+   //convert normal string to an encrypted string or hash
+   const hash = bcrypt.hashSync(passwordFromFrontEnd, 10);
 
-    //mysql query to fetch the username and password from the database using the payload from
-    //the front end.
-    const myQuery = `INSERT INTO vnhs.student (lrn, password) VALUES ("${lrnFromFrontEnd}", "${passwordFromFrontEnd}")`;
-    //in short select user from database where username = payload.username and password = payload.password
-  
-      
-      connection.query(myQuery, function (err, result) {
-        if (err) throw err; //pagnagka error, mag crash
-        //check result from our query to the database
-        console.log("id result from database: ", result);
-      });
-    
-    response.send({"success": true})
-})
-
+   //instead of saving normal password string, save hash as password
+   const myQuery = `INSERT INTO vnhs.student (lrn, password) VALUES 
+       ("${lrnFromFrontEnd}", "${hash}")`;
+   connection.query(myQuery, function (err, result) {
+     if (err) throw err; //pagnagka error, mag crash
+     //check result from our query to the database
+     console.log("id result from database: ", result);
+   });
+   response.send({ "success": true })
+    })  
 
 
 //For teacher Login and Register
@@ -93,23 +95,27 @@ app.post('/login2', function (request, response) {
 
   //mysql query to fetch the username and password from the database using the payload from
   //the front end.
-  const myQuery = `SELECT * FROM vnhs.teacher
-  where userName = "${userNameFromFrontEnd}" and password = "${passwordFromFrontEnd}"`;
+  const myQuery = `SELECT * FROM vnhs.teacher where userName = "${userNameFromFrontEnd}"`;
   //in short select user from database where username = payload.username and password = payload.password
 
 
-    connection.query(myQuery, function (err, result) {
-      if (err) throw err; //pagnagka error, mag crash
-      //check result from our query to the database
-      console.log("id result from database: ", result);
-      if(result && result[0] && result[0].id){
-        console.log('Login Successful');
-      }else{
-        console.log('Invalid Credentials');
-      }
-    });
+  connection.query(myQuery, function (err, result) {
+    if (err) throw err; 
+    console.log("id result from database: ", result);
+    if (result && result[0] && result[0].id) {
+      const hashedPassword = result[0].password;
+      // password          , $2b$10etc......
+      console.log('password from frontend: ', passwordFromFrontEnd);
+      console.log('hashedPassword: ', hashedPassword);
+
+      const checkIfPasswordCorrect = bcrypt.compareSync(passwordFromFrontEnd, hashedPassword);
+
+      response.send({ "success": checkIfPasswordCorrect })
+    } else {
+      response.send({ "success": false, "error": "invalid credentials" })
+    }
+  });
   
-  response.send({"success": true})
 })
 
 app.post('/register2', function (request, response) {
@@ -120,20 +126,21 @@ app.post('/register2', function (request, response) {
   console.log('passwordFromFrontEnd: ', passwordFromFrontEnd);
 
 
-  //mysql query to fetch the username and password from the database using the payload from
-  //the front end.
-  const myQuery = `INSERT INTO vnhs.teacher (userName, password) VALUES ("${userNameFromFrontEnd}","${passwordFromFrontEnd}" )`;
-  //in short select user from database where username = payload.username and password = payload.password
+   //convert normal string to an encrypted string or hash
+   const hash = bcrypt.hashSync(passwordFromFrontEnd, 10);
 
-
-    connection.query(myQuery, function (err, result) {
-      if (err) throw err; //pagnagka error, mag crash
-      //check result from our query to the database
-      console.log("id result from database: ", result);
-    });
+   //instead of saving normal password string, save hash as password
+   const myQuery = `INSERT INTO vnhs.student (lrn, password) VALUES 
+       ("${lrnFromFrontEnd}", "${hash}")`;
+   connection.query(myQuery, function (err, result) {
+     if (err) throw err; //pagnagka error, mag crash
+     //check result from our query to the database
+     console.log("id result from database: ", result);
+   });
+   response.send({ "success": true })
   
-  response.send({"success": true})
-})
+  })  
+
 
 
 console.log('STARTING EXPRESS SERVER')

@@ -86,5 +86,9 @@ const submit = document.getElementById('register2')
                 userName: userName.value,
                 password: pass2.value,
             })
+        }).then(function(result){
+          return result.json()
+        }).then(function(result){
+          console.log('result:', result);
         })
     }

@@ -49,7 +49,7 @@ form.onsubmit = (e)=>{
 }
 
 
-const submit = document.getElementById('submit')
+const submit = document.getElementById('login')
     submit.onclick = function(){
         const lrn = document.getElementById('lrn')
         const pass1 = document.getElementById('pass1')
@@ -63,5 +63,22 @@ const submit = document.getElementById('submit')
                 username: lrn.value,
                 password: pass1.value,
             })
+        }).then(function(result){
+          return result.json()
+        }).then(function(result){
+          console.log('result:', result);
+          if(result.success){
+            Swal.fire({
+              title: "Login Successful!",
+              text: "Congratulations!",
+              icon: "success"
+            });
+          }else{
+            Swal.fire({
+              title: "Invalid Credentials",
+              text: "Please check your username and password",
+              icon: "error"
+            });
+          }
         })
     }
