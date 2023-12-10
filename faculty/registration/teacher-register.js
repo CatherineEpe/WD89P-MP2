@@ -1,18 +1,23 @@
 const form = document.querySelector("form"),
-  emailField = form.querySelector(".email-field"),
-  emailInput = emailField.querySelector(".email"),
+  userNameField = form.querySelector(".userName"),
+  userNameInput = form.querySelector(".user"),
   passField = form.querySelector(".create-password"),
   passInput = passField.querySelector(".password"),
   cPassField = form.querySelector(".confirm-password"),
   cPassInput = cPassField.querySelector(".cPassword");
 
-// Email Validtion
-function checkEmail() {
-  const emaiPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-  if (!emailInput.value.match(emaiPattern)) {
-    return emailField.classList.add("invalid"); //adding invalid class if email value do not mathced with email pattern
+
+
+
+// Username Validation
+function userName() {
+  const passPattern =
+  "^([0-9]*[a-zA-Z]){3,}[0-9]*$";
+
+  if (!userNameInput.value.match(passPattern)) {
+    return userNameField.classList.add("invalid"); //adding invalid class if password input value do not match with passPattern
   }
-  emailField.classList.remove("invalid"); //removing invalid class if email value matched with emaiPattern
+  userNameField.classList.remove("invalid"); //removing invalid class if password input value matched with passPattern
 }
 
 // Hide and show password
@@ -49,24 +54,36 @@ function confirmPass() {
   cPassField.classList.remove("invalid");
 }
 
-// Calling Funtion on Form Sumbit
-form.addEventListener("submit", (e) => {
+ // Calling Funtion on Form Submit
+ form.addEventListener("submit", (e) => {
   e.preventDefault(); //preventing form submitting
-  checkEmail();
+  userName();
   createPass();
   confirmPass();
-
   //calling function on key up
-  emailInput.addEventListener("keyup", checkEmail);
+  userNameInput.addEventListener("keyup", userName);
   passInput.addEventListener("keyup", createPass);
   cPassInput.addEventListener("keyup", confirmPass);
-
   if (
-    !emailField.classList.contains("invalid") &&
+    !userNameField.classList.contains("invalid") &&
     !passField.classList.contains("invalid") &&
     !cPassField.classList.contains("invalid")
-  ) {
-    location.href = form.getAttribute("action");
-  }
-});
+  );
+})
 
+const submit = document.getElementById('register2')
+    submit.onclick = function(){
+        const userName = document.getElementById('userName')
+        const pass2 = document.getElementById('pass2')
+        fetch('http://localhost:3000/register2', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userName: userName.value,
+                password: pass2.value,
+            })
+        })
+    }

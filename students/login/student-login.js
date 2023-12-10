@@ -18,7 +18,7 @@ form.onsubmit = (e)=>{
   eInput.onkeyup = ()=>{lrn();} //calling checkEmail function on email input keyup
   pInput.onkeyup = ()=>{checkPass();} //calling checkPassword function on pass input keyup
 
-  function lrn(){ //checkEmail function
+  function lrn(){ //checkLRN function
     let pattern = "^[0-9]{12}$"; //pattern for validate lrn
     if(!eInput.value.match(pattern)){ //if pattern not matched then add error and remove valid class
       eField.classList.add("error");
