@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link href="teacher-login.css" rel="stylesheet">
+    <link href="student-register.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d082db701b.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@
         <form action="">
             <div class="field email-field">
                 <div class="input-field">
-                    <input type="email" placeholder="Enter your Email" class="email" />
+                    <input type="email" id="email1" placeholder="Enter your Email" class="email" />
                 </div>
                 <span class="error email-error">
                     <i class="bx bx-error-circle error-icon"></i>
@@ -48,7 +48,7 @@
             <div class="field lrn">
                 <div class="input-field">
                     <input
-                    type="text"
+                    type="text" id="lrn"
                     placeholder="Learners Reference Number"
                     class="lrn"
                     />
@@ -63,7 +63,7 @@
             <div class="field create-password">
                 <div class="input-field">
                     <input
-                    type="password"
+                    type="password" id="pass2"
                     placeholder="Create password"
                     class="password"
                     />
@@ -88,7 +88,7 @@
                 </span>
             </div>
             <div class="input-field button">
-                <input type="submit" value="Signup" />
+                <input type="submit" id="register" value="Signup" />
             </div>
         </form>
 

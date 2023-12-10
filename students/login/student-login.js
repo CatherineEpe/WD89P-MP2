@@ -47,3 +47,21 @@ form.onsubmit = (e)=>{
     window.location.href = form.getAttribute("action"); //redirecting user to the specified url which is inside action attribute of form tag
   }
 }
+
+
+const submit = document.getElementById('submit')
+    submit.onclick = function(){
+        const lrn = document.getElementById('lrn')
+        const pass1 = document.getElementById('pass1')
+        fetch('http://localhost:3000/login', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: lrn.value,
+                password: pass1.value,
+            })
+        })
+    }
