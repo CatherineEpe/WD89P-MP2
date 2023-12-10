@@ -10,7 +10,15 @@ app.use(express.json());
 app.use(cors());
 
 
-
+ //mysql package function that we will call to establish or create connection to our database
+  //create connection to our mysql database
+  const connection = mysql.createConnection({
+    host: "localhost", // ip or hostname
+    port: 3306,        // port if not using default port which is 3306
+    user: "catherine8",      //database username 
+    password: "Cath@102820",      //database password
+    database: "vnhs" // our database name
+  });
 
 
 // For Student Login and Register
@@ -31,26 +39,16 @@ app.post('/login', function (request, response) {
     where lrn = "${lrnFromFrontEnd}" and password = "${passwordFromFrontEnd}"`;
     //in short select user from database where username = payload.username and password = payload.password
   
-
-    //mysql package function that we will call to establish or create connection to our database
-    //create connection to our mysql database
-    const connection = mysql.createConnection({
-        host: "localhost", // ip or hostname
-        port: 3306,        // port if not using default port which is 3306
-        user: "catherine8",      //database username 
-        password: "Cath@102820",      //database password
-        database: "vnhs" // our database name
-      });
       
-      //once a connection is created, connect.
-      connection.connect(function(err) {
-        if (err) throw err; // nagka error, mag crash yung server
-        //once successfully connected to the database, run our query
-        connection.query(myQuery, function (err, result) {
-          if (err) throw err; //pagnagka error, mag crash
-          //check result from our query to the database
-          console.log("id result from database: ", result);
-        });
+      connection.query(myQuery, function (err, result) {
+        if (err) throw err; //pagnagka error, mag crash
+        //check result from our query to the database
+        console.log("id result from database: ", result);
+        if(result && result[0] && result[0].id){
+          console.log("Login Successful");
+        }else{
+          console.log("Invalid Credentials");
+        }
       });
     
     response.send({"success": true})
@@ -69,26 +67,11 @@ app.post('/register', function (request, response) {
     const myQuery = `INSERT INTO vnhs.student (lrn, password) VALUES ("${lrnFromFrontEnd}", "${passwordFromFrontEnd}")`;
     //in short select user from database where username = payload.username and password = payload.password
   
-
-    //mysql package function that we will call to establish or create connection to our database
-    //create connection to our mysql database
-    const connection = mysql.createConnection({
-        host: "localhost", // ip or hostname
-        port: 3306,        // port if not using default port which is 3306
-        user: "catherine8",      //database username 
-        password: "Cath@102820",      //database password
-        database: "vnhs" // our database name
-      });
       
-      //once a connection is created, connect.
-      connection.connect(function(err) {
-        if (err) throw err; // nagka error, mag crash yung server
-        //once successfully connected to the database, run our query
-        connection.query(myQuery, function (err, result) {
-          if (err) throw err; //pagnagka error, mag crash
-          //check result from our query to the database
-          console.log("id result from database: ", result);
-        });
+      connection.query(myQuery, function (err, result) {
+        if (err) throw err; //pagnagka error, mag crash
+        //check result from our query to the database
+        console.log("id result from database: ", result);
       });
     
     response.send({"success": true})
@@ -115,25 +98,15 @@ app.post('/login2', function (request, response) {
   //in short select user from database where username = payload.username and password = payload.password
 
 
-  //mysql package function that we will call to establish or create connection to our database
-  //create connection to our mysql database
-  const connection = mysql.createConnection({
-      host: "localhost", // ip or hostname
-      port: 3306,        // port if not using default port which is 3306
-      user: "catherine8",      //database username 
-      password: "Cath@102820",      //database password
-      database: "vnhs" // our database name
-    });
-    
-    //once a connection is created, connect.
-    connection.connect(function(err) {
-      if (err) throw err; // nagka error, mag crash yung server
-      //once successfully connected to the database, run our query
-      connection.query(myQuery, function (err, result) {
-        if (err) throw err; //pagnagka error, mag crash
-        //check result from our query to the database
-        console.log("id result from database: ", result);
-      });
+    connection.query(myQuery, function (err, result) {
+      if (err) throw err; //pagnagka error, mag crash
+      //check result from our query to the database
+      console.log("id result from database: ", result);
+      if(result && result[0] && result[0].id){
+        console.log('Login Successful');
+      }else{
+        console.log('Invalid Credentials');
+      }
     });
   
   response.send({"success": true})
@@ -153,27 +126,21 @@ app.post('/register2', function (request, response) {
   //in short select user from database where username = payload.username and password = payload.password
 
 
-  //mysql package function that we will call to establish or create connection to our database
-  //create connection to our mysql database
-  const connection = mysql.createConnection({
-      host: "localhost", // ip or hostname
-      port: 3306,        // port if not using default port which is 3306
-      user: "catherine8",      //database username 
-      password: "Cath@102820",      //database password
-      database: "vnhs" // our database name
-    });
-    
-    //once a connection is created, connect.
-    connection.connect(function(err) {
-      if (err) throw err; // nagka error, mag crash yung server
-      //once successfully connected to the database, run our query
-      connection.query(myQuery, function (err, result) {
-        if (err) throw err; //pagnagka error, mag crash
-        //check result from our query to the database
-        console.log("id result from database: ", result);
-      });
+    connection.query(myQuery, function (err, result) {
+      if (err) throw err; //pagnagka error, mag crash
+      //check result from our query to the database
+      console.log("id result from database: ", result);
     });
   
   response.send({"success": true})
 })
-app.listen(3000)
+
+
+console.log('STARTING EXPRESS SERVER')
+connection.connect(function(err) {
+  if (err) throw err; // nagka error, mag crash yung server
+  //once successfully connected to the database, run our query
+  console.log('MYSQL DB CONNECTION SUCCESS')
+  app.listen(3000)
+  console.log('App is now running on port: ', 3000)
+});
