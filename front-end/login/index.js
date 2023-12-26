@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-eField = form.querySelector(".userName"),
+eField = form.querySelector(".username"),
 eInput = eField.querySelector("input"),
 pField = form.querySelector(".password"),
 pInput = pField.querySelector("input");
@@ -7,7 +7,7 @@ pInput = pField.querySelector("input");
 form.onsubmit = (e)=>{
   e.preventDefault(); //preventing from form submitting
   //if email and password is blank then add shake class in it else call specified function
-  (eInput.value == "") ? eField.classList.add("shake", "error") : checkuserName();
+  (eInput.value == "") ? eField.classList.add("shake", "error") : username();
   (pInput.value == "") ? pField.classList.add("shake", "error") : checkPass();
 
   setTimeout(()=>{ //remove shake class after 500ms
@@ -15,11 +15,11 @@ form.onsubmit = (e)=>{
     pField.classList.remove("shake");
   }, 500);
 
-  eInput.onkeyup = ()=>{checkuserName();} //calling checkEmail function on email input keyup
+  eInput.onkeyup = ()=>{username();} //calling checkEmail function on email input keyup
   pInput.onkeyup = ()=>{checkPass();} //calling checkPassword function on pass input keyup
 
-  function checkuserName(){ //checkEmail function
-    let pattern = "^([0-9]*[a-zA-Z]){3,}[0-9]*$"; //pattern for validate email
+  function lrn(){ //checkLRN function
+    let pattern = /^[a-z0-9_\@]+$/; //pattern for validate lrn
     if(!eInput.value.match(pattern)){ //if pattern not matched then add error and remove valid class
       eField.classList.add("error");
       eField.classList.remove("valid");
@@ -48,34 +48,33 @@ form.onsubmit = (e)=>{
   }
 }
 
-const submit = document.getElementById('login2')
+
+const submit = document.getElementById('login')
     submit.onclick = function(){
-        const userName = document.getElementById('userName')
-        const pass3 = document.getElementById('pass3')
-        fetch('http://localhost:3000/login2', {
+        const username = document.getElementById('username')
+        const pass1 = document.getElementById('pass1')
+        fetch('http://localhost:3000/login', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                userName: userName.value,
-                password: pass3.value,
+                username: username.value,
+                password: pass1.value,
             })
         }).then(function(result){
           return result.json()
         }).then(function(result){
-          console.log('result:', result)
-          if(result.success){
-            Swal.fire({
-              title: "Login Successful!",
-              text: "Congratulations!",
-              icon: "success"
-            });
+          console.log('result:', result);
+          if(result.success && username.value !== ""){
+            window.location.assign("../online_enrollment/online_enrollment.html")
+          }else if(username.value == "vnhs@303662" && pass1.value == "Admin@303662"){
+            window.location.assign("../admin/admin.html")
           }else{
             Swal.fire({
-              title: "Invalid Credentials",
-              text: "Please check your username and password",
+              title: "Invalid Credentials!",
+              text: "Please check your username and password!",
               icon: "error"
             });
           }
