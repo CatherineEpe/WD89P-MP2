@@ -70,17 +70,18 @@ app.post('/register', function (request, response) {
    const hash = bcrypt.hashSync(passwordFromFrontEnd, 10);
 
    //instead of saving normal password string, save hash as password
-  
+   
    const myQuery = `INSERT INTO vnhs_onlineenrollment.login_register (username, password) VALUES 
        ("${usernameFromFrontEnd}", "${hash}")`;
    connection.query(myQuery, function (err, result) {
      if (err) throw err; //pagnagka error, mag crash
      //check result from our query to the database
      console.log("id result from database: ", result);
+    
    });
    response.send({ "success": true })
     })
-
+    
 
 
 console.log('STARTING EXPRESS SERVER')

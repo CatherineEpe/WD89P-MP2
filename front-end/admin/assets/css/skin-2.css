@@ -1,0 +1,309 @@
+a:hover, a:focus, a.active {
+  color: maroon; }
+[data-class="bg-primary"]:before {
+  background: maroon; }
+.email-left-box .intro-title {
+  background: rgba(102, 115, 253, 0.1); }
+  .email-left-box .intro-title i {
+    color: maroon; }
+.widget-stat .media .media-body h4 {
+  color: maroon !important; }
+.email-right-box .right-box-border {
+  border-right: 2px solid rgba(102, 115, 253, 0.1); }
+.mail-list .list-group-item.active i {
+  color: maroon; }
+.single-mail.active {
+  background: maroon; }
+.profile-info h4.text-primary {
+  color: maroon !important; }
+.profile-tab .nav-item .nav-link:hover, .profile-tab .nav-item .nav-link.active {
+  border-bottom: 0.2px solid maroon;
+  color: maroon; }
+.amChartsInputField {
+  border: 0;
+  background: maroon; }
+.amcharts-period-input,
+.amcharts-period-input-selected {
+  background: maroon; }
+.morris-hover {
+  background: maroon; }
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: maroon; }
+.custom-select:focus {
+  border-color: maroon;
+  color: maroon; }
+.daterangepicker td.active {
+  background-color: maroon; }
+  .daterangepicker td.active:hover {
+    background-color: maroon; }
+.daterangepicker button.applyBtn {
+  background-color: maroon;
+  border-color: maroon; }
+.wizard > .steps li.current a {
+  background-color: maroon; }
+.wizard .skip-email a {
+  color: maroon; }
+.wizard > .actions li:not(.disabled) a {
+  background-color: maroon; }
+.step-form-horizontal .wizard .steps li.done a .number {
+  background: maroon; }
+.step-form-horizontal .wizard .steps li.current a .number {
+  color: maroon;
+  border-color: maroon; }
+.step-form-horizontal .wizard .steps li.disabled a .number {
+  color: maroon; }
+.step-form-horizontal .wizard .steps li:not(:last-child)::after {
+  background-color: maroon; }
+.is-invalid .input-group-prepend .input-group-text i {
+  color: #b2b8fe; }
+.datamaps-hoverover {
+  color: maroon;
+  border: 1px solid rgba(102, 115, 253, 0.3); }
+.jqvmap-zoomin,
+.jqvmap-zoomout {
+  background-color: maroon; }
+.table .thead-primary th {
+  background-color: maroon; }
+.table.primary-table-bg-hover thead th {
+  background-color: maroon; }
+.table.primary-table-bg-hover tbody tr {
+  background-color: maroon; }
+  .table.primary-table-bg-hover tbody tr:hover {
+    background-color: maroon; }
+  .table.primary-table-bg-hover tbody tr:not(:last-child) td, .table.primary-table-bg-hover tbody tr:not(:last-child) th {
+    border-bottom: 1px solid maroon; }
+table.dataTable tr.selected {
+  color: maroon; }
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  color: maroon !important;
+  background: rgba(102, 115, 253, 0.1); }
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: maroon !important;
+  background: rgba(102, 115, 253, 0.1); }
+.clipboard-btn:hover {
+  background-color: maroon; }
+.cd-h-timeline__dates::before {
+  background: maroon; }
+.cd-h-timeline__dates::after {
+  background: maroon; }
+.cd-h-timeline__line {
+  background-color: maroon; }
+.cd-h-timeline__date:after {
+  border-color: maroon;
+  background-color: maroon; }
+.cd-h-timeline__navigation {
+  border-color: maroon; }
+.cd-h-timeline__navigation--inactive:hover {
+  border-color: maroon; }
+.dd-handle {
+  background: maroon; }
+.dd-handle:hover {
+  background: maroon; }
+.dd3-content:hover {
+  background: maroon; }
+.noUi-connect {
+  background-color: maroon; }
+  .noUi-connect.c-3-color {
+    background-color: maroon; }
+.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+  background-color: maroon; }
+#slider-toggle.off .noUi-handle {
+  border-color: maroon; }
+.pignose-calendar {
+  border-color: maroon; }
+  .pignose-calendar .pignose-calendar-top-date {
+    background-color: maroon; }
+.pignose-calendar.pignose-calendar-blue .pignose-calendar-body .pignose-calendar-row .pignose-calendar-unit.pignose-calendar-unit-active a {
+  background-color: maroon; }
+.bootstrap-tagsinput .tag {
+  background-color: maroon; }
+.toast-success {
+  background-color: maroon; }
+.twitter-typeahead .tt-menu .tt-suggestion:hover {
+  background-color: maroon; }
+.accordion-header-bg .accordion__header--primary {
+  background-color: maroon; }
+.alert-primary {
+  background: #e4e6ff;
+  border-color: #e4e6ff;
+  color: maroon; }
+.alert-alt.alert-primary {
+  border-left: 4px solid maroon; }
+.alert-alt.alert-primary.solid {
+  border-left: 4px solid rgb(75, 10, 10) !important; }
+.alert.alert-primary.solid {
+  background: maroon;
+  border-color: maroon; }
+.alert.alert-outline-primary {
+  color: maroon;
+  border-color: maroon; }
+.badge-outline-primary {
+  border: 1px solid maroon;
+  color: maroon; }
+.badge-primary {
+  background-color: maroon; }
+.page-titles h4 {
+  color: maroon; }
+.card-action > a {
+  background: #01063f; }
+.card-action .dropdown {
+  background: #01063f;
+  color: maroon; }
+  .card-action .dropdown:hover, .card-action .dropdown:focus {
+    background: #01063f; }
+.card-loader i {
+  background: maroon; }
+.dropdown-outline {
+  border: 0.1rem solid maroon; }
+.custom-dropdown .dropdown-menu .dropdown-item:hover {
+  color: maroon; }
+.card-action .custom-dropdown {
+  background: #fdfdff; }
+  .card-action .custom-dropdown.show, .card-action .custom-dropdown:focus, .card-action .custom-dropdown:hover {
+    background: maroon; }
+.label-primary {
+  background: maroon; }
+.pagination .page-item .page-link:hover {
+  background: maroon;
+  border-color: maroon; }
+.pagination .page-item.active .page-link {
+  background-color: maroon;
+  border-color: maroon; }
+.bootstrap-popover-wrapper .bootstrap-popover button:hover,
+.bootstrap-popover-wrapper .bootstrap-popover button:focus {
+  background: maroon; }
+.progress-bar {
+  background-color: maroon; }
+.progress-bar-primary {
+  background-color: maroon; }
+.ribbon__four {
+  background-color: maroon; }
+  .ribbon__four:after, .ribbon__four:before {
+    background-color: #cbcffe; }
+.ribbon__five {
+  background-color: maroon; }
+  .ribbon__five::before {
+    border-color: transparent transparent maroon transparent; }
+.ribbon__six {
+  background-color: maroon; }
+.multi-steps > li {
+  color: maroon; }
+  .multi-steps > li:after {
+    background-color: maroon; }
+  .multi-steps > li.is-active:before {
+    border-color: maroon; }
+.timeline-badge.primary {
+  background-color: maroon !important; }
+.tooltip-wrapper button:hover {
+  background: maroon; }
+.chart_widget_tab_one .nav-link.active {
+  background-color: maroon;
+  border: 1px solid maroon; }
+  .chart_widget_tab_one .nav-link.active:hover {
+    border: 1px solid maroon; }
+.social-icon2 a {
+  border: 0.1rem solid maroon; }
+.social-icon2 i {
+  color: maroon; }
+.social-icon3 ul li a:hover i {
+  color: maroon; }
+.bgl-primary {
+  background: #fdfdff;
+  border-color: #fdfdff;
+  color: maroon; }
+.tdl-holder input[type=checkbox]:checked + i {
+  background: maroon; }
+.footer .copyright a {
+  color: maroon; }
+.hamburger .line {
+  background: maroon; }
+svg.pulse-svg .first-circle, svg.pulse-svg .second-circle, svg.pulse-svg .third-circle {
+  fill: maroon; }
+.pulse-css {
+  background: maroon; }
+  .pulse-css:after, .pulse-css:before {
+    background-color: maroon; }
+.notification_dropdown .dropdown-menu-right .notification_title {
+  background: maroon; }
+.header-right .header-profile .dropdown-menu a:hover, .header-right .header-profile .dropdown-menu a:focus, .header-right .header-profile .dropdown-menu a.active {
+  color: maroon; }
+.header-right .header-profile .profile_title {
+  background: maroon; }
+[data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line {
+  background-color: maroon !important; }
+.dlabnav .metismenu > li > a svg {
+  color: maroon; }
+.dlabnav .metismenu > li:hover > a, .dlabnav .metismenu > li:focus > a {
+  color: maroon; }
+.dlabnav .metismenu > li.mm-active > a {
+  color: maroon; }
+.dlabnav .metismenu ul a:hover, .dlabnav .metismenu ul a:focus, .dlabnav .metismenu ul a.mm-active {
+  color: maroon; }
+@media (min-width: 767px) {
+  [data-sidebar-style="modern"] .dlabnav .metismenu > li > a:hover > a, [data-sidebar-style="modern"] .dlabnav .metismenu > li > a:focus > a, [data-sidebar-style="modern"] .dlabnav .metismenu > li > a:active > a, [data-sidebar-style="modern"] .dlabnav .metismenu > li > a.mm-active > a {
+    background-color: white; } }
+[data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line {
+  background-color: maroon; }
+.nav-user {
+  background: maroon; }
+.sidebar-right .sidebar-right .sidebar-right-trigger {
+  color: maroon; }
+  .sidebar-right .sidebar-right .sidebar-right-trigger:hover {
+    color: maroon; }
+[data-theme-version="dark"] .pagination .page-item .page-link:hover {
+  background: maroon;
+  border-color: maroon; }
+[data-theme-version="dark"] .pagination .page-item.active .page-link {
+  background: maroon;
+  border-color: maroon; }
+[data-theme-version="dark"] .header-left input:focus {
+  border-color: maroon; }
+[data-theme-version="dark"] .loader__bar {
+  background: maroon; }
+[data-theme-version="dark"] .loader__ball {
+  background: maroon; }
+[data-theme-version="transparent"] .header-left input:focus {
+  border-color: maroon; }
+.new-arrival-content .price {
+  color: maroon; }
+.chart-link a i.text-primary {
+  color: maroon; }
+#user-activity .nav-tabs .nav-link.active {
+  background: maroon;
+  border-color: maroon; }
+span#counter {
+  color: maroon; }
+.welcome-content:after {
+  background: maroon; }
+.timeline-badge {
+  background-color: maroon; }
+.page-timeline .timeline-workplan.page-timeline .timeline .timeline-badge:after {
+  background-color: rgba(102, 115, 253, 0.4); }
+.sk-three-bounce .sk-child {
+  background-color: maroon; }
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  background-color: maroon; }
+.overlay-box:after {
+  background: maroon; }
+.btn-primary {
+  background-color: maroon;
+  border-color: maroon; }
+.bg-primary {
+  background-color: maroon !important; }
+.text-primary {
+  color: maroon !important; }
+.btn-primary:hover {
+  background-color: rgb(75, 10, 10);
+  border-color: rgb(75, 10, 10); }
+.btn-outline-primary {
+  color: maroon;
+  border-color: maroon; }
+.btn-outline-primary:hover {
+  background-color: maroon;
+  border-color: maroon; }
+::selection {
+	color: #fff;
+	background: maroon;
+} 
