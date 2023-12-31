@@ -7,106 +7,46 @@
 	var screenWidth = $(window).width();
 	
 	var morrisBarStalked = function(){
-		if(jQuery('#morris_bar_stalked').length > 0)
+		if(jQuery('#morris_bar').length > 0)
 		{	
 			//bar chart
 			Morris.Bar({
-				element: 'morris_bar_stalked',
+				element: 'morris_bar',
 				data: [{
-					y: 'S',
-					a: 66, 
-					b: 34
+					y: '2019-2020',
+					total: 2451,
+					jhs: 1526,
+					shs: 925
 				}, {
-					y: 'M',
-					a: 75, 
-					b: 25
+					y: '2020-2021',
+					total: 2562,
+					jhs: 1526,
+					shs: 925
 				}, {
-					y: 'T',
-					a: 50, 
-					b: 50
+					y: '2021-2022',
+					total: 2673,
+					jhs: 1526,
+					shs: 925
 				}, {
-					y: 'W',
-					a: 75, 
-					b: 25
+					y: '2022-2023',
+					total: 2784,
+					jhs: 1526,
+					shs: 925
 				}, {
-					y: 'T',
-					a: 50, 
-					b: 50
-				}, {
-					y: 'F',
-					a: 16, 
-					b: 84
-				}, {
-					y: 'S',
-					a: 70, 
-					b: 30
-				}, {
-					y: 'S',
-					a: 30, 
-					b: 70
-				}, {
-					y: 'M',
-					a: 40, 
-					b: 60
-				}, {
-					y: 'T',
-					a: 29, 
-					b: 71
-				}, {
-					y: 'W',
-					a: 44, 
-					b: 56
-				}, {
-					y: 'T',
-					a: 30, 
-					b: 70
-				}, {
-					y: 'F',
-					a: 60, 
-					b: 40
-				}, {
-					y: 'G',
-					a: 40, 
-					b: 60
-				}, {
-					y: 'S',
-					a: 46, 
-					b: 54
+					y: '2023-2024',
+					total: 2895,
+					jhs: 1526,
+					shs: 925
 				}],
 				xkey: 'y',
-				ykeys: ['a', 'b'],
-				labels: ['A', 'B'],
-				barColors: ['#1367c8', "#F1F3F7"],
+				ykeys: ['total', 'jhs', 'shs'],
+				labels: ['total', 'jhs', 'shs'],
+				barColors: ['#6673fd', '#2bc155', '#ff9f00'],
 				hideHover: 'auto',
 				gridLineColor: 'transparent',
 				resize: true,
-				barSizeRatio: 0.25,
-				stacked: true, 
-				behaveLikeLine: true, 
-				// barRadius: [6, 6, 0, 0]
-			});
-		}
-	}
-	var morrisDonught = function(){
-		if(jQuery('#morris_donught_2').length > 0)
-		{
-			//donught chart
-			Morris.Donut({
-				element: 'morris_donught_2',
-				data: [{
-					label: "\xa0 \xa0 Download Sales \xa0 \xa0",
-					value: 12,
-
-				}, {
-					label: "\xa0 \xa0 In-Store Sales \xa0 \xa0",
-					value: 30
-				}, {
-					label: "\xa0 \xa0 Mail-Order Sales \xa0 \xa0",
-					value: 20
-				}],
-				resize: true,
-				colors: ['#1367c8', '#1367c8', '#1367c8']
-			});
+				barSizeRatio: 0.5,
+			});	
 		}
 	}
 	

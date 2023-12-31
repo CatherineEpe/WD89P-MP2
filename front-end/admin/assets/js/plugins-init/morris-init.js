@@ -158,49 +158,39 @@
 			Morris.Bar({
 				element: 'morris_bar',
 				data: [{
-					y: '2006',
-					a: 100,
-					b: 90,
-					c: 60
+					y: '2019-2020',
+					total: 2451,
+					jhs: 1526,
+					shs: 925
 				}, {
-					y: '2007',
-					a: 75,
-					b: 65,
-					c: 40
+					y: '2020-2021',
+					total: 2562,
+					jhs: 1526,
+					shs: 925
 				}, {
-					y: '2008',
-					a: 50,
-					b: 40,
-					c: 30
+					y: '2021-2022',
+					total: 2673,
+					jhs: 1526,
+					shs: 925
 				}, {
-					y: '2009',
-					a: 75,
-					b: 65,
-					c: 40
+					y: '2022-2023',
+					total: 2784,
+					jhs: 1526,
+					shs: 925
 				}, {
-					y: '2010',
-					a: 50,
-					b: 40,
-					c: 30
-				}, {
-					y: '2011',
-					a: 75,
-					b: 65,
-					c: 40
-				}, {
-					y: '2012',
-					a: 100,
-					b: 90,
-					c: 40
+					y: '2023-2024',
+					total: 2895,
+					jhs: 1526,
+					shs: 925
 				}],
 				xkey: 'y',
-				ykeys: ['a', 'b', 'c'],
-				labels: ['A', 'B', 'C'],
+				ykeys: ['total', 'jhs', 'shs'],
+				labels: ['total', 'jhs', 'shs'],
 				barColors: ['#6673fd', '#2bc155', '#ff9f00'],
 				hideHover: 'auto',
 				gridLineColor: 'transparent',
 				resize: true,
-				barSizeRatio: 0.25,
+				barSizeRatio: 0.5,
 			});	
 		}
 		
