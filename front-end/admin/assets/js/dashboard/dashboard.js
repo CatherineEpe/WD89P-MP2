@@ -45,69 +45,92 @@
 				hideHover: 'auto',
 				gridLineColor: 'transparent',
 				resize: true,
-				barSizeRatio: 0.5,
+				barSizeRatio: 0.7,
 			});	
 		}
 	}
 	
-	var morrisArea = function(){
-		if(jQuery('#morris_area').length > 0)
+	var barStalkChart = function(){
+		if(jQuery('#barStalkChart').length > 0)
 		{
 			
 			//area chart
-			Morris.Area({
-				element: 'morris_area',
+			Morris.Bar({
+				element: 'barStalkChart',
 				data: [{
-						period: '2001',
-						smartphone: 0,
-						windows: 0,
-						mac: 0
-					}, {
-						period: '2002',
-						smartphone: 90,
-						windows: 60,
-						mac: 25
-					}, {
-						period: '2003',
-						smartphone: 40,
-						windows: 80,
-						mac: 35
-					}, {
-						period: '2004',
-						smartphone: 30,
-						windows: 47,
-						mac: 17
-					}, {
-						period: '2005',
-						smartphone: 150,
-						windows: 40,
-						mac: 120
-					}, {
-						period: '2006',
-						smartphone: 25,
-						windows: 80,
-						mac: 40
-					}, {
-						period: '2007',
-						smartphone: 10,
-						windows: 10,
-						mac: 10
-					}
-
-
-				],
-				lineColors: ['#5aa1f2', '#2176d8', '#1565c0'],
-				xkey: 'period',
-				ykeys: ['smartphone', 'windows', 'mac'],
-				labels: ['Phone', 'Windows', 'Mac'],
-				pointSize: 0,
-				lineWidth: 2,
-				resize: true,
-				fillOpacity: 1,
-				behaveLikeLine: true,
+					y: 'S',
+					a: 66, 
+					b: 34
+				}, {
+					y: 'M',
+					a: 75, 
+					b: 25
+				}, {
+					y: 'T',
+					a: 50, 
+					b: 50
+				}, {
+					y: 'W',
+					a: 75, 
+					b: 25
+				}, {
+					y: 'T',
+					a: 50, 
+					b: 50
+				}, {
+					y: 'F',
+					a: 16, 
+					b: 84
+				}, {
+					y: 'S',
+					a: 70, 
+					b: 30
+				}, {
+					y: 'S',
+					a: 30, 
+					b: 70
+				}, {
+					y: 'M',
+					a: 40, 
+					b: 60
+				}, {
+					y: 'T',
+					a: 29, 
+					b: 71
+				}, {
+					y: 'W',
+					a: 44, 
+					b: 56
+				}, {
+					y: 'T',
+					a: 30, 
+					b: 70
+				}, {
+					y: 'F',
+					a: 60, 
+					b: 40
+				}, {
+					y: 'G',
+					a: 40, 
+					b: 60
+				}, {
+					y: 'S',
+					a: 46, 
+					b: 54
+				}],
+				xkey: 'y',
+				ykeys: ['a', 'b'],
+				labels: ['A', 'B'],
+				barColors: ['#6673fd', "#F1F3F7"],
+				hideHover: 'auto',
 				gridLineColor: 'transparent',
-				hideHover: 'auto'
-
+				resize: true,
+				barSizeRatio: 0.25,
+				stacked: true, 
+				behaveLikeLine: true,
+				//redraw: true
+				
+				// barRadius: [6, 6, 0, 0]
 			});
 		}
 	}
@@ -122,8 +145,7 @@
 			
 		load:function(){
 			morrisBarStalked();
-			morrisDonught();
-			morrisArea();
+			barStalkChart();
 		},
 		
 		resize:function(){
