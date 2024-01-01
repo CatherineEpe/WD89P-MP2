@@ -2,9 +2,10 @@
     /* "use strict" */
 
 
-var eduMin = function(){
+var juniorHigh = function(){
 	
 	var screenWidth = $(window).width();
+
 	var morrisBar = function(){
 		if(jQuery('#morris_bar_2').length > 0 ){
 			
@@ -18,21 +19,15 @@ var eduMin = function(){
 			Morris.Bar({
 				element: 'morris_bar_2',
 				data: [
-				  { y: '2006', a: 100, b: 90, c: 80 },
-				  { y: '2007', a: 75,  b: 65, c: 75 },
-				  { y: '2007', a: 75,  b: 65, c: 75 },
-				  { y: '2007', a: 75,  b: 65, c: 75 },
-				  { y: '2008', a: 50,  b: 40, c: 45 },
-				  { y: '2009', a: 75,  b: 65, c: 85 },
-				  { y: '2009', a: 79,  b: 35, c: 45 },
-				  { y: '2009', a: 60,  b: 20, c: 60 },
-				  { y: '2009', a: 66,  b: 30, c: 50 },
-				  { y: '2009', a: 46,  b: 60, c: 90 },
-				  { y: '2009', a: 35,  b: 80, c: 60 },
+				  { y: '2019-2020', Males: 762,  Females: 400 },
+				  { y: '2020-2021', Males: 890,  Females: 534 },
+				  { y: '2021-2022', Males: 674,  Females: 307 },
+				  { y: '2022-2023', Males: 891,  Females: 603 },
+				  { y: '2023-2024', Males: 545,  Females: 452},
 				],
 				xkey: 'y',
-				ykeys: ['a', 'b', 'c'],
-				labels: ['Series A', 'Series B', 'Series C'],
+				ykeys: ['Males', 'Females'],
+				labels: ['Males', 'Females'],
 				barColors: ['rgb(7, 41, 77)', 'rgb(20, 59, 100)', '#ff8f16'], 
 				stacked: true,
 				gridTextSize: 10,
@@ -81,6 +76,7 @@ var eduMin = function(){
 			},
 			
 			resize:function(){
+				morrisBar();
 				peityLine();
 				peityLine2();
 				peityLine3();
@@ -113,11 +109,11 @@ var eduMin = function(){
 	});
 		
 	jQuery(window).on('load',function(){
-		eduMin.load();
+		juniorHigh.load();
 	});
 
 	jQuery(window).on('resize',function(){
-		eduMin.resize();
+		juniorHigh.resize();
 		new dlabSettings(dlabSettingsOptions); 
 	});     
 

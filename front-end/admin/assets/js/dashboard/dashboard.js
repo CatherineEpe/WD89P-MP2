@@ -2,7 +2,7 @@
     /* "use strict" */
 
 
- var eduMin = function(){
+ var adminDash = function(){
 	
 	var screenWidth = $(window).width();
 	
@@ -149,7 +149,8 @@
 		},
 		
 		resize:function(){
-			
+			morrisBarStalked();
+			barStalkChart();
 		}
 	}
 	
@@ -183,7 +184,7 @@
 
 	
 	jQuery(window).on('load',function(){
-		eduMin.load();
+		adminDash.load();
 	});
 
 	jQuery(window).on('resize',function(){
