@@ -73,7 +73,7 @@ form.addEventListener("submit", (e) => {
 
 const submit = document.getElementById('register')
     submit.onclick = function(){
-        const username = document.getElementById('username')
+        const username2 = document.getElementById('username2')
         const pass2 = document.getElementById('pass2')
         fetch('http://localhost:3000/register', {
             method: 'post',
@@ -82,14 +82,14 @@ const submit = document.getElementById('register')
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: username.value,
+                username: username2.value,
                 password: pass2.value
             })
         }).then(function(result){
           return result.json()
         }).then(function(result){
           console.log('result:', result);
-          if(result.success && username.value !== "" && password.value !== ""){
+          if(result.success && username2.value !== "" && password.value !== ""){
             Swal.fire({
               title: "Succesfully Registered!",
               text: "Congratulations!",

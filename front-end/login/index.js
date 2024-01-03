@@ -51,7 +51,7 @@ form.onsubmit = (e)=>{
 
 const submit = document.getElementById('login')
     submit.onclick = function(){
-        const username = document.getElementById('username')
+        const username1 = document.getElementById('username1')
         const pass1 = document.getElementById('pass1')
         fetch('http://localhost:3000/login', {
             method: 'post',
@@ -60,16 +60,16 @@ const submit = document.getElementById('login')
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: username.value,
+                username: username1.value,
                 password: pass1.value,
             })
         }).then(function(result){
           return result.json()
         }).then(function(result){
           console.log('result:', result);
-          if(result.success && username.value !== ""){
+          if(result.success && username1.value !== ""){
             window.location.assign("../user/home.html")
-          }else if(username.value == "vnhs@303662" && pass1.value == "Admin@303662"){
+          }else if(username1.value == "vnhs@303662" && pass1.value == "Admin@303662"){
             window.location.assign("../admin/admin.html")
           }else{
             Swal.fire({
