@@ -3,13 +3,13 @@ a:hover, a:focus, a.active {
 [data-class="bg-primary"]:before {
   background: maroon; }
 .email-left-box .intro-title {
-  background: rgba(102, 115, 253, 0.1); }
+  background: rgba(253, 102, 102, 0.1); }
   .email-left-box .intro-title i {
     color: maroon; }
 .widget-stat .media .media-body h4 {
   color: maroon !important; }
 .email-right-box .right-box-border {
-  border-right: 2px solid rgba(102, 115, 253, 0.1); }
+  border-right: 2px solid rgba(253, 102, 102, 0.1); }
 .mail-list .list-group-item.active i {
   color: maroon; }
 .single-mail.active {
@@ -58,7 +58,7 @@ a:hover, a:focus, a.active {
   color: #b2b8fe; }
 .datamaps-hoverover {
   color: maroon;
-  border: 1px solid rgba(102, 115, 253, 0.3); }
+  border: 1px solid rgba(253, 102, 102, 0.3); }
 .jqvmap-zoomin,
 .jqvmap-zoomout {
   background-color: maroon; }
@@ -76,10 +76,10 @@ table.dataTable tr.selected {
   color: maroon; }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
   color: maroon !important;
-  background: rgba(102, 115, 253, 0.1); }
+  background: rgba(253, 102, 102, 0.1); }
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
   color: maroon !important;
-  background: rgba(102, 115, 253, 0.1); }
+  background: rgba(253, 102, 102, 0.1); }
 .clipboard-btn:hover {
   background-color: maroon; }
 .cd-h-timeline__dates::before {
@@ -145,12 +145,12 @@ table.dataTable tr.selected {
 .page-titles h4 {
   color: maroon; }
 .card-action > a {
-  background: #01063f; }
+  background: #3f0101; }
 .card-action .dropdown {
-  background: #01063f;
+  background: #3f0101;
   color: maroon; }
   .card-action .dropdown:hover, .card-action .dropdown:focus {
-    background: #01063f; }
+    background: #3f0101; }
 .card-loader i {
   background: maroon; }
 .dropdown-outline {
@@ -278,7 +278,7 @@ span#counter {
 .timeline-badge {
   background-color: maroon; }
 .page-timeline .timeline-workplan.page-timeline .timeline .timeline-badge:after {
-  background-color: rgba(102, 115, 253, 0.4); }
+  background-color: rgba(253, 102, 102, 0.4); }
 .sk-three-bounce .sk-child {
   background-color: maroon; }
 .dropdown-item.active,
