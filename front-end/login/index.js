@@ -68,7 +68,7 @@ const submit = document.getElementById('login')
         }).then(function(result){
           console.log('result:', result);
           if(result.success && username.value !== ""){
-            window.location.assign("../online_enrollment/online_enrollment.html")
+            window.location.assign("../user/home.html")
           }else if(username.value == "vnhs@303662" && pass1.value == "Admin@303662"){
             window.location.assign("../admin/admin.html")
           }else{

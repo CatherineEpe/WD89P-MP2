@@ -28,7 +28,7 @@ var juniorHigh = function(){
 				xkey: 'y',
 				ykeys: ['Males', 'Females'],
 				labels: ['Males', 'Females'],
-				barColors: ['rgb(7, 41, 77)', 'rgb(20, 59, 100)', '#ff8f16'], 
+				barColors: ['#330006', '#900'], 
 				stacked: true,
 				gridTextSize: 10,
 				hideHover: 'auto',

@@ -135,13 +135,13 @@
 }
 
 .daterangepicker .calendar-table .next span {
-  transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .daterangepicker .calendar-table .prev span {
-  transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 
 .daterangepicker .calendar-table th, .daterangepicker .calendar-table td {
@@ -330,7 +330,7 @@
 }
 
 .daterangepicker .ranges li.active {
-  background-color: #08c;
+  background-color: rgb(204, 0, 14);
   color: #fff;
 }
 
