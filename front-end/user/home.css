@@ -15,7 +15,7 @@ h1{
     align-items: center;
     text-align: center;
     font-family: 'passion one';
-    font-size: 60px;
+    font-size: 50px;
 }
 .card{
     cursor: pointer;
@@ -34,4 +34,7 @@ footer{
     align-items: center;
     text-align: center;
     margin-top: 25px;
+}
+.whole-card{
+    margin: 50px 150px;
 }

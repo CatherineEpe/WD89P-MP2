@@ -12,7 +12,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../bg.jpg);
+    background-image: url(../pictures/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'montserrat';

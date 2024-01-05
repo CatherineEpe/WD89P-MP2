@@ -499,7 +499,7 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
-  color: #3d4465; }
+  color: #653d3d; }
 
 h1, .h1 {
   font-size: 2.25rem; }
@@ -621,7 +621,7 @@ kbd {
   padding: 0.2rem 0.4rem;
   font-size: 87.5%;
   color: #fff;
-  background-color: #212529;
+  background-color: #292121;
   border-radius: 0.2rem; }
   kbd kbd {
     padding: 0;
@@ -1731,39 +1731,39 @@ pre {
 .table-secondary td,
 .table-secondary thead th,
 .table-secondary tbody + tbody {
-  border-color: #b099da; }
+  border-color: #da9999; }
 
 .table-hover .table-secondary:hover {
-  background-color: #c5b5e4; }
+  background-color: #e4b5b5; }
   .table-hover .table-secondary:hover > td,
   .table-hover .table-secondary:hover > th {
-    background-color: #c5b5e4; }
+    background-color: #e4b5b5; }
 
 .table-success,
 .table-success > th,
 .table-success > td {
-  background-color: #dbf3c1; }
+  background-color: #eff3c1; }
 .table-success th,
 .table-success td,
 .table-success thead th,
 .table-success tbody + tbody {
-  border-color: #bce88c; }
+  border-color: #dde88c; }
 
 .table-hover .table-success:hover {
-  background-color: #cfefac; }
+  background-color: #eaefac; }
   .table-hover .table-success:hover > td,
   .table-hover .table-success:hover > th {
-    background-color: #cfefac; }
+    background-color: #e7efac; }
 
 .table-info,
 .table-info > th,
 .table-info > td {
-  background-color: #cef7ee; }
+  background-color: #eef7ce; }
 .table-info th,
 .table-info td,
 .table-info thead th,
 .table-info tbody + tbody {
-  border-color: #e6f0a4; }
+  border-color: #f0f0a4; }
 
 .table-hover .table-info:hover {
   background-color: #f3f2b8; }
@@ -1779,13 +1779,13 @@ pre {
 .table-warning td,
 .table-warning thead th,
 .table-warning tbody + tbody {
-  border-color: #ffd386; }
+  border-color: #fffd86; }
 
 .table-hover .table-warning:hover {
-  background-color: #ffdea5; }
+  background-color: #fffd86; }
   .table-hover .table-warning:hover > td,
   .table-hover .table-warning:hover > th {
-    background-color: #ffdea5; }
+    background-color: #fffd86; }
 
 .table-danger,
 .table-danger > th,
@@ -1806,18 +1806,18 @@ pre {
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #fdfdfe; }
+  background-color: #fefdfd; }
 .table-light th,
 .table-light td,
 .table-light thead th,
 .table-light tbody + tbody {
-  border-color: #fbfcfc; }
+  border-color: #fcfbfb; }
 
 .table-hover .table-light:hover {
-  background-color: #ececf6; }
+  background-color: #f6ecec; }
   .table-hover .table-light:hover > td,
   .table-hover .table-light:hover > th {
-    background-color: #ececf6; }
+    background-color: #f6ecec; }
 
 .table-dark,
 .table-dark > th,
@@ -1848,20 +1848,20 @@ pre {
 
 .table .thead-dark th {
   color: #fff;
-  background-color: #343a40;
-  border-color: #454d55; }
+  background-color: #403434;
+  border-color: #554545; }
 .table .thead-light th {
-  color: #495057;
+  color: #574949;
   background-color: #e9ecef;
   border-color: #EEEEEE; }
 
 .table-dark {
   color: #fff;
-  background-color: #343a40; }
+  background-color: #403434; }
   .table-dark th,
   .table-dark td,
   .table-dark thead th {
-    border-color: #454d55; }
+    border-color: #554545; }
   .table-dark.table-bordered {
     border: 0; }
   .table-dark.table-striped tbody tr:nth-of-type(odd) {
@@ -1926,7 +1926,7 @@ pre {
   font-size: 0.937rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
+  color: #574949;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #eaeaea;
@@ -1940,15 +1940,15 @@ pre {
     border: 0; }
   .form-control:-moz-focusring {
     color: transparent;
-    text-shadow: 0 0 0 #495057; }
+    text-shadow: 0 0 0 #574949; }
   .form-control:focus {
-    color: #495057;
+    color: #574949;
     background-color: #fff;
     border-color: #d5ccfb;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(115, 86, 241, 0.25); }
+    box-shadow: 0 0 0 0.2rem rgba(241, 86, 86, 0.25); }
   .form-control::placeholder {
-    color: #6c757d;
+    color: #7d6c6c;
     opacity: 1; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #e9ecef;
@@ -1961,7 +1961,7 @@ input[type="month"].form-control {
   appearance: none; }
 
 select.form-control:focus::-ms-value {
-  color: #495057;
+  color: #574949;
   background-color: #fff; }
 
 .form-control-file,
@@ -2084,7 +2084,7 @@ textarea.form-control {
   margin-top: .1rem;
   font-size: 0.819875rem;
   line-height: 1.5;
-  color: #212529;
+  color: #292121;
   background-color: rgba(205, 211, 33, 0.9);
   border-radius: 0.25rem; }
 
@@ -2115,7 +2115,7 @@ textarea.form-control {
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%237ED321' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
   .was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {
     border-color: #d3d021;
-    box-shadow: 0 0 0 0.2rem rgba(126, 211, 33, 0.25); }
+    box-shadow: 0 0 0 0.2rem rgba(211, 33, 33, 0.25); }
 
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
   color: #cdd321; }
@@ -3478,7 +3478,7 @@ input[type="button"].btn-block {
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
     color: #495057;
-    background-color: #F7F8FA;
+    background-color: #e1bb00;
     border-color: #dee2e6 #dee2e6 #F7F8FA; }
   .nav-tabs .dropdown-menu {
     margin-top: -1px;
@@ -3490,7 +3490,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #7356f1; }
+  background-color: #e1bb00; }
 
 .nav-fill > .nav-link,
 .nav-fill .nav-item {
@@ -9169,7 +9169,7 @@ a {
   z-index: 1;
   position: relative;
   padding: 0rem;
-  background-color: #fff;
+  background-color: #ffd500;
   z-index: 3;
   padding-left: 17.1875rem;
   transition: all .2s ease;
