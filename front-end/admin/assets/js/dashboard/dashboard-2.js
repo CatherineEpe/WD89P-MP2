@@ -94,7 +94,7 @@ var juniorHigh = function(){
 		version: "light",
 		layout: "Vertical",
 		headerBg: "color_2",
-		navheaderBg: "color_10",
+		navheaderBg: "color_13",
 		sidebarBg: "color_2",
 		sidebarStyle: "full",
 		sidebarPosition: "static",

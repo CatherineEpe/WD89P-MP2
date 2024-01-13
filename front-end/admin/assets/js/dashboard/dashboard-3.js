@@ -70,15 +70,15 @@
 		typography: "roboto",
 		version: "light",
 		layout: "Vertical",
-		headerBg: "color_1",
-		navheaderBg: "color_11",
-		sidebarBg: "color_1",
+		headerBg: "color_13",
+		navheaderBg: "color_2",
+		sidebarBg: "color_13",
 		sidebarStyle: "full",
 		sidebarPosition: "static",
 		headerPosition: "static",
 		containerLayout: "full",
 		direction: direction
-	};
+	}; 
 	
 	jQuery(document).ready(function(){
 		new dlabSettings(dlabSettingsOptions); 

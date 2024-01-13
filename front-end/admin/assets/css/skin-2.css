@@ -1,7 +1,7 @@
 a:hover, a:focus, a.active {
-  color: maroon; }
+  color: rgb(143, 58, 58); }
 [data-class="bg-primary"]:before {
-  background: maroon; }
+  background: rgb(128, 0, 0); }
 .email-left-box .intro-title {
   background: rgba(253, 102, 102, 0.1); }
   .email-left-box .intro-title i {
@@ -17,7 +17,7 @@ a:hover, a:focus, a.active {
 .profile-info h4.text-primary {
   color: maroon !important; }
 .profile-tab .nav-item .nav-link:hover, .profile-tab .nav-item .nav-link.active {
-  border-bottom: 0.2px solid maroon;
+  border-bottom: 0.2px solid rgb(143, 58, 58);
   color: maroon; }
 .amChartsInputField {
   border: 0;
@@ -26,7 +26,7 @@ a:hover, a:focus, a.active {
 .amcharts-period-input-selected {
   background: maroon; }
 .morris-hover {
-  background: maroon; }
+  background: rgb(143, 58, 58); }
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
   background-color: maroon; }
 .custom-select:focus {
@@ -35,7 +35,7 @@ a:hover, a:focus, a.active {
 .daterangepicker td.active {
   background-color: maroon; }
   .daterangepicker td.active:hover {
-    background-color: maroon; }
+    background-color: rgb(143, 58, 58); }
 .daterangepicker button.applyBtn {
   background-color: maroon;
   border-color: maroon; }
@@ -55,9 +55,9 @@ a:hover, a:focus, a.active {
 .step-form-horizontal .wizard .steps li:not(:last-child)::after {
   background-color: maroon; }
 .is-invalid .input-group-prepend .input-group-text i {
-  color: #b2b8fe; }
+  color: #feb2b2; }
 .datamaps-hoverover {
-  color: maroon;
+  color: rgb(143, 58, 58);
   border: 1px solid rgba(253, 102, 102, 0.3); }
 .jqvmap-zoomin,
 .jqvmap-zoomout {
@@ -65,23 +65,23 @@ a:hover, a:focus, a.active {
 .table .thead-primary th {
   background-color: maroon; }
 .table.primary-table-bg-hover thead th {
-  background-color: maroon; }
+  background-color: rgb(143, 58, 58); }
 .table.primary-table-bg-hover tbody tr {
-  background-color: maroon; }
+  background-color: rgb(143, 58, 58)}
   .table.primary-table-bg-hover tbody tr:hover {
-    background-color: maroon; }
+    background-color: rgb(143, 58, 58); }
   .table.primary-table-bg-hover tbody tr:not(:last-child) td, .table.primary-table-bg-hover tbody tr:not(:last-child) th {
-    border-bottom: 1px solid maroon; }
+    border-bottom: 1px solid rgb(128, 111, 0); }
 table.dataTable tr.selected {
   color: maroon; }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
   color: maroon !important;
   background: rgba(253, 102, 102, 0.1); }
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-  color: maroon !important;
+  color: rgb(143, 58, 58) !important;
   background: rgba(253, 102, 102, 0.1); }
 .clipboard-btn:hover {
-  background-color: maroon; }
+  background-color: rgb(143, 58, 58); }
 .cd-h-timeline__dates::before {
   background: maroon; }
 .cd-h-timeline__dates::after {
@@ -94,13 +94,13 @@ table.dataTable tr.selected {
 .cd-h-timeline__navigation {
   border-color: maroon; }
 .cd-h-timeline__navigation--inactive:hover {
-  border-color: maroon; }
+  border-color: rgb(143, 58, 58); }
 .dd-handle {
   background: maroon; }
 .dd-handle:hover {
-  background: maroon; }
+  background: rgb(143, 58, 58); }
 .dd3-content:hover {
-  background: maroon; }
+  background: rgb(143, 58, 58); }
 .noUi-connect {
   background-color: maroon; }
   .noUi-connect.c-3-color {
@@ -120,7 +120,7 @@ table.dataTable tr.selected {
 .toast-success {
   background-color: maroon; }
 .twitter-typeahead .tt-menu .tt-suggestion:hover {
-  background-color: maroon; }
+  background-color: rgb(143, 58, 58); }
 .accordion-header-bg .accordion__header--primary {
   background-color: maroon; }
 .alert-primary {
@@ -150,28 +150,28 @@ table.dataTable tr.selected {
   background: #3f0101;
   color: maroon; }
   .card-action .dropdown:hover, .card-action .dropdown:focus {
-    background: #3f0101; }
+    background: #3f3d01; }
 .card-loader i {
   background: maroon; }
 .dropdown-outline {
   border: 0.1rem solid maroon; }
 .custom-dropdown .dropdown-menu .dropdown-item:hover {
-  color: maroon; }
+  color: rgb(143, 58, 58); }
 .card-action .custom-dropdown {
-  background: #fdfdff; }
+  background: #fffdfd; }
   .card-action .custom-dropdown.show, .card-action .custom-dropdown:focus, .card-action .custom-dropdown:hover {
-    background: maroon; }
+    background: rgb(143, 58, 58); }
 .label-primary {
   background: maroon; }
 .pagination .page-item .page-link:hover {
-  background: maroon;
+  background: rgb(143, 58, 58);
   border-color: maroon; }
 .pagination .page-item.active .page-link {
   background-color: maroon;
   border-color: maroon; }
 .bootstrap-popover-wrapper .bootstrap-popover button:hover,
 .bootstrap-popover-wrapper .bootstrap-popover button:focus {
-  background: maroon; }
+  background: rgb(143, 58, 58); }
 .progress-bar {
   background-color: maroon; }
 .progress-bar-primary {
@@ -179,7 +179,7 @@ table.dataTable tr.selected {
 .ribbon__four {
   background-color: maroon; }
   .ribbon__four:after, .ribbon__four:before {
-    background-color: #cbcffe; }
+    background-color: #fecbcb; }
 .ribbon__five {
   background-color: maroon; }
   .ribbon__five::before {
@@ -195,28 +195,28 @@ table.dataTable tr.selected {
 .timeline-badge.primary {
   background-color: maroon !important; }
 .tooltip-wrapper button:hover {
-  background: maroon; }
+  background: rgb(143, 58, 58); }
 .chart_widget_tab_one .nav-link.active {
   background-color: maroon;
   border: 1px solid maroon; }
   .chart_widget_tab_one .nav-link.active:hover {
-    border: 1px solid maroon; }
+    border: 1px solid rgb(143, 58, 58); }
 .social-icon2 a {
   border: 0.1rem solid maroon; }
 .social-icon2 i {
   color: maroon; }
 .social-icon3 ul li a:hover i {
-  color: maroon; }
+  color: rgb(143, 58, 58); }
 .bgl-primary {
-  background: #fdfdff;
-  border-color: #fdfdff;
+  background: #fffdfd;
+  border-color: #fffdfd;
   color: maroon; }
 .tdl-holder input[type=checkbox]:checked + i {
   background: maroon; }
 .footer .copyright a {
   color: maroon; }
 .hamburger .line {
-  background: maroon; }
+  background: white; }
 svg.pulse-svg .first-circle, svg.pulse-svg .second-circle, svg.pulse-svg .third-circle {
   fill: maroon; }
 .pulse-css {
@@ -226,32 +226,32 @@ svg.pulse-svg .first-circle, svg.pulse-svg .second-circle, svg.pulse-svg .third-
 .notification_dropdown .dropdown-menu-right .notification_title {
   background: maroon; }
 .header-right .header-profile .dropdown-menu a:hover, .header-right .header-profile .dropdown-menu a:focus, .header-right .header-profile .dropdown-menu a.active {
-  color: maroon; }
+  color: rgb(143, 58, 58); }
 .header-right .header-profile .profile_title {
   background: maroon; }
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line {
-  background-color: maroon !important; }
+  background-color: white !important; }
 .dlabnav .metismenu > li > a svg {
   color: maroon; }
 .dlabnav .metismenu > li:hover > a, .dlabnav .metismenu > li:focus > a {
-  color: maroon; }
+  color: rgb(143, 58, 58); }
 .dlabnav .metismenu > li.mm-active > a {
   color: maroon; }
 .dlabnav .metismenu ul a:hover, .dlabnav .metismenu ul a:focus, .dlabnav .metismenu ul a.mm-active {
-  color: maroon; }
+  color: rgb(143, 58, 58); }
 @media (min-width: 767px) {
   [data-sidebar-style="modern"] .dlabnav .metismenu > li > a:hover > a, [data-sidebar-style="modern"] .dlabnav .metismenu > li > a:focus > a, [data-sidebar-style="modern"] .dlabnav .metismenu > li > a:active > a, [data-sidebar-style="modern"] .dlabnav .metismenu > li > a.mm-active > a {
     background-color: white; } }
 [data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line {
-  background-color: maroon; }
+  background-color: white; }
 .nav-user {
   background: maroon; }
 .sidebar-right .sidebar-right .sidebar-right-trigger {
   color: maroon; }
   .sidebar-right .sidebar-right .sidebar-right-trigger:hover {
-    color: maroon; }
+    color: rgb(143, 58, 58); }
 [data-theme-version="dark"] .pagination .page-item .page-link:hover {
-  background: maroon;
+  background: rgb(143, 58, 58);
   border-color: maroon; }
 [data-theme-version="dark"] .pagination .page-item.active .page-link {
   background: maroon;
@@ -283,7 +283,7 @@ span#counter {
   background-color: maroon; }
 .dropdown-item.active,
 .dropdown-item:active {
-  color: #fff;
+  color: #ffffff;
   background-color: maroon; }
 .overlay-box:after {
   background: maroon; }
@@ -295,16 +295,16 @@ span#counter {
 .text-primary {
   color: maroon !important; }
 .btn-primary:hover {
-  background-color: rgb(75, 10, 10);
-  border-color: rgb(75, 10, 10); }
+  background-color: rgb(192, 192, 0);
+  border-color: rgb(223, 178, 0); }
 .btn-outline-primary {
   color: maroon;
   border-color: maroon; }
 .btn-outline-primary:hover {
-  background-color: maroon;
+  background-color: rgb(143, 58, 58);
   border-color: maroon; }
 ::selection {
-	color: #fff;
+	color: #ffffff;
 	background: maroon;
 } 
 
