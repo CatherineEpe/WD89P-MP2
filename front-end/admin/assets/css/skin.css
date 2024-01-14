@@ -317,19 +317,3 @@ span#counter {
 	color: #fff;
 	background: #7c0202;
 }
-.tbl-container{
-  max-width: fit-content;
-  max-height: fit-content;
-}
-.tbl-fixed{
-  overflow-x: scroll;
-  overflow-y: scroll;
-  height: fit-content;
-  max-height: 70vh;
-  overflow: auto;
-}
-thead{
-  position: sticky;
-  top: 0%;
-  background-color: white;
-}
