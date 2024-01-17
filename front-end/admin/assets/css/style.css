@@ -1875,6 +1875,7 @@ pre {
     display: block;
     width: 100%;
     overflow-x: auto;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch; }
     .table-responsive-sm > .table-bordered {
       border: 0; } }
@@ -1883,6 +1884,7 @@ pre {
     display: block;
     width: 100%;
     overflow-x: auto;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch; }
     .table-responsive-md > .table-bordered {
       border: 0; } }
@@ -1891,6 +1893,7 @@ pre {
     display: block;
     width: 100%;
     overflow-x: auto;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch; }
     .table-responsive-lg > .table-bordered {
       border: 0; } }
@@ -1899,6 +1902,7 @@ pre {
     display: block;
     width: 100%;
     overflow-x: auto;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch; }
     .table-responsive-xl > .table-bordered {
       border: 0; } }
@@ -1907,6 +1911,7 @@ pre {
     display: block;
     width: 100%;
     overflow-x: auto;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch; }
     .table-responsive-xxl > .table-bordered {
       border: 0; } }
@@ -1914,6 +1919,7 @@ pre {
   display: block;
   width: 100%;
   overflow-x: auto;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch; }
   .table-responsive > .table-bordered {
     border: 0; }

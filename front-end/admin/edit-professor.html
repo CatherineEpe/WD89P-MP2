@@ -190,7 +190,6 @@
                             <li><a href="../admin/all-professors.html">All Faculty and Staff</a></li>
                             <li><a href="../admin/add-professor.html">Add Faculty or Staff</a></li>
                             <li><a href="../admin/edit-professor.html">Edit Faculty or Staff</a></li>
-                            <li><a href="../admin/professor-profile.html">Faculty and Staff Profile</a></li>
                         </ul>
                     </li>
 					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -200,19 +199,18 @@
                         <ul aria-expanded="false">
                             <li><a href="../admin/all-students.html">All Students</a></li>
                             <li><a href="../admin/add-student.html">Enrol Students</a></li>
-                            <li><a href="../admin/edit-student.html">Edit Students</a></li>
-                            <li><a href="../admin/about-student.html">About Students</a></li>
+                            <li><a href="../admin/edit-student.html">Edit Student's Information</a></li>
                         </ul>
                     </li>
 
-					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-							<i class="la la-dollar"></i>
-							<span class="nav-text">Fees</span>
-						</a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-dollar"></i>
+                        <span class="nav-text">School Funds and Donations</span>
+                        </a>
                         <ul aria-expanded="false">
-                            <li><a href="../admin/fees-collection.html">Fees Collection</a></li>
-                            <li><a href="../admin/add-fees.html">Add Fees</a></li>
-                            <li><a href="../admin/fees-receipt.html">Fees Receipt</a></li>
+                            <li><a href="../admin/fees-collection.html">All School Funds and Donations</a></li>
+                            <li><a href="../admin/add-fees.html">Add Fund or Donation</a></li>
+                            <li><a href="../admin/fees-receipt.html">Receipt</a></li>
                         </ul>
                     </li>					
                     <li class="nav-label">Apps</li>
@@ -221,7 +219,6 @@
 							<span class="nav-text">Apps</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="../admin/app-profile.html">Profile</a></li>
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                                 <ul aria-expanded="false">
                                     <li><a href="../admin/email-compose.html">Compose</a></li>
@@ -245,18 +242,18 @@
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
-			
+				    
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Edit Professor</h4>
+                            <h4>Add Faculty and Staff</h4>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="edit-professor.html">Professors</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Edit Professor</a></li>
+                            <li class="breadcrumb-item active"><a href="add-professor.html">Faculty and Staff</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Edit Faculty and Staff</a></li>
                         </ol>
                     </div>
                 </div>
@@ -270,103 +267,230 @@
 							<div class="card-body">
                                 <form action="#" method="post">
 									<div class="row">
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">First Name</label>
-												<input type="text" class="form-control" value="Harry">
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
+										<div class="col-lg-3 col-md-3 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Last Name</label>
-												<input type="text" class="form-control" value="Parker">
+												<input type="text" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
+										<div class="col-lg-3 col-md-3 col-sm-12">
 											<div class="form-group">
-												<label class="form-label">Email Here</label>
-												<input type="text" class="form-control" value="info@example.com">
+												<label class="form-label">First Name</label>
+												<input type="text" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="col-lg-3 col-md-3 col-sm-12">
 											<div class="form-group">
-												<label class="form-label">Joining Date</label>
-												<input name="datepicker" class="datepicker-default form-control" id="datepicker" value="20 August 2020">
+												<label class="form-label">Middle Name</label>
+												<input type="text" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="col-lg-3 col-md-3 col-sm-12">
 											<div class="form-group">
-												<label class="form-label">Password</label>
-												<input type="password" class="form-control" value="jsandjn">
+												<label class="form-label">Extension</label>
+												<select class="form-control" required>
+                                                    <option value="Class">-</option>
+													<option value="Class">Jr.</option>
+													<option value="html">Sr.</option>
+                                                    <option value="html">III</option>
+                                                    <option value="html">IV</option>
+												</select>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Confirm Password</label>
-												<input type="password" class="form-control" value="jsandjn">
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Mobile Number</label>
-												<input type="text" class="form-control" value="+91 123 456 7890">
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Gender</label>
-												<select class="form-control">
-													<option value="Gender">Gender</option>
-													<option value="Male" selected="">Male</option>
-													<option value="Female">Female</option>
+												<select class="form-control" required>
+                                                    <option value="Class">-</option>
+													<option value="Class">Male</option>
+													<option value="html">Female</option>
 												</select>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Designation</label>
-												<input type="text" class="form-control" value="Senior Manager">
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Department</label>
-												<select class="form-control">
-													<option value="Department">Department</option>
-													<option value="html">HTML</option>
-													<option value="css">CSS</option>
-													<option value="javascript" selected="">JavaScript</option>
-													<option value="angular">Angular</option>
-													<option value="angular">React</option>
-													<option value="vuejs">Vue.js</option>
-													<option value="ruby">Ruby</option>
-													<option value="php">PHP</option>
-													<option value="asp">ASP.NET</option>
-													<option value="python">Python</option>
-													<option value="mysql">MySQL</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Date of Birth</label>
-												<input name="datepicker" class="datepicker-default form-control" id="datepicker1" value="20 August 2020">
+												<input name="datepicker" class="form-control" id="datepicker1" required>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Contact Number</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Email Address</label>
+												<input type="email" class="form-control" required>
+											</div>
+										</div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Education</label>
-												<input type="text" class="form-control" value="M.COM, B.COM, B.A">
+												<select class="form-control" required>
+                                                    <option value="Class">-</option>
+													<option value="Class">Bachelor's Degree</option>
+													<option value="html">Master's Degree Units</option>
+                                                    <option value="html">Master's Degree</option>
+                                                    <option value="html">Doctor's Degree Units</option>
+                                                    <option value="html">Doctor's Degree</option>
+												</select>
+											</div>
+										</div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Specialization</label>
+												<select class="form-control" required>
+                                                    <option value="Class">-</option>
+													<option value="Class">English</option>
+													<option value="html">Filipino</option>
+                                                    <option value="html">Mathematics</option>
+                                                    <option value="html">Science</option>
+                                                    <option value="html">Araling Panlipunan</option>
+                                                    <option value="html">Edukasyon sa Pagpapakatao</option>
+                                                    <option value="html">MAPEH</option>
+                                                    <option value="html">TLE</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Date of Original Appointment</label>
+												<input name="datepicker" class="form-control" id="datepicker" required>
+											</div>
+										</div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Employee Number</label>
+												<input type="text" class="form-control" required>
+											</div>
+										</div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Department</label>
+												<select class="form-control" required>
+                                                    <option value="Class">-</option>
+													<option value="Class">Junior High School</option>
+													<option value="html">Senior High School</option>
+												</select>
+											</div>
+										</div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Position</label>
+												<select class="form-control" required>
+                                                    <option value="Class">-</option>
+													<option value="Class">Teacher I</option>
+													<option value="Class">Teacher II</option>
+                                                    <option value="Class">Teacher III</option>
+                                                    <option value="Class">Master Teacher I</option>
+                                                    <option value="Class">Master Teacher II</option>
+                                                    <option value="Class">Master Teacher III</option>
+                                                    <option value="Class">Head Teacher I</option>
+                                                    <option value="Class">Head Teacher II</option>
+                                                    <option value="Class">Head Teacher III</option>
+                                                    <option value="Class">Principal I</option>
+                                                    <option value="Class">Principal II</option>
+                                                    <option value="Class">Principal III</option>
+                                                    <option value="Class">Project Development Officer I</option>
+                                                    <option value="Class">Administrative Assistant II</option>
+                                                    <option value="Class">Administrative Assistant III</option>
+												</select>
+											</div>
+										</div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Designation</label>
+												<select class="form-control" required>
+                                                    <option value="Class">-</option>
+													<option value="Class">Guidance Counselor</option>
+													<option value="Class">DRRM Coordinator</option>
+                                                    <option value="Class">SSLG Coordinator</option>
+                                                    <option value="Class">GAD Coordinator</option>
+                                                    <option value="Class">WOW Coordinator</option>
+                                                    <option value="Class">YES-O Coordinator</option>
+                                                    <option value="Class">WinS Coordinator</option>
+                                                    <option value="Class">Registrar</option>
+                                                    <option value="Class">Grade Level Coordinator</option>
+                                                    <option value="Class">JHS Coordinator</option>
+                                                    <option value="Class">SHS Coordinator</option>
+                                                    <option value="Class">Subject Area Coordinator</option>
+                                                    <option value="Class">Sports Coordinator</option>
+												</select>
+											</div>
+										</div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Advisory</label>
+												<select class="form-control" required>
+                                                    <option value="Class">-</option>
+                                                    <option value="Class">Grade 7-Beauty</option>
+													<option value="Class">Grade 7-Joy</option>
+													<option value="Class">Grade 7-Kindness</option>
+                                                    <option value="Class">Grade 7-Love</option>
+                                                    <option value="Class">Grade 7-Modesty</option>
+                                                    <option value="Class">Grade 7-Obedience</option>
+                                                    <option value="Class">Grade 7-Politeness</option>
+                                                    <option value="Class">Grade 7-SSC</option>
+                                                    <option value="Class">Grade 8-Charity</option>
+                                                    <option value="Class">Grade 8-Generosity</option>
+                                                    <option value="Class">Grade 8-Justice</option>
+                                                    <option value="Class">Grade 8-Loyalty</option>
+                                                    <option value="Class">Grade 8-Patience</option>
+                                                    <option value="Class">Grade 8-Perseverance</option>
+                                                    <option value="Class">Grade 8-SSC</option>
+                                                    <option value="Class">Grade 8-Tolerance</option>
+                                                    <option value="Class">Grade 9-Cheerfulness</option>
+                                                    <option value="Class">Grade 9-Courage</option>
+                                                    <option value="Class">Grade 9-Diligence</option>
+                                                    <option value="Class">Grade 9-Endurance</option>
+                                                    <option value="Class">Grade 9-Humility</option>
+                                                    <option value="Class">Grade 9-Industry</option>
+                                                    <option value="Class">Grade 9-SSC</option>
+                                                    <option value="Class">Grade 9-Wisdom</option>
+                                                    <option value="Class">Grade 10-Compassion</option>
+                                                    <option value="Class">Grade 10-Faith</option>
+                                                    <option value="Class">Grade 10-Goodness</option>
+                                                    <option value="Class">Grade 10-Hope</option>
+                                                    <option value="Class">Grade 10-Peace</option>
+                                                    <option value="Class">Grade 10-Purity</option>
+                                                    <option value="Class">Grade 10-SSC</option>
+                                                    <option value="Class">Grade 10-Sympathy</option>
+                                                    <option value="Class">11 ABM-Ophiuchus</option>
+                                                    <option value="Class">11 GA-Pavo</option>
+                                                    <option value="Class">11 GA-Pegasus</option>
+                                                    <option value="Class">11 GA-Pyxis</option>
+                                                    <option value="Class">11 STEM-Andromeda</option>
+                                                    <option value="Class">11 STEM-Perseus</option>
+                                                    <option value="Class">11 ATS-Aquila</option>
+                                                    <option value="Class">11 ATS-Auriga</option>
+                                                    <option value="Class">11 EIM-Columba</option>
+                                                    <option value="Class">11 EIM-Corvus</option>
+                                                    <option value="Class">11 RAC-Volans</option>
+                                                    <option value="Class">12 ABM-Orion</option>
+                                                    <option value="Class">12 GA-Borealis</option>
+                                                    <option value="Class">12 GA-Australis</option>
+                                                    <option value="Class">12 STEM-Cepheus</option>
+                                                    <option value="Class">12 STEM-Cassiopeia</option>
+                                                    <option value="Class">12 ATS-Hercules</option>
+                                                    <option value="Class">12 EIM-Circinus</option>
+                                                    <option value="Class">12 EIM-Centaurus</option>
+                                                    <option value="Class">12 RAC-Vulpecula</option>
+												</select>
 											</div>
 										</div>
 										<div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group fallback w-100">
-												<input type="file" class="dropify" data-default-file="">
-											</div>
+                                            <form action="upload.php" method="post" enctype="multipart/form-data">
+                                                <label for="file">Select a file:</label>
+                                                <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .png, .jpeg, .jpg">
+                                                <button type="submit" class="btn btn-light">Upload</button>
+                                            </form>
+										</div>
 										</div>
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<button type="submit" class="btn btn-primary">Submit</button>
-											<button type="submit" class="btn btn-light">Cencel</button>
+											<button type="submit" class="btn btn-light">Cancel</button>
 										</div>
 									</div>
 								</form>
@@ -374,7 +498,6 @@
                         </div>
                     </div>
 				</div>
-				
             </div>
         </div>
         <!--**********************************
