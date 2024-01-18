@@ -8998,7 +8998,7 @@ a {
       text-align: center;
       margin: 0; }
     .footer .copyright a {
-      color: #7356f1; }
+      color: maroon; }
 
 [data-sidebar-style="mini"] .nav-control,
 [data-layout="horizontal"] .nav-control {
@@ -26845,3 +26845,5 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     top: 0%;
     background-color:white;
   }
+
+  
