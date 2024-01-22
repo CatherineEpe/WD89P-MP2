@@ -24000,8 +24000,8 @@ button {
 .table thead th {
   border-bottom-width: 1px;
   text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 300;
   letter-spacing: 0.5px;
   border-color: #eaeaea; }
   [data-theme-version="dark"] .table thead th {
@@ -24071,7 +24071,7 @@ table.dataTable tbody tr, table.dataTable tbody td {
 
 table.dataTable thead th {
   color: #454545;
-  font-weight: 600; }
+  font-weight: 300; }
   [data-theme-version="dark"] table.dataTable thead th {
     color: #fff; }
 
@@ -24465,7 +24465,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
   margin-bottom: 0;
   overflow: hidden; }
   .recentOrderTable table thead th {
-    font-size: 12px; }
+    font-size: 10px; }
   .recentOrderTable table tbody td {
     color: #454545;
     font-weight: 500;
@@ -26845,5 +26845,21 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     top: 0%;
     background-color:white;
   }
+
+  #professorTable thead th {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+#facultyStaffContainer tr{
+  font-size: 12px;
+  padding: 50px;
+  margin: 20px;
+  flex-wrap: wrap;
+}
 
   

@@ -17,6 +17,36 @@
         "label": "off",
         "select-name": "off"
       }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "max-width: fit-content",
+          "max-height: fit-content",
+          "height: fit-content",
+          "-webkit-text-size-adjust",
+          "-webkit-tap-highlight-color",
+          "text-decoration-skip-ink",
+          "text-align: -webkit-match-parent",
+          "-webkit-overflow-scrolling",
+          "user-select",
+          "orphans",
+          "widows",
+          "overflow-anchor",
+          "user-select: all",
+          "@page",
+          "@page",
+          "@page",
+          "@page"
+        ]
+      }
     ]
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not ios_saf <= 16.5",
+    "not safari <= 16.5"
+  ]
 }

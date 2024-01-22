@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class FSTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -31,4 +31,4 @@ class FSTable extends Migration
     {
         Schema::dropIfExists('faculty_staff');
     }
-}
+};

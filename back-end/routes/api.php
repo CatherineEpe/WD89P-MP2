@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\FacultyAndStaffController;
+use App\Http\Controllers\FacultyStaffController;
+use App\Models\FacultyStaff;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,18 +23,22 @@ Route::post('/login', [LoginController::class, 'login']);
 // Registration
 Route::post('/register', [RegisterController::class, 'register']);
 
-// Fetch all faculties and staffs
-Route::get('/api/faculty-and-staff', [FacultyAndStaffController::class, 'index']);
 
-// Add new faculty
-Route::post('/api/faculty-and-staff', [FacultyAndStaffController::class, 'store']);
 
-// Update faculty details
-Route::put('/api/faculty-and-staff/{id}', [FacultyAndStaffController::class, 'update']);
+// Display the list of all faculty and staff
+Route::get('/all-faculty-staff', [FacultyStaffController::class, 'getAllFacultyStaff']);
 
-// Delete faculty
-Route::delete('/api/faculty-and-staff/{id}', [FacultyAndStaffController::class, 'destroy']);
+// Store (Add) new faculty or staff
+Route::post('/add-faculty', [FacultyStaffController::class, 'store']);
 
-// For Grid View
-Route::get('/faculties-and-staffs', 'FacultyAndStaffController@showFacultiesAndStaffs');
+
+// Edit faculty or staff
+Route::get('/edit-faculty-staff/{id}', [FacultyStaffController::class, 'edit']);
+
+// Update (Edit) faculty or staff
+Route::put('/update-faculty-staff/{id}', [FacultyStaffController::class, 'update']);
+
+// Delete faculty or staff
+Route::delete('/delete-faculty-staff/{id}', [FacultyStaffController::class, 'destroy']);
+
 

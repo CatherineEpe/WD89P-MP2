@@ -5,7 +5,8 @@
 	
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VNHS Admin Dashboard</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>ADD FACULTY AND STAFF</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../admin/assets/images/favicon.png">
     <link rel="stylesheet" href="../admin/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
@@ -19,7 +20,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
 
+    <!--  jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+    <!--  SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </head>
@@ -273,45 +278,49 @@
 								<h5 class="card-title">Basic Info</h5>
 							</div>
 							<div class="card-body">
-                                <form action="#" method="post">
+                                <form action="#" method="post" id="addFacultyForm">
 									<div class="row">
 										<div class="col-lg-3 col-md-3 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Last Name</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="last_name" required>
 											</div>
 										</div>
 										<div class="col-lg-3 col-md-3 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">First Name</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="first_name" required>
 											</div>
 										</div>
                                         <div class="col-lg-3 col-md-3 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Middle Name</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="middle_name" required>
 											</div>
 										</div>
                                         <div class="col-lg-3 col-md-3 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Extension</label>
-												<select class="form-control" required>
-                                                    <option value="Class">-</option>
-													<option value="Class">Jr.</option>
-													<option value="html">Sr.</option>
-                                                    <option value="html">III</option>
-                                                    <option value="html">IV</option>
+												<select class="form-control" id="extension" required>
+                                                    <option></option>
+                                                    <option>-</option>
+													<option>Jr.</option>
+													<option>Sr.</option>
+                                                    <option>III</option>
+                                                    <option>IV</option>
 												</select>
 											</div>
 										</div>
+                                        <!-- Hidden input for my combined name -->
+                                        <input type="hidden" id="combined_name" name="combined_name">
+                                        <!-- Continuation of the form -->
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Gender</label>
-												<select class="form-control" required>
-                                                    <option value="Class">-</option>
-													<option value="Class">Male</option>
-													<option value="html">Female</option>
+												<select class="form-control" id="gender" required>
+                                                    <option></option>
+													<option>Male</option>
+													<option>Female</option>
 												</select>
 											</div>
 										</div>
@@ -324,42 +333,32 @@
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Contact Number</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="contact_number" required>
 											</div>
 										</div>
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Email Address</label>
-												<input type="email" class="form-control" required>
+												<input type="email" class="form-control" id="email_address" required>
 											</div>
 										</div>
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Education</label>
-												<select class="form-control" required>
-                                                    <option value="Class">-</option>
-													<option value="Class">Bachelor's Degree</option>
-													<option value="html">Master's Degree Units</option>
-                                                    <option value="html">Master's Degree</option>
-                                                    <option value="html">Doctor's Degree Units</option>
-                                                    <option value="html">Doctor's Degree</option>
+												<select class="form-control" id="education" required>
+                                                    <option></option>
+													<option>Bachelor's Degree</option>
+													<option>Master's Degree Units</option>
+                                                    <option>Master's Degree</option>
+                                                    <option>Doctor's Degree Units</option>
+                                                    <option>Doctor's Degree</option>
 												</select>
 											</div>
 										</div>
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Specialization</label>
-												<select class="form-control" required>
-                                                    <option value="Class">-</option>
-													<option value="Class">English</option>
-													<option value="html">Filipino</option>
-                                                    <option value="html">Mathematics</option>
-                                                    <option value="html">Science</option>
-                                                    <option value="html">Araling Panlipunan</option>
-                                                    <option value="html">Edukasyon sa Pagpapakatao</option>
-                                                    <option value="html">MAPEH</option>
-                                                    <option value="html">TLE</option>
-												</select>
+												<input type="text" class="form-control" id="specialization" required>
 											</div>
 										</div>
 										<div class="col-lg-4 col-md-4 col-sm-12">
@@ -371,15 +370,15 @@
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Employee Number</label>
-												<input type="text" class="form-control" required>
+												<input type="text" class="form-control" id="employee_number" required>
 											</div>
 										</div>
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Department</label>
-												<select class="form-control" required>
-                                                    <option value="Class">-</option>
-													<option value="Class">Junior High School</option>
+												<select class="form-control" id="department" required>
+                                                    <option>-</option>
+													<option>Junior High School</option>
 													<option value="html">Senior High School</option>
 												</select>
 											</div>
@@ -387,113 +386,107 @@
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Position</label>
-												<select class="form-control" required>
-                                                    <option value="Class">-</option>
-													<option value="Class">Teacher I</option>
-													<option value="Class">Teacher II</option>
-                                                    <option value="Class">Teacher III</option>
-                                                    <option value="Class">Master Teacher I</option>
-                                                    <option value="Class">Master Teacher II</option>
-                                                    <option value="Class">Master Teacher III</option>
-                                                    <option value="Class">Head Teacher I</option>
-                                                    <option value="Class">Head Teacher II</option>
-                                                    <option value="Class">Head Teacher III</option>
-                                                    <option value="Class">Principal I</option>
-                                                    <option value="Class">Principal II</option>
-                                                    <option value="Class">Principal III</option>
-                                                    <option value="Class">Project Development Officer I</option>
-                                                    <option value="Class">Administrative Assistant II</option>
-                                                    <option value="Class">Administrative Assistant III</option>
+												<select class="form-control" id="position" required>
+                                                    <option></option>
+													<option>Teacher I</option>
+													<option>Teacher II</option>
+                                                    <option>Teacher III</option>
+                                                    <option>Master Teacher I</option>
+                                                    <option>Master Teacher II</option>
+                                                    <option>Master Teacher III</option>
+                                                    <option>Head Teacher I</option>
+                                                    <option>Head Teacher II</option>
+                                                    <option>Head Teacher III</option>
+                                                    <option>Principal I</option>
+                                                    <option>Principal II</option>
+                                                    <option>Principal III</option>
+                                                    <option>Project Development Officer I</option>
+                                                    <option>Administrative Assistant II</option>
+                                                    <option>Administrative Assistant III</option>
 												</select>
 											</div>
 										</div>
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Designation</label>
-												<select class="form-control" required>
-                                                    <option value="Class">-</option>
-													<option value="Class">Guidance Counselor</option>
-													<option value="Class">DRRM Coordinator</option>
-                                                    <option value="Class">SSLG Coordinator</option>
-                                                    <option value="Class">GAD Coordinator</option>
-                                                    <option value="Class">WOW Coordinator</option>
-                                                    <option value="Class">YES-O Coordinator</option>
-                                                    <option value="Class">WinS Coordinator</option>
-                                                    <option value="Class">Registrar</option>
-                                                    <option value="Class">Grade Level Coordinator</option>
-                                                    <option value="Class">JHS Coordinator</option>
-                                                    <option value="Class">SHS Coordinator</option>
-                                                    <option value="Class">Subject Area Coordinator</option>
-                                                    <option value="Class">Sports Coordinator</option>
+												<select class="form-control" id="designation" required>
+                                                    <option></option>
+                                                    <option>None</option>
+													<option>Guidance Counselor</option>
+													<option>DRRM Coordinator</option>
+                                                    <option>SSLG Coordinator</option>
+                                                    <option>GAD Coordinator</option>
+                                                    <option>WOW Coordinator</option>
+                                                    <option>YES-O Coordinator</option>
+                                                    <option>WinS Coordinator</option>
+                                                    <option>Registrar</option>
+                                                    <option>Grade Level Coordinator</option>
+                                                    <option>JHS Coordinator</option>
+                                                    <option>SHS Coordinator</option>
+                                                    <option>Subject Area Coordinator</option>
+                                                    <option>Sports Coordinator</option>
 												</select>
 											</div>
 										</div>
                                         <div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Advisory</label>
-												<select class="form-control" required>
-                                                    <option value="Class">-</option>
-                                                    <option value="Class">Grade 7-Beauty</option>
-													<option value="Class">Grade 7-Joy</option>
-													<option value="Class">Grade 7-Kindness</option>
-                                                    <option value="Class">Grade 7-Love</option>
-                                                    <option value="Class">Grade 7-Modesty</option>
-                                                    <option value="Class">Grade 7-Obedience</option>
-                                                    <option value="Class">Grade 7-Politeness</option>
-                                                    <option value="Class">Grade 7-SSC</option>
-                                                    <option value="Class">Grade 8-Charity</option>
-                                                    <option value="Class">Grade 8-Generosity</option>
-                                                    <option value="Class">Grade 8-Justice</option>
-                                                    <option value="Class">Grade 8-Loyalty</option>
-                                                    <option value="Class">Grade 8-Patience</option>
-                                                    <option value="Class">Grade 8-Perseverance</option>
-                                                    <option value="Class">Grade 8-SSC</option>
-                                                    <option value="Class">Grade 8-Tolerance</option>
-                                                    <option value="Class">Grade 9-Cheerfulness</option>
-                                                    <option value="Class">Grade 9-Courage</option>
-                                                    <option value="Class">Grade 9-Diligence</option>
-                                                    <option value="Class">Grade 9-Endurance</option>
-                                                    <option value="Class">Grade 9-Humility</option>
-                                                    <option value="Class">Grade 9-Industry</option>
-                                                    <option value="Class">Grade 9-SSC</option>
-                                                    <option value="Class">Grade 9-Wisdom</option>
-                                                    <option value="Class">Grade 10-Compassion</option>
-                                                    <option value="Class">Grade 10-Faith</option>
-                                                    <option value="Class">Grade 10-Goodness</option>
-                                                    <option value="Class">Grade 10-Hope</option>
-                                                    <option value="Class">Grade 10-Peace</option>
-                                                    <option value="Class">Grade 10-Purity</option>
-                                                    <option value="Class">Grade 10-SSC</option>
-                                                    <option value="Class">Grade 10-Sympathy</option>
-                                                    <option value="Class">11 ABM-Ophiuchus</option>
-                                                    <option value="Class">11 GA-Pavo</option>
-                                                    <option value="Class">11 GA-Pegasus</option>
-                                                    <option value="Class">11 GA-Pyxis</option>
-                                                    <option value="Class">11 STEM-Andromeda</option>
-                                                    <option value="Class">11 STEM-Perseus</option>
-                                                    <option value="Class">11 ATS-Aquila</option>
-                                                    <option value="Class">11 ATS-Auriga</option>
-                                                    <option value="Class">11 EIM-Columba</option>
-                                                    <option value="Class">11 EIM-Corvus</option>
-                                                    <option value="Class">11 RAC-Volans</option>
-                                                    <option value="Class">12 ABM-Orion</option>
-                                                    <option value="Class">12 GA-Borealis</option>
-                                                    <option value="Class">12 GA-Australis</option>
-                                                    <option value="Class">12 STEM-Cepheus</option>
-                                                    <option value="Class">12 STEM-Cassiopeia</option>
-                                                    <option value="Class">12 ATS-Hercules</option>
-                                                    <option value="Class">12 EIM-Circinus</option>
-                                                    <option value="Class">12 EIM-Centaurus</option>
-                                                    <option value="Class">12 RAC-Vulpecula</option>
+												<select class="form-control" id="advisory" required>
+                                                    <option></option>
+                                                    <option>Grade 7-Beauty</option>
+													<option>Grade 7-Joy</option>
+													<option>Grade 7-Kindness</option>
+                                                    <option>Grade 7-Love</option>
+                                                    <option>Grade 7-Modesty</option>
+                                                    <option>Grade 7-Obedience</option>
+                                                    <option>Grade 7-Politeness</option>
+                                                    <option>Grade 7-SSC</option>
+                                                    <option>Grade 8-Charity</option>
+                                                    <option>Grade 8-Generosity</option>
+                                                    <option>Grade 8-Justice</option>
+                                                    <option>Grade 8-Loyalty</option>
+                                                    <option>Grade 8-Patience</option>
+                                                    <option>Grade 8-Perseverance</option>
+                                                    <option>Grade 8-SSC</option>
+                                                    <option>Grade 8-Tolerance</option>
+                                                    <option>Grade 9-Cheerfulness</option>
+                                                    <option>Grade 9-Courage</option>
+                                                    <option>Grade 9-Diligence</option>
+                                                    <option>Grade 9-Endurance</option>
+                                                    <option>Grade 9-Humility</option>
+                                                    <option>Grade 9-Industry</option>
+                                                    <option>Grade 9-SSC</option>
+                                                    <option>Grade 9-Wisdom</option>
+                                                    <option>Grade 10-Compassion</option>
+                                                    <option>Grade 10-Faith</option>
+                                                    <option>Grade 10-Goodness</option>
+                                                    <option>Grade 10-Hope</option>
+                                                    <option>Grade 10-Peace</option>
+                                                    <option>Grade 10-Purity</option>
+                                                    <option>Grade 10-SSC</option>
+                                                    <option>Grade 10-Sympathy</option>
+                                                    <option>11 ABM-Ophiuchus</option>
+                                                    <option>11 GA-Pavo</option>
+                                                    <option>11 GA-Pegasus</option>
+                                                    <option>11 GA-Pyxis</option>
+                                                    <option>11 STEM-Andromeda</option>
+                                                    <option>11 STEM-Perseus</option>
+                                                    <option>11 ATS-Aquila</option>
+                                                    <option>11 ATS-Auriga</option>
+                                                    <option>11 EIM-Columba</option>
+                                                    <option>11 EIM-Corvus</option>
+                                                    <option>11 RAC-Volans</option>
+                                                    <option>12 ABM-Orion</option>
+                                                    <option>12 GA-Borealis</option>
+                                                    <option>12 GA-Australis</option>
+                                                    <option>12 STEM-Cepheus</option>
+                                                    <option>12 STEM-Cassiopeia</option>
+                                                    <option>12 ATS-Hercules</option>
+                                                    <option>12 EIM-Circinus</option>
+                                                    <option>12 EIM-Centaurus</option>
+                                                    <option>12 RAC-Vulpecula</option>
 												</select>
 											</div>
-										</div>
-										<div class="col-lg-12 col-md-12 col-sm-12">
-                                            <form action="upload.php" method="post" enctype="multipart/form-data">
-                                                <label for="file">Select a file:</label>
-                                                <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .png, .jpeg, .jpg">
-                                                <button type="submit" class="btn btn-light">Upload</button>
-                                            </form>
 										</div>
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<button type="submit" class="btn btn-primary">Submit</button>
@@ -542,7 +535,7 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-<script src="../admin/assets/vendor/global/global.min.js"></script>
+    <script src="../admin/assets/vendor/global/global.min.js"></script>
 	<script src="../admin/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <script src="../admin/assets/js/custom.min.js"></script>
 	<script src="../admin/assets/js/dlabnav-init.js"></script>
@@ -550,6 +543,8 @@
 	<!-- Svganimation scripts -->
     <script src="../admin/assets/vendor/svganimation/vivus.min.js"></script>
     <script src="../admin/assets/vendor/svganimation/svg.animation.js"></script>
+
+    <script src="../admin/assets/js/connection/faculty_staff.js"></script>
 	
 	<!-- pickdate
     <script src="../admin/assets/vendor/pickadate/picker.js"></script>

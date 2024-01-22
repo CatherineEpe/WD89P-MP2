@@ -104,7 +104,7 @@
       confirmPass();
     }
 
-      // Assuming you have a form with id 'registerForm'
+      // Ajax connection to backend
     $('#registerForm').submit(function (event) {
       event.preventDefault();
 

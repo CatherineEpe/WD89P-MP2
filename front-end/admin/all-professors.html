@@ -5,6 +5,7 @@
 	
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Faculty</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../admin/assets/images/favicon.png">
@@ -275,7 +276,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <table id="example3" class="display" style="min-width: 845px">
+                                            <table id="professorTable" class="display" style="min-width: 845px">
                                                 <thead>
                                                     <tr>
                                                         <th>No.</th>
@@ -295,34 +296,17 @@
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Catherine L. Epe</td>
-                                                        <td>Female</td>
-                                                        <td>1995-31-12</td>
-                                                        <td><a href="javascript:void(0);"><strong>09062051375</strong></a></td>
-                                                        <td><a href="javascript:void(0);"><strong>catherine.epe029@deped.gov.ph</strong></a></td>
-                                                        <td>Bachelor's Degree</td>
-                                                        <td>Mathematics</td>
-                                                        <td>2019-19-03</td>
-                                                        <td>6304909</td>
-                                                        <td>Senior High School</td>
-                                                        <td>Teacher I</td>
-                                                        <td>None</td>
-                                                        <td>12 Stem - Cassiopeia</td>
-                                                        <td>
-                                                            <a href="javascript:void(0);" class="btn btn-sm btn-secondary" id="edit1"><i class="la la-pencil"></i></a>
-                                                            <a href="javascript:void(0);" class="btn btn-sm btn-secondary" id="download1"><i class="la la-download"></i></a>
-                                                            <a href="javascript:void(0);" class="btn btn-sm btn-danger" id="delete1"><i class="la la-trash-o"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
+                                                <tbody id="facultyStaffContainer"><!-- This row will be dynamically updated with data from the backend --></tbody>
+                                                <!-- If no data, display a message -->
+                                                <tr id="emptyRow">
+                                                    <td colspan="15" class="text-center">No Faculty and Staff is added yet</td>
+                                                </tr>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                            
+                            
                             <!-- Grid View -->
 							<div id="grid-view" class="tab-pane fade col-lg-12">
                                 <div class="row">
@@ -354,17 +338,17 @@
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
                                                             <span class="mb-0">Date of Birth :</span><strong>{{ $faculty->date_of_birth }}</strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Contact Number :</span><strong>{{ $faculty->contact_num }}</strong></li>
+                                                            <span class="mb-0">Contact Number :</span><strong>{{ $faculty->contact_number }}</strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Email Address :</span><strong>{{ $faculty->email_add }}</strong></li>
+                                                            <span class="mb-0">Email Address :</span><strong>{{ $faculty->email_address }}</strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
                                                             <span class="mb-0">Education :</span><strong>{{ $faculty->education }}</strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
                                                             <span class="mb-0">Specialization :</span><strong>{{ $faculty->specialization }}</strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Date of Original Appointment :</span><strong>{{ $faculty->date_appointment }}</strong></li>
+                                                            <span class="mb-0">Date of Original Appointment :</span><strong>{{ $faculty->date_of_original_appointment }}</strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Employee Number :</span><strong>{{ $faculty->employee_num }}</strong></li>
+                                                            <span class="mb-0">Employee Number :</span><strong>{{ $faculty->employee_number }}</strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
                                                             <span class="mb-0">Department :</span><strong>{{ $faculty->department }}</strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
@@ -436,7 +420,14 @@
     <script src="../admin/assets/vendor/svganimation/vivus.min.js"></script>
     <script src="../admin/assets/vendor/svganimation/svg.animation.js"></script>
 
-    <script src="../admin/assets/js/connection/faculty_staff.js"></script>
+    <script src="../admin/assets/js/connection/faculty_staff2.js"></script>
+
+    <!--  jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!--  SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 	
 </body>
 </html>
