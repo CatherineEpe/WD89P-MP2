@@ -266,117 +266,122 @@
 					</div>
 					<div class="col-lg-12">
 						<div class="row tab-content">
-							<div id="list-view" class="tab-pane fade active show col-lg-12">
-								<div class="card">
-									<div class="card-header">
-										<h4 class="card-title">All Faculties and Staffs</h4>
-										<a href="add-professor.html" class="btn btn-primary">+ Add new</a>
-									</div>
-									<div class="card-body">
-										<div class="table-responsive">
-											<table id="example3" class="display" style="min-width: 845px">
-												<thead>
-													<tr>
-														<th>No.</th>
-														<th>Name</th>
-														<th>Gender</th>
-														<th>Date of Birth</th>
-														<th>Contact Number</th>
-														<th>Email Address</th>
-														<th>Education</th>
-														<th>Specialization</th>
-														<th>Date of Original Appointment</th>
-														<th>Employee Number</th>
-														<th>Department</th>
-														<th>Position</th>
-														<th>Designation</th>
-														<th>Advisory</th>
-														<th>Action</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td><a href="javascript:void(0);"><strong></strong></a></td>
-														<td><a href="javascript:void(0);"><strong></strong></a></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td>
-															<a href="javascript:void(0);" class="btn btn-sm btn-secondary"><i class="la la-pencil"></i></a>
-															<a href="javascript:void(0);" class="btn btn-sm btn-secondary"><i class="la la-download"></i></a>
-															<a href="javascript:void(0);" class="btn btn-sm btn-danger"><i class="la la-trash-o"></i></a>
-														</td>												
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
+							<!-- List View -->
+                            <div id="list-view" class="tab-pane fade active show col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">All Faculties and Staffs</h4>
+                                        <a href="add-professor.html" class="btn btn-primary" id="add1">+ Add new</a>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table id="example3" class="display" style="min-width: 845px">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No.</th>
+                                                        <th>Name</th>
+                                                        <th>Gender</th>
+                                                        <th>Date of Birth</th>
+                                                        <th>Contact Number</th>
+                                                        <th>Email Address</th>
+                                                        <th>Education</th>
+                                                        <th>Specialization</th>
+                                                        <th>Date of Original Appointment</th>
+                                                        <th>Employee Number</th>
+                                                        <th>Department</th>
+                                                        <th>Position</th>
+                                                        <th>Designation</th>
+                                                        <th>Advisory</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Catherine L. Epe</td>
+                                                        <td>Female</td>
+                                                        <td>1995-31-12</td>
+                                                        <td><a href="javascript:void(0);"><strong>09062051375</strong></a></td>
+                                                        <td><a href="javascript:void(0);"><strong>catherine.epe029@deped.gov.ph</strong></a></td>
+                                                        <td>Bachelor's Degree</td>
+                                                        <td>Mathematics</td>
+                                                        <td>2019-19-03</td>
+                                                        <td>6304909</td>
+                                                        <td>Senior High School</td>
+                                                        <td>Teacher I</td>
+                                                        <td>None</td>
+                                                        <td>12 Stem - Cassiopeia</td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="btn btn-sm btn-secondary" id="edit1"><i class="la la-pencil"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-sm btn-secondary" id="download1"><i class="la la-download"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-sm btn-danger" id="delete1"><i class="la la-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- Grid View -->
 							<div id="grid-view" class="tab-pane fade col-lg-12">
-								<div class="row">
-									<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-										<div class="card card-profile">
-											<div class="card-header justify-content-end pb-0">
-												<div class="dropdown">
-													<button class="btn btn-link" type="button" data-toggle="dropdown">
-														<span class="dropdown-dots fs--1"></span>
-													</button>
-													<div class="dropdown-menu dropdown-menu-right border py-0">
-														<div class="py-2">
-															<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-															<a class="dropdown-item" href="javascript:void(0);">Download</a>
-															<a class="dropdown-item text-danger" href="javascript:void(0);">Delete</a>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="card-body pt-2">
-												<div class="text-center">
-													<div class="profile-photo">
-														<img src="images/profile/small/pic2.jpg" width="100" class="img-fluid rounded-circle" alt="">
-													</div>
-													<h3 class="mt-4 mb-1">Alexander</h3>
-													<p class="text-muted">Education</p>
-													<ul class="list-group mb-3 list-group-flush">
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Gender :</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Date of Birth :</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Contact Number :</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Email Address:</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Specialization:</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Date of Original Appointment:</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Employee Number:</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Department:</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Position:</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Designation:</span><strong></strong></li>
-														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Advisory:</span><strong></strong></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+                                <div class="row">
+                                    <?php foreach ($facultiesAndStaffs as $faculty): ?>
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="card card-profile">
+                                            <div class="card-header justify-content-end pb-0">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link" type="button" data-toggle="dropdown">
+                                                        <span class="dropdown-dots fs--1"></span>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right border py-0">
+                                                        <div class="py-2">
+                                                            <a class="dropdown-item" href="javascript:void(0);">Edit</a>
+                                                            <a class="dropdown-item" href="javascript:void(0);">Download</a>
+                                                            <a class="dropdown-item text-danger" href="javascript:void(0);">Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-2">
+                                                <div class="text-center">
+                                                    <div class="counter">{{ $faculty->index + 1 }}</div>
+                                                    <h3 class="mt-4 mb-1">{{ $faculty->name }}</h3>
+                                                    <p class="text-muted">{{ $faculty->education }}</p>
+                                                    <ul class="list-group mb-3 list-group-flush">
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Gender :</span><strong>{{ $faculty->gender }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Date of Birth :</span><strong>{{ $faculty->date_of_birth }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Contact Number :</span><strong>{{ $faculty->contact_num }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Email Address :</span><strong>{{ $faculty->email_add }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Education :</span><strong>{{ $faculty->education }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Specialization :</span><strong>{{ $faculty->specialization }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Date of Original Appointment :</span><strong>{{ $faculty->date_appointment }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Employee Number :</span><strong>{{ $faculty->employee_num }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Department :</span><strong>{{ $faculty->department }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Position :</span><strong>{{ $faculty->position }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Designation :</span><strong>{{ $faculty->designation }}</strong></li>
+                                                        <li class="list-group-item px-0 d-flex justify-content-between">
+                                                            <span class="mb-0">Advisory :</span><strong>{{ $faculty->advisory }}</strong></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            
 						</div>
 					</div>
 				</div>
@@ -430,6 +435,8 @@
     <!-- Svganimation scripts -->
     <script src="../admin/assets/vendor/svganimation/vivus.min.js"></script>
     <script src="../admin/assets/vendor/svganimation/svg.animation.js"></script>
+
+    <script src="../admin/assets/js/connection/faculty_staff.js"></script>
 	
 </body>
 </html>

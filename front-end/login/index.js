@@ -1,82 +1,109 @@
-const form = document.querySelector("form");
-eField = form.querySelector(".username"),
-eInput = eField.querySelector("input"),
-pField = form.querySelector(".password"),
-pInput = pField.querySelector("input");
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("loginForm");
+  const eInput = document.getElementById("username1");
+  const pInput = document.getElementById("pass1");
 
-form.onsubmit = (e)=>{
-  e.preventDefault(); //preventing from form submitting
-  //if email and password is blank then add shake class in it else call specified function
-  (eInput.value == "") ? eField.classList.add("shake", "error") : username();
-  (pInput.value == "") ? pField.classList.add("shake", "error") : checkPass();
+  if (!form || !eInput || !pInput) {
+    console.error("Form or input elements not found.");
+    return;
+  }
 
-  setTimeout(()=>{ //remove shake class after 500ms
-    eField.classList.remove("shake");
-    pField.classList.remove("shake");
-  }, 500);
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  eInput.onkeyup = ()=>{username();} //calling checkEmail function on email input keyup
-  pInput.onkeyup = ()=>{checkPass();} //calling checkPassword function on pass input keyup
+    // Validate username and password
+    username();
+    checkPass();
 
-  function lrn(){ //checkLRN function
-    let pattern = /^[a-z0-9_\@]+$/; //pattern for validate lrn
-    if(!eInput.value.match(pattern)){ //if pattern not matched then add error and remove valid class
+    // If both fields are valid, make an Axios request
+    if (!eInput.parentElement.classList.contains("error") && !pInput.parentElement.classList.contains("error")) {
+      handleLoginForm();
+    }
+  });
+
+  function username() {
+    const pattern = /^[a-z0-9_\@]+$/;
+    const eField = eInput.parentElement;
+
+    if (!eInput.value.match(pattern)) {
       eField.classList.add("error");
       eField.classList.remove("valid");
-      let errorTxt = eField.querySelector(".error-txt");
-      //if email value is not empty then show please enter valid email else show Email can't be blank
-      (eInput.value != "") ? errorTxt.innerText = "Enter a valid username" : errorTxt.innerText = "Username can't be blank";
-    }else{ //if pattern matched then remove error and add valid class
+
+      const errorTxt = eField.querySelector(".error-txt");
+      if (errorTxt) {
+        errorTxt.textContent = eInput.value !== "" ? "Enter a valid username" : "Username can't be blank";
+      }
+    } else {
       eField.classList.remove("error");
       eField.classList.add("valid");
     }
   }
 
-  function checkPass(){ //checkPass function
-    if(pInput.value == ""){ //if pass is empty then add error and remove valid class
+  function checkPass() {
+    const pField = pInput.parentElement;
+
+    if (pInput.value === "") {
       pField.classList.add("error");
       pField.classList.remove("valid");
-    }else{ //if pass is empty then remove error and add valid class
+    } else {
       pField.classList.remove("error");
       pField.classList.add("valid");
     }
   }
 
-  //if eField and pField doesn't contains error class that mean user filled details properly
-  if(!eField.classList.contains("error") && !pField.classList.contains("error")){
-    window.location.href = form.getAttribute("action"); //redirecting user to the specified url which is inside action attribute of form tag
-  }
-}
+    // Assuming you have a form with id 'loginForm'
+    $('#loginForm').submit(function (event) {
+      event.preventDefault();
 
-
-const submit = document.getElementById('login')
-    submit.onclick = function(){
-        const username1 = document.getElementById('username1')
-        const pass1 = document.getElementById('pass1')
-        fetch('http://localhost:3000/login', {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: username1.value,
-                password: pass1.value,
-            })
-        }).then(function(result){
-          return result.json()
-        }).then(function(result){
-          console.log('result:', result);
-          if(result.success && username1.value !== ""){
-            window.location.assign("../user/home.html")
-          }else if(username1.value == "vnhs@303662" && pass1.value == "Admin@303662"){
-            window.location.assign("../admin/admin.html")
-          }else{
+      $.ajax({
+        url: 'http://127.0.0.1:8000/api/login',
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+          username: $('#username1').val(),
+          password: $('#pass1').val(),
+        }),
+        success: function (response) {
+          // Check the role of the logged-in user
+          if (response.role === 'admin') {
+            // Redirect to admin page
             Swal.fire({
-              title: "Invalid Credentials!",
-              text: "Please check your username and password!",
-              icon: "error"
+              icon: 'success',
+              title: 'Admin Login Successful!',
+              text: response.message,
+            }).then(() => {
+              window.location.href = '../admin/admin.html'; // Adjust the URL for the admin page
+            });
+          } else if (response.role === 'user') {
+            // Redirect to user page
+            Swal.fire({
+              icon: 'success',
+              title: 'User Login Successful!',
+              text: response.message,
+            }).then(() => {
+              // Redirect to user page or another appropriate location
+              window.location.href = '../user/home.html'; // Adjust the URL for the user page
+            });
+          } else {
+            // Handle unexpected role
+            console.error('Unexpected user role:', response.role);
+            Swal.fire({
+              icon: 'error',
+              title: 'Login Failed!',
+              text: 'Unexpected user role. Please try again.',
             });
           }
-        })
-    }
+        },
+        error: function (error) {
+          // Login failed
+          Swal.fire({
+            icon: 'error',
+            title: 'Login Failed!',
+            text: error.responseJSON.error,
+          });
+        },
+      });
+    });
+
+});

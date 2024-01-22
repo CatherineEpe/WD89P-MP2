@@ -92,9 +92,14 @@ form .input-field {
 .invalid .error {
   display: flex;
 }
+
 .error .error-icon {
   margin-right: 6px;
   font-size: 15px;
+}
+.lrn .error {
+  align-items: flex-start;
+  color: #d93025;
 }
 .create-password .error {
   align-items: flex-start;
@@ -106,6 +111,14 @@ form .input-field {
   margin: 25px 0 6px;
 }
 .button input {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: maroon;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button .input {
   color: #fff;
   font-size: 16px;
   font-weight: 400;
