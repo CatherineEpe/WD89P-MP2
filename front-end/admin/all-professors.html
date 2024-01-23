@@ -188,7 +188,6 @@
                         <ul aria-expanded="false">
                             <li><a href="../admin/all-professors.html">All Faculty and Staff</a></li>
                             <li><a href="../admin/add-professor.html">Add Faculty or Staff</a></li>
-                            <li><a href="../admin/edit-professor.html">Edit Faculty or Staff</a></li>
                         </ul>
                     </li>
 					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -274,8 +273,8 @@
                                         <h4 class="card-title">All Faculties and Staffs</h4>
                                         <a href="add-professor.html" class="btn btn-primary" id="add1">+ Add new</a>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
+                                    <div class="card-body" id="listView">
+                                        <div class="table-responsive" id="all-faculty">
                                             <table id="professorTable" class="display" style="min-width: 845px">
                                                 <thead>
                                                     <tr>
@@ -321,7 +320,6 @@
                                                     <div class="dropdown-menu dropdown-menu-right border py-0">
                                                         <div class="py-2">
                                                             <a class="dropdown-item" href="javascript:void(0);">Edit</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">Download</a>
                                                             <a class="dropdown-item text-danger" href="javascript:void(0);">Delete</a>
                                                         </div>
                                                     </div>
@@ -363,6 +361,235 @@
                                         </div>
                                     </div>
                                     <?php endforeach; ?>
+                                </div>
+                            </div>
+
+                            <div class="row card-body hidden" id="editForm">
+                                <div class="col-xl-12 col-xxl-12 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="card-title">Basic Info</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="#" method="post" id="addFacultyForm">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Last Name</label>
+                                                            <input type="text" class="form-control" id="last_name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">First Name</label>
+                                                            <input type="text" class="form-control" id="first_name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Middle Name</label>
+                                                            <input type="text" class="form-control" id="middle_name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Extension</label>
+                                                            <select class="form-control" id="extension" required>
+                                                                <option></option>
+                                                                <option>-</option>
+                                                                <option>Jr.</option>
+                                                                <option>Sr.</option>
+                                                                <option>III</option>
+                                                                <option>IV</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Hidden input for my combined name -->
+                                                    <input type="hidden" id="combined_name" name="combined_name">
+                                                    <!-- Continuation of the form -->
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Gender</label>
+                                                            <select class="form-control" id="gender" required>
+                                                                <option></option>
+                                                                <option>Male</option>
+                                                                <option>Female</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Date of Birth</label>
+                                                            <input name="datepicker" class="form-control" id="datepicker1" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Contact Number</label>
+                                                            <input type="text" class="form-control" id="contact_number" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Email Address</label>
+                                                            <input type="email" class="form-control" id="email_address" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Education</label>
+                                                            <select class="form-control" id="education" required>
+                                                                <option></option>
+                                                                <option>Bachelor's Degree</option>
+                                                                <option>Master's Degree Units</option>
+                                                                <option>Master's Degree</option>
+                                                                <option>Doctor's Degree Units</option>
+                                                                <option>Doctor's Degree</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Specialization</label>
+                                                            <input type="text" class="form-control" id="specialization" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Date of Original Appointment</label>
+                                                            <input name="datepicker" class="form-control" id="datepicker" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Employee Number</label>
+                                                            <input type="text" class="form-control" id="employee_number" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Department</label>
+                                                            <select class="form-control" id="department" required>
+                                                                <option></option>
+                                                                <option>Junior High School</option>
+                                                                <option>Senior High School</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Position</label>
+                                                            <select class="form-control" id="position" required>
+                                                                <option></option>
+                                                                <option>Teacher I</option>
+                                                                <option>Teacher II</option>
+                                                                <option>Teacher III</option>
+                                                                <option>Master Teacher I</option>
+                                                                <option>Master Teacher II</option>
+                                                                <option>Master Teacher III</option>
+                                                                <option>Head Teacher I</option>
+                                                                <option>Head Teacher II</option>
+                                                                <option>Head Teacher III</option>
+                                                                <option>Principal I</option>
+                                                                <option>Principal II</option>
+                                                                <option>Principal III</option>
+                                                                <option>Project Development Officer I</option>
+                                                                <option>Administrative Assistant II</option>
+                                                                <option>Administrative Assistant III</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Designation</label>
+                                                            <select class="form-control" id="designation" required>
+                                                                <option></option>
+                                                                <option>-</option>
+                                                                <option>Guidance Counselor</option>
+                                                                <option>DRRM Coordinator</option>
+                                                                <option>SSLG Coordinator</option>
+                                                                <option>GAD Coordinator</option>
+                                                                <option>WOW Coordinator</option>
+                                                                <option>YES-O Coordinator</option>
+                                                                <option>WinS Coordinator</option>
+                                                                <option>Registrar</option>
+                                                                <option>Grade Level Coordinator</option>
+                                                                <option>JHS Coordinator</option>
+                                                                <option>SHS Coordinator</option>
+                                                                <option>Subject Area Coordinator</option>
+                                                                <option>Sports Coordinator</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Advisory</label>
+                                                            <select class="form-control" id="advisory" required>
+                                                                <option></option>
+                                                                <option>-</option>
+                                                                <option>Grade 7-Beauty</option>
+                                                                <option>Grade 7-Joy</option>
+                                                                <option>Grade 7-Kindness</option>
+                                                                <option>Grade 7-Love</option>
+                                                                <option>Grade 7-Modesty</option>
+                                                                <option>Grade 7-Obedience</option>
+                                                                <option>Grade 7-Politeness</option>
+                                                                <option>Grade 7-SSC</option>
+                                                                <option>Grade 8-Charity</option>
+                                                                <option>Grade 8-Generosity</option>
+                                                                <option>Grade 8-Justice</option>
+                                                                <option>Grade 8-Loyalty</option>
+                                                                <option>Grade 8-Patience</option>
+                                                                <option>Grade 8-Perseverance</option>
+                                                                <option>Grade 8-SSC</option>
+                                                                <option>Grade 8-Tolerance</option>
+                                                                <option>Grade 9-Cheerfulness</option>
+                                                                <option>Grade 9-Courage</option>
+                                                                <option>Grade 9-Diligence</option>
+                                                                <option>Grade 9-Endurance</option>
+                                                                <option>Grade 9-Humility</option>
+                                                                <option>Grade 9-Industry</option>
+                                                                <option>Grade 9-SSC</option>
+                                                                <option>Grade 9-Wisdom</option>
+                                                                <option>Grade 10-Compassion</option>
+                                                                <option>Grade 10-Faith</option>
+                                                                <option>Grade 10-Goodness</option>
+                                                                <option>Grade 10-Hope</option>
+                                                                <option>Grade 10-Peace</option>
+                                                                <option>Grade 10-Purity</option>
+                                                                <option>Grade 10-SSC</option>
+                                                                <option>Grade 10-Sympathy</option>
+                                                                <option>11 ABM-Ophiuchus</option>
+                                                                <option>11 GA-Pavo</option>
+                                                                <option>11 GA-Pegasus</option>
+                                                                <option>11 GA-Pyxis</option>
+                                                                <option>11 STEM-Andromeda</option>
+                                                                <option>11 STEM-Perseus</option>
+                                                                <option>11 ATS-Aquila</option>
+                                                                <option>11 ATS-Auriga</option>
+                                                                <option>11 EIM-Columba</option>
+                                                                <option>11 EIM-Corvus</option>
+                                                                <option>11 RAC-Volans</option>
+                                                                <option>12 ABM-Orion</option>
+                                                                <option>12 GA-Borealis</option>
+                                                                <option>12 GA-Australis</option>
+                                                                <option>12 STEM-Cepheus</option>
+                                                                <option>12 STEM-Cassiopeia</option>
+                                                                <option>12 ATS-Hercules</option>
+                                                                <option>12 EIM-Circinus</option>
+                                                                <option>12 EIM-Centaurus</option>
+                                                                <option>12 RAC-Vulpecula</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                        <button type="submit" class="btn btn-light">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             

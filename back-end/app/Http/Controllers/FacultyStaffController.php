@@ -78,4 +78,38 @@ class FacultyStaffController extends Controller
         // Return the data as JSON
         return response()->json(['facultyStaffList' => $facultyStaffList]);
     }
+
+    public function edit($id)
+    {
+        $facultyStaff = FacultyStaff::find($id);
+
+        return response()->json(['facultyStaff' => $facultyStaff]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $facultyStaff = FacultyStaff::find($id);
+
+        // Validate and update data here based on your form fields
+        $facultyStaff->last_name = $request->input('last_name');
+        $facultyStaff->first_name = $request->input('first_name');
+        $facultyStaff->middle_name = $request->input('middle_name');
+        $facultyStaff->extension = $request->input('extension');
+        $facultyStaff->gender = $request->input('gender');
+        $facultyStaff->date_of_birth = $request->input('date_of_birth');
+        $facultyStaff->contact_num = $request->input('contact_num');
+        $facultyStaff->email_add = $request->input('email_add');
+        $facultyStaff->education = $request->input('education');
+        $facultyStaff->specialization = $request->input('specialization');
+        $facultyStaff->date_appointment = $request->input('date_appointment');
+        $facultyStaff->employee_num = $request->input('employee_num');
+        $facultyStaff->department = $request->input('department');
+        $facultyStaff->position = $request->input('position');
+        $facultyStaff->designation = $request->input('designation');
+        $facultyStaff->advisory = $request->input('advisory');
+
+        $facultyStaff->save();
+
+        return response()->json(['message' => 'Faculty/Staff updated successfully']);
+    }
 }
