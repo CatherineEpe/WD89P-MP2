@@ -102,7 +102,6 @@ $(document).ready(function () {
             '<td>' + response.data.advisory + '</td>' +
             '<td>' +
             '<a href="javascript:void(0);" class="btn btn-sm btn-secondary" id="edit1"><i class="la la-pencil"></i></a>' +
-            '<a href="javascript:void(0);" class="btn btn-sm btn-secondary" id="download1"><i class="la la-download"></i></a>' +
             '<a href="javascript:void(0);" class="btn btn-sm btn-danger" id="delete1"><i class="la la-trash-o"></i></a>' +
             '</td>' +
             '</tr>';
@@ -120,5 +119,18 @@ $(document).ready(function () {
             combineAndFormatNames();
         });
     });
+
+    document.getElementById('cancelButton1').addEventListener('click', function () {
+        clearForm();
+    });
+
+    function clearForm() {
+        // You can use AJAX to send a request to the server to clear data if needed
+        // or simply reset the form fields using JavaScript
+        var form = document.getElementById('addFacultyForm');
+        
+        // Reset form fields
+        form.reset();
+    }
 });
 

@@ -4,15 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\FacultyStaff;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class FacultyStaffController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function store(Request $request)
     {
         // Validate the incoming request data
@@ -33,10 +28,11 @@ class FacultyStaffController extends Controller
             'position' => 'required|string|max:255',
             'designation' => 'required|string|max:255',
             'advisory' => 'required|string|max:255',
+            // Add more fields as needed
         ]);
 
         // Combine first, middle, and last names to form the combined name
-        $name = $validatedData['last_name'] . ', ' . $validatedData['first_name'] . ' ' . $validatedData['middle_name'] . ' ' . $validatedData['extension'];
+        $name = $validatedData['last_name'] . ' ' . $validatedData['first_name'] . ' ' . $validatedData['middle_name'] . ' ' . $validatedData['extension'];
 
         // Add the combined name to the validated data
         $validatedData['name'] = $name;
@@ -47,7 +43,7 @@ class FacultyStaffController extends Controller
         // Prepare the response data
         $responseData = [
             'id' => $facultyStaff->id,
-            'name' => $facultyStaff->combined_name,
+            'name' => $facultyStaff->name,
             'gender' => $facultyStaff->gender,
             'date_of_birth' => $facultyStaff->date_of_birth,
             'contact_num' => $facultyStaff->contact_number,
@@ -60,6 +56,7 @@ class FacultyStaffController extends Controller
             'position' => $facultyStaff->position,
             'designation' => $facultyStaff->designation,
             'advisory' => $facultyStaff->advisory,
+            // Add more fields as needed
         ];
 
         // Return the success response with the created faculty and staff data
@@ -88,28 +85,67 @@ class FacultyStaffController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        // Check if the faculty staff with the given ID exists
         $facultyStaff = FacultyStaff::find($id);
 
-        // Validate and update data here based on your form fields
-        $facultyStaff->last_name = $request->input('last_name');
-        $facultyStaff->first_name = $request->input('first_name');
-        $facultyStaff->middle_name = $request->input('middle_name');
-        $facultyStaff->extension = $request->input('extension');
-        $facultyStaff->gender = $request->input('gender');
-        $facultyStaff->date_of_birth = $request->input('date_of_birth');
-        $facultyStaff->contact_num = $request->input('contact_num');
-        $facultyStaff->email_add = $request->input('email_add');
-        $facultyStaff->education = $request->input('education');
-        $facultyStaff->specialization = $request->input('specialization');
-        $facultyStaff->date_appointment = $request->input('date_appointment');
-        $facultyStaff->employee_num = $request->input('employee_num');
-        $facultyStaff->department = $request->input('department');
-        $facultyStaff->position = $request->input('position');
-        $facultyStaff->designation = $request->input('designation');
-        $facultyStaff->advisory = $request->input('advisory');
 
-        $facultyStaff->save();
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'last_name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'middle_name' => 'required|string|max:255',
+            'extension' => 'required|string|max:10',
+            'gender' => 'required|string|max:10',
+            'date_of_birth' => 'required|date',
+            'contact_num' => 'required|string|max:15',
+            'email_add' => 'required|email|max:255',
+            'education' => 'required|string|max:255',
+            'specialization' => 'required|string|max:255',
+            'date_appointment' => 'required|date',
+            'employee_num' => 'required|string|max:20',
+            'department' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
+            'designation' => 'required|string|max:255',
+            'advisory' => 'required|string|max:255',
+        ]);
+
+        // Combine first, middle, and last names to form the combined name
+        $name = $validatedData['last_name'] . ' ' . $validatedData['first_name'] . ' ' . $validatedData['middle_name'] . ' ' . $validatedData['extension'];
+
+        // Add the combined name to the validated data
+        $validatedData['name'] = $name;
+
+        // Check if the faculty staff with the given ID exists
+        $facultyStaff = FacultyStaff::find($id);
+
+        if (!$facultyStaff) {
+            return response()->json(['error' => 'Faculty/Staff not found'], 404);
+        }
+
+        // Update the existing faculty staff record
+        $facultyStaff->update($validatedData);
+
+        // Delete the previous record (old data)
+        FacultyStaff::where('id', '!=', $facultyStaff->id)->delete();
 
         return response()->json(['message' => 'Faculty/Staff updated successfully']);
+    }
+
+    public function delete($id)
+    {
+        // Find the faculty/staff by ID
+        $facultyStaff = FacultyStaff::find($id);
+
+        // Check if the faculty/staff exists
+        if (!$facultyStaff) {
+            return response()->json(['error' => 'Faculty/staff not found'], 404);
+        }
+
+        // Delete the faculty/staff
+        $facultyStaff->delete();
+
+        // Return a success response
+        return response()->json(['message' => 'Faculty/staff deleted successfully']);
     }
 }

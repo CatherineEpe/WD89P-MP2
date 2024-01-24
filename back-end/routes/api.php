@@ -32,11 +32,9 @@ Route::post('/add-faculty', [FacultyStaffController::class, 'store']);
 Route::get('/faculty-staff/{id}', [FacultyStaffController::class, 'edit']);
 Route::put('/faculty-staff/{id}', [FacultyStaffController::class, 'update']);
 
+// Add a route to handle faculty and staff deletion
+Route::delete('/faculty-staff/{id}', [FacultyStaffController::class, 'delete']);
+Route::get('/delete-faculty-staff/{id}', [FacultyStaffController::class, 'edit']);
 
-// Update (Edit) faculty or staff
-Route::put('/update-faculty-staff/{id}', [FacultyStaffController::class, 'update']);
-
-// Delete faculty or staff
-Route::delete('/delete-faculty-staff/{id}', [FacultyStaffController::class, 'destroy']);
 
 

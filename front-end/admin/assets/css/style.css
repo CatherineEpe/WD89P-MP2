@@ -26857,6 +26857,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     text-align: center;
     text-wrap: wrap;
     padding: 20px;
+    margin: 30px;
     
   }
 

@@ -14,6 +14,19 @@
     <link href="../admin/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../admin/assets/css/style.css">
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
+
+    <!--  jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!--  SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
 </head>
 
 <body>
@@ -261,7 +274,7 @@
 					<div class="col-lg-12">
 						<ul class="nav nav-pills mb-3">
 							<li class="nav-item"><a href="#list-view" data-toggle="tab" class="nav-link btn-primary mr-1 show active">List View</a></li>
-							<li class="nav-item"><a href="#grid-view" data-toggle="tab" class="nav-link btn-primary">Grid View</a></li>
+							<li class="nav-item"><a href="#grid-view" data-toggle="tab" class="nav-link btn-primary" id="toggleButton">Grid View</a></li>
 						</ul>
 					</div>
 					<div class="col-lg-12">
@@ -274,7 +287,7 @@
                                         <a href="add-professor.html" class="btn btn-primary" id="add1">+ Add new</a>
                                     </div>
                                     <div class="card-body" id="listView">
-                                        <div class="table-responsive" id="all-faculty">
+                                        <div class="table-responsive">
                                             <table id="professorTable" class="display" style="min-width: 845px">
                                                 <thead>
                                                     <tr>
@@ -307,9 +320,8 @@
                             </div>                            
                             
                             <!-- Grid View -->
-							<div id="grid-view" class="tab-pane fade col-lg-12">
+							<div id="gridView" display="none" class="tab-pane fade col-lg-12">
                                 <div class="row">
-                                    <?php foreach ($facultiesAndStaffs as $faculty): ?>
                                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                                         <div class="card card-profile">
                                             <div class="card-header justify-content-end pb-0">
@@ -327,40 +339,39 @@
                                             </div>
                                             <div class="card-body pt-2">
                                                 <div class="text-center">
-                                                    <div class="counter">{{ $faculty->index + 1 }}</div>
-                                                    <h3 class="mt-4 mb-1">{{ $faculty->name }}</h3>
-                                                    <p class="text-muted">{{ $faculty->education }}</p>
+                                                    <div class="counter"></div>
+                                                    <h3 class="mt-4 mb-1"></h3>
+                                                    <p class="text-muted"></p>
                                                     <ul class="list-group mb-3 list-group-flush">
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Gender :</span><strong>{{ $faculty->gender }}</strong></li>
+                                                            <span class="mb-0">Gender :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Date of Birth :</span><strong>{{ $faculty->date_of_birth }}</strong></li>
+                                                            <span class="mb-0">Date of Birth :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Contact Number :</span><strong>{{ $faculty->contact_number }}</strong></li>
+                                                            <span class="mb-0">Contact Number :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Email Address :</span><strong>{{ $faculty->email_address }}</strong></li>
+                                                            <span class="mb-0">Email Address :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Education :</span><strong>{{ $faculty->education }}</strong></li>
+                                                            <span class="mb-0">Education :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Specialization :</span><strong>{{ $faculty->specialization }}</strong></li>
+                                                            <span class="mb-0">Specialization :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Date of Original Appointment :</span><strong>{{ $faculty->date_of_original_appointment }}</strong></li>
+                                                            <span class="mb-0">Date of Original Appointment :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Employee Number :</span><strong>{{ $faculty->employee_number }}</strong></li>
+                                                            <span class="mb-0">Employee Number :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Department :</span><strong>{{ $faculty->department }}</strong></li>
+                                                            <span class="mb-0">Department :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Position :</span><strong>{{ $faculty->position }}</strong></li>
+                                                            <span class="mb-0">Position :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Designation :</span><strong>{{ $faculty->designation }}</strong></li>
+                                                            <span class="mb-0">Designation :</span><strong></strong></li>
                                                         <li class="list-group-item px-0 d-flex justify-content-between">
-                                                            <span class="mb-0">Advisory :</span><strong>{{ $faculty->advisory }}</strong></li>
+                                                            <span class="mb-0">Advisory :</span><strong></strong></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php endforeach; ?>
                                 </div>
                             </div>
 
@@ -457,7 +468,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                                         <div class="form-group">
                                                             <label class="form-label">Date of Original Appointment</label>
-                                                            <input name="datepicker" class="form-control" id="datepicker" required>
+                                                            <input name="datepicker" class="form-control" id="datepicker2" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-4 col-sm-12">
@@ -584,7 +595,7 @@
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                                         <button type="submit" class="btn btn-primary">Submit</button>
-                                                        <button type="submit" class="btn btn-light">Cancel</button>
+                                                        <button type="submit" class="btn btn-light" id="cancelButton">Cancel</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -649,12 +660,23 @@
 
     <script src="../admin/assets/js/connection/faculty_staff2.js"></script>
 
-    <!--  jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <!--  SweetAlert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+    <script>
+        var picker = new Pikaday({
+            field: document.getElementById('datepicker'),
+            format: 'MM/DD/YYYY',
+            showYearDropdown: true,
+            yearRange: [1900, moment().year()],
+        });
+        var picker = new Pikaday({
+            field: document.getElementById('datepicker1'),
+            format: 'MM/DD/YYYY',
+            showYearDropdown: true,
+            yearRange: [1900, moment().year()],
+        });
+    </script>
 	
 </body>
 </html>
