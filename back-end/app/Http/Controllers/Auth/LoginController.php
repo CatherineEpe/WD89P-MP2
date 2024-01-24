@@ -18,7 +18,7 @@ class LoginController extends Controller
             // Determine user role and prepare the response
             $response = [
                 'message' => 'Login successful.',
-                'role' => $user->role, // Assuming you have a 'role' field in your users table
+                'role' => $user->role,
             ];
 
             return response()->json($response, 200);

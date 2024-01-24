@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-    // Assuming you have a form with id 'loginForm'
+  $(document).ready(function () {
     $('#loginForm').submit(function (event) {
       event.preventDefault();
-
+  
       $.ajax({
         url: 'http://127.0.0.1:8000/api/login',
         type: 'POST',
@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
               title: 'User Login Successful!',
               text: response.message,
             }).then(() => {
-              // Redirect to user page or another appropriate location
               window.location.href = '../user/home.html'; // Adjust the URL for the user page
             });
           } else {
@@ -100,10 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
           Swal.fire({
             icon: 'error',
             title: 'Login Failed!',
-            text: error.responseJSON.error,
+            text: error.responseJSON.error || 'Something went wrong. Please try again.',
           });
         },
       });
     });
-
+  });
+  
 });

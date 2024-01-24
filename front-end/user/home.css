@@ -35,6 +35,20 @@ footer{
     text-align: center;
     margin-top: 25px;
 }
-.whole-card{
-    margin: 50px 150px;
+.learner1{
+    margin-left: 50px;
+}
+.enrolment2{
+    margin-right: 50px;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.linked-picture:hover {
+    opacity: 0.8; /* Adjust the opacity for the hover effect */
 }
