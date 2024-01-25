@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FacultyStaffController;
+use App\Http\Controllers\FormController;
 use App\Models\FacultyStaff;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
@@ -36,5 +37,6 @@ Route::put('/faculty-staff/{id}', [FacultyStaffController::class, 'update']);
 Route::delete('/faculty-staff/{id}', [FacultyStaffController::class, 'delete']);
 Route::get('/delete-faculty-staff/{id}', [FacultyStaffController::class, 'edit']);
 
-
+// Enrollment Form
+Route::post('/submit-form', [FormController::class, 'submitForm']);
 

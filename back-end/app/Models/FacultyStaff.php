@@ -10,7 +10,6 @@ class FacultyStaff extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'name',
         'gender',
         'date_of_birth',

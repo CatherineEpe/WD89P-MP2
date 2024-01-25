@@ -28,7 +28,6 @@ class FacultyStaffController extends Controller
             'position' => 'required|string|max:255',
             'designation' => 'required|string|max:255',
             'advisory' => 'required|string|max:255',
-            // Add more fields as needed
         ]);
 
         // Combine first, middle, and last names to form the combined name
@@ -42,7 +41,6 @@ class FacultyStaffController extends Controller
 
         // Prepare the response data
         $responseData = [
-            'id' => $facultyStaff->id,
             'name' => $facultyStaff->name,
             'gender' => $facultyStaff->gender,
             'date_of_birth' => $facultyStaff->date_of_birth,
@@ -56,7 +54,6 @@ class FacultyStaffController extends Controller
             'position' => $facultyStaff->position,
             'designation' => $facultyStaff->designation,
             'advisory' => $facultyStaff->advisory,
-            // Add more fields as needed
         ];
 
         // Return the success response with the created faculty and staff data
