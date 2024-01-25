@@ -1,10 +1,10 @@
 // Function to combine and format names
 function combineAndFormatNames() {
   // Capitalize first letters of names
-  var lastName = capitalizeFirstLetter($('#last_name').val());
-  var firstName = capitalizeFirstLetter($('#first_name').val());
-  var middleName = capitalizeFirstLetter($('#middle_name').val());
-  var extension = $('#extension').val();
+  var lastName = capitalizeFirstLetter($('#last_name2').val());
+  var firstName = capitalizeFirstLetter($('#first_name2').val());
+  var middleName = capitalizeFirstLetter($('#middle_name2').val());
+  var extension = $('#extension2').val();
 
   // Combine names
   var Name = lastName + ', ' + firstName + ' ' + middleName + ' ' + extension;
@@ -17,7 +17,7 @@ function combineAndFormatNames() {
 
   // Combine father's name
   var fatherName = $('#flast').val() + ', ' + $('#ffirst').val() + ' ' + $('#fmiddle').val();
-
+5
   // Combine mother's maiden name
   var motherName = $('#mlast').val() + ', ' + $('#mfirst').val() + ' ' + $('#mmiddle').val();
 
@@ -30,33 +30,36 @@ function combineAndFormatNames() {
   // Prepare data for AJAX
   var formData = {
       lrn: $('#lrn').val(),
-      returnee: $('#returnee').val(),
+      returnee: $('#returnee1').val(),
       Name: Name,
-      gender: $('#gender').val(),
-      birthdate: $('#birthdate').val(),
+      gender: $('#gender2').val(),
+      birthdate: $('#datepicker3').val(),
       place_birth: $('#place_birth').val(),
-      age: $('#age').val(),
-      m_tongue: $('#m_tongue').val(),
+      age: $('#age1').val(),
+      mother_tongue: $('#m_tongue').val(),
       ip_member: $('#ip_member').val(),
       beneficiary: $('#beneficiary').val(),
       lwd: $('#lwd').val(),
       current_address: currentAddress,
       permanent_address: permanentAddress,
-      father_name: fatherName,
-      mother_maiden_name: motherName,
-      guardian_name: guardianName,
+      fathers_name: fatherName,
+      mothers_maiden_name: motherName,
+      legal_guardians_name: guardianName,
       parents_contact: parentsContact,
-      last_school: $('#last_school').val(),
-      last_level: $('#last_level').val(),
-      last_sy: $('#last_sy').val(),
-      last_schoolId: $('#last_schoolId').val(),
-  };
+      last_school_attended: $('#last_school').val(),
+      last_grade_level_completed: $('#last_level').val(),
+      last_school_year_completed: $('#last_sy').val(),
+      school_id: $('#last_schoolId').val(),
+      card_of_previous_grade: $('#cardOfPreviousGrade')[0].files[0],
+      birth_certificate: $('#birthCertificate')[0].files[0],
+    };
 
   // AJAX function to submit form data
   $.ajax({
-      url: 'http://127.0.0.1:8000/api/submit-form', // Update the URL based on your Laravel route
+      url: 'http://127.0.0.1:8000/api/submit-form',
       type: 'POST',
       dataType: 'json',
+      contentType: 'application/json',
       data: JSON.stringify(formData),
       success: function(response) {
           // Handle success

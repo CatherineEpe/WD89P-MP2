@@ -66,8 +66,7 @@ $(document).ready(function () {
         // Update the table with the retrieved data
         $.each(facultyStaffList, function (index, facultyStaff) {
             var row = '<tr>' +
-                '<td data-faculty-id="' + facultyStaff.id + '">' + facultyStaff.id + '</td>' +
-                '<td>' + facultyStaff.name + '</td>' +
+                '<td data-faculty-id="' + facultyStaff.id + '">' + facultyStaff.name + '</td>' +
                 '<td>' + facultyStaff.gender + '</td>' +
                 '<td>' + facultyStaff.date_of_birth + '</td>' +
                 '<td>' + facultyStaff.contact_num + '</td>' +
@@ -106,7 +105,7 @@ $(document).ready(function () {
                     if (facultyStaffId) {
                         fetchFacultyStaffDataForEdit(facultyStaffId);
                         $('#editForm').removeClass('hidden');
-                        $('#facultyStaffContainer').addClass('hidden');
+                        $('#listView').addClass('hidden');
                     } else {
                         console.error('Invalid facultyStaffId');
                     }
@@ -241,8 +240,9 @@ $(document).ready(function () {
         combineAndFormatNames(); // Call the function to combine and format names
         updateFacultyStaff(); // Call the function to update faculty staff data
         $('#editForm').addClass('hidden');
-        $('#professorsTableContainer').removeClass('hidden');
+        $('#listView').removeClass('hidden');
       });
+      
 
     // Function to handle the delete action
     function deleteFacultyStaff(id) {
@@ -288,8 +288,6 @@ $(document).ready(function () {
       $('#combined_name').val(combinedName);
   
       // Format dates for MySQL
-      var dateOfBirth = moment($('#datepicker1').val(), 'MM/DD/YYYY').format('YYYY-MM-DD');
-      var dateAppointment = moment($('#datepicker').val(), 'MM/DD/YYYY').format('YYYY-MM-DD');
   
       // Prepare data for AJAX or further processing
       var formattedData = {
@@ -298,18 +296,17 @@ $(document).ready(function () {
           middle_name: middleName,
           extension: extension,
           gender: $('#gender').val(),
-          date_of_birth: dateOfBirth,
+          date_of_birth: $('#datepicker1').val(),
           contact_number: $('#contact_number').val(),
           email_address: $('#email_address').val(),
           education: $('#education').val(),
           specialization: $('#specialization').val(),
-          date_appointment: dateAppointment,
+          date_appointment:$('#datepicker2').val(),
           employee_number: $('#employee_number').val(),
           department: $('#department').val(),
           position: $('#position').val(),
           designation: $('#designation').val(),
           advisory: $('#advisory').val(),
-          // Add other fields as needed
       };
   
       // You can now use the formattedData as needed, for example, sending it in an AJAX request.
@@ -325,7 +322,7 @@ $(document).ready(function () {
     // Event listener for cancel button click
     $('#cancelBtn').on('click', function () {
         $('#editForm').addClass('hidden');
-        $('#facultyStaffContainer').removeClass('hidden');
+        $('#listView').removeClass('hidden');
     });
 
         // Event listener for the toggle button click

@@ -8,19 +8,18 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('student_form', function (Blueprint $table) {
+        Schema::create('enrollment', function (Blueprint $table) {
             $table->id();
             $table->string('lrn');
             $table->string('returnee');
             $table->string('Name');
-            $table->string('extension')->nullable();
             $table->string('gender');
             $table->date('birthdate');
             $table->string('place_of_birth');
             $table->integer('age');
             $table->string('mother_tongue');
             $table->string('ip_member');
-            $table->string('four_ps');
+            $table->string('beneficiary');
             $table->string('lwd');
             $table->string('current_address');
             $table->string('permanent_address');
@@ -45,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_form');
+        Schema::dropIfExists('enrollment');
     }
 };

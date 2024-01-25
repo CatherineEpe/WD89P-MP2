@@ -134,7 +134,7 @@
               Swal.fire({
                   icon: 'error',
                   title: 'Registration Failed!',
-                  text: error.responseJSON.error,
+                  text: 'LRN, Email, or Username is Already in use. Please try again!',
               });
           }
       });

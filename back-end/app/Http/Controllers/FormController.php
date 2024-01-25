@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\StudentForm;
+use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
@@ -19,11 +20,11 @@ class FormController extends Controller
             'extension' => 'required|string|max:10',
             'gender' => 'required|string|in:Male,Female',
             'birthdate' => 'required|date',
-            'place_birth' => 'required|string|max:255',
+            'place_of_birth' => 'required|string|max:255',
             'age' => 'required|integer|min:0',
-            'm_tongue' => 'required|string|max:255',
+            'mother_tongue' => 'required|string|max:255',
             'ip_member' => 'required|string|in:Yes,No',
-            'four_ps' => 'required|string|in:Yes,No',
+            'beneficiary' => 'required|string|in:Yes,No',
             'lwd' => 'required|string|max:255',
             'currentHouseNo' => 'required|string|max:255',
             'currentSitioStreet' => 'required|string|max:255',
@@ -37,14 +38,14 @@ class FormController extends Controller
             'permanentMunicipalityCity' => 'required|string|max:255',
             'permanentCountry' => 'required|string|max:255',
             'permanentZipCode' => 'required|string|max:255',
-            'flast' => 'required|string|max:255',
-            'ffirst' => 'required|string|max:255',
-            'fmiddle' => 'required|string|max:255',
-            'fcontact' => 'required|string|max:255',
-            'mlast' => 'required|string|max:255',
-            'mfirst' => 'required|string|max:255',
-            'mmiddle' => 'required|string|max:255',
-            'mcontact' => 'required|string|max:255',
+            'flast' => 'nullable|string|max:255',
+            'ffirst' => 'nullable|string|max:255',
+            'fmiddle' => 'nullable|string|max:255',
+            'fcontact' => 'nullable|string|max:255',
+            'mlast' => 'nullable|string|max:255',
+            'mfirst' => 'nullable|string|max:255',
+            'mmiddle' => 'nullable|string|max:255',
+            'mcontact' => 'nullable|string|max:255',
             'glast' => 'nullable|string|max:255',
             'gfirst' => 'nullable|string|max:255',
             'gmiddle' => 'nullable|string|max:255',
@@ -61,8 +62,8 @@ class FormController extends Controller
         $studentForm = new StudentForm();
 
         // Combine last name, first name, middle name, and extension
-        $combinedName = $request->input('last_name') . ', ' . $request->input('first_name') . ' ' . $request->input('middle_name') . ' ' . $request->input('extension');
-        $studentForm->combined_name = $combinedName;
+        $combinedName = $request->input('last_name2') . ', ' . $request->input('first_name2') . ' ' . $request->input('middle_name2') . ' ' . $request->input('extension2');
+        $studentForm->Name = $combinedName;
 
         // Combine current address fields
         $currentAddress = $request->input('currentHouseNo') . ', ' . $request->input('currentSitioStreet') . ', ' . $request->input('currentBarangay') . ', ' . $request->input('currentMunicipalityCity') . ', ' . $request->input('currentCountry') . ', ' . $request->input('currentZipCode');
@@ -85,52 +86,37 @@ class FormController extends Controller
         $studentForm->legal_guardians_name = $guardianName;
 
         // Combine parent's contact number
-        $parentContact = $request->input('fcontact') . ' ' . $request->input('mcontact') . ' ' . $request->input('gcontact');
-        $studentForm->parents_contact = $parentContact;
-
-        // Combine guardian's name if all parts are present
-        if ($request->filled(['glast', 'gfirst', 'gmiddle'])) {
-            $guardianName = $request->input('glast') . ' ' . $request->input('gfirst') . ' ' . $request->input('gmiddle');
-        } else {
-            $guardianName = null;
-        }
-
-        // Combine parent's contact number if all parts are present
-        if ($request->filled(['fcontact', 'mcontact'])) {
-            $parentContact = $request->input('fcontact') . ' ' . $request->input('mcontact');
-        } else {
-            $parentContact = null;
-        }
+        $parentsContact = $request->input('fcontact') . ' ' . $request->input('mcontact') . ' ' . $request->input('gcontact');
+        $studentForm->parents_contact = $parentsContact;
 
         // Assign values to the model
-        $studentForm->legal_guardians_name = $guardianName;
-        $studentForm->parents_contact = $parentContact;
+        $studentForm->lrn = $request->input('lrn');
+        $studentForm->returnee = $request->input('returnee');
+        $studentForm->gender = $request->input('gender');
+        $studentForm->birthdate = $request->input('birthdate');
+        $studentForm->place_birth = $request->input('place_birth');
+        $studentForm->age = $request->input('age');
+        $studentForm->mother_tongue = $request->input('m_tongue');
+        $studentForm->ip_member = $request->input('ip_member');
+        $studentForm->beneficiary = $request->input('beneficiary');
+        $studentForm->lwd = $request->input('lwd');
+        $studentForm->last_school_attended = $request->input('last_school');
+        $studentForm->last_grade_level_completed = $request->input('last_level');
+        $studentForm->last_school_year_completed = $request->input('last_sy');
+        $studentForm->last_school_id = $request->input('last_schoolId');
 
+        
         // Handle file uploads
         if ($request->hasFile('card_of_previous_grade')) {
-            $cardOfPreviousGradePath = $request->file('card_of_previous_grade')->store('cardOfPreviousGrade');
+            $cardOfPreviousGradePath = $request->file('card_of_previous_grade')->store('public/card_of_previous_grade');
             $studentForm->card_of_previous_grade = $cardOfPreviousGradePath;
         }
 
         if ($request->hasFile('birth_certificate')) {
-            $birthCertificatePath = $request->file('birth_certificate')->store('birthCertificate');
+            $birthCertificatePath = $request->file('birth_certificate')->store('public/birth_certificate');
             $studentForm->birth_certificate = $birthCertificatePath;
         }
 
-
-        // If the user is not a returnee, set returnee-specific fields to null
-        if ($request->input('returnee') === 'No') {
-            $studentForm->last_school = null;
-            $studentForm->last_level = null;
-            $studentForm->last_sy = null;
-            $studentForm->last_school_id = null;
-        } else {
-            // If the user is a returnee, assign values for returnee-specific fields
-            $studentForm->last_school = $request->input('last_school');
-            $studentForm->last_level = $request->input('last_level');
-            $studentForm->last_sy = $request->input('last_sy');
-            $studentForm->last_school_id = $request->input('last_schoolId');
-        }
 
         // Save the student form data to the database
         $studentForm->save();

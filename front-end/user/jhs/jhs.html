@@ -24,13 +24,7 @@
     rel="stylesheet">
 
   <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="../admin/assets/images/favicon.png">
-  <link rel="stylesheet" href="../admin/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-  <link rel="stylesheet" href="../admin/assets/css/style.css">
-
-  <!-- Pick date -->
-  <link rel="stylesheet" href="../admin/assets/vendor/pickadate/themes/default.css">
-  <link rel="stylesheet" href="../admin/assets/vendor/pickadate/themes/default.date.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -39,6 +33,7 @@
   <!--  jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
   <!--  SweetAlert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -64,7 +59,7 @@
                 <h5 class="card-title">Learner's Information</h5>
               </div>
               <div class="card-body">
-                <form action="#" method="post" id="enrollmentForm" enctype="multipart/form-data">
+                <form action="#" method="post" id="enrollmentForm">
                   <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                       <div class="form-group">
@@ -135,7 +130,7 @@
                     <div class="col-lg-3 col-md-3 col-sm-12">
                       <div class="form-group">
                         <label class="form-label">Place of Birth</label>
-                        <input type="text" class="form-control" id="place_birth" required>
+                        <input type="text" class="form-control" id="place_of_birth" required>
                       </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12">
@@ -431,8 +426,8 @@
 
 
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                      <button type="submit" class="btn btn-light" id="cancelButton1">Cancel</button>
+                      <button type="submit" class="btn btn-primary" id="submitForm">Submit</button>
+                      <button type="button" class="btn btn-light" id="cancelButton1">Cancel</button>
                     </div>
                   </div>
                 </form>
@@ -450,7 +445,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script src=".//jhs.js"></script>
+    <script src="../jhs/jhs.js"></script>
 
     <script>
       // Datepicker
