@@ -61,62 +61,50 @@ class FormController extends Controller
         // Create a new StudentForm instance
         $studentForm = new StudentForm();
 
-        // Combine last name, first name, middle name, and extension
-        $combinedName = $request->input('last_name2') . ', ' . $request->input('first_name2') . ' ' . $request->input('middle_name2') . ' ' . $request->input('extension2');
-        $studentForm->Name = $combinedName;
-
-        // Combine current address fields
+        // Combine data
+        $Name = $request->input('last_name') . ' ' . $request->input('first_name') . ' ' . $request->input('middle_name') . ' ' . $request->input('extension');
         $currentAddress = $request->input('currentHouseNo') . ', ' . $request->input('currentSitioStreet') . ', ' . $request->input('currentBarangay') . ', ' . $request->input('currentMunicipalityCity') . ', ' . $request->input('currentCountry') . ', ' . $request->input('currentZipCode');
-        $studentForm->current_address = $currentAddress;
-
-        // Combine permanent address fields
         $permanentAddress = $request->input('permanentHouseNo') . ', ' . $request->input('permanentSitioStreet') . ', ' . $request->input('permanentBarangay') . ', ' . $request->input('permanentMunicipalityCity') . ', ' . $request->input('permanentCountry') . ', ' . $request->input('permanentZipCode');
-        $studentForm->permanent_address = $permanentAddress;
-
-        // Combine father's name
         $fatherName = $request->input('flast') . ' ' . $request->input('ffirst') . ' ' . $request->input('fmiddle');
-        $studentForm->fathers_name = $fatherName;
-
-        // Combine mother's maiden name
         $motherName = $request->input('mlast') . ' ' . $request->input('mfirst') . ' ' . $request->input('mmiddle');
-        $studentForm->mothers_maiden_name = $motherName;
-
-        // Combine guardian's name
         $guardianName = $request->input('glast') . ' ' . $request->input('gfirst') . ' ' . $request->input('gmiddle');
-        $studentForm->legal_guardians_name = $guardianName;
 
-        // Combine parent's contact number
-        $parentsContact = $request->input('fcontact') . ' ' . $request->input('mcontact') . ' ' . $request->input('gcontact');
-        $studentForm->parents_contact = $parentsContact;
+        // Create a new StudentForm instance
+        $studentForm = new StudentForm();
 
-        // Assign values to the model
+        // Assign combined data to model attributes
         $studentForm->lrn = $request->input('lrn');
         $studentForm->returnee = $request->input('returnee');
+        $studentForm->Name = $Name;
         $studentForm->gender = $request->input('gender');
         $studentForm->birthdate = $request->input('birthdate');
-        $studentForm->place_birth = $request->input('place_birth');
+        $studentForm->place_of_birth = $request->input('place_of_birth');
         $studentForm->age = $request->input('age');
-        $studentForm->mother_tongue = $request->input('m_tongue');
+        $studentForm->mother_tongue = $request->input('mother_tongue');
         $studentForm->ip_member = $request->input('ip_member');
         $studentForm->beneficiary = $request->input('beneficiary');
         $studentForm->lwd = $request->input('lwd');
+        $studentForm->current_address = $currentAddress;
+        $studentForm->permanent_address = $permanentAddress;
+        $studentForm->fathers_name = $fatherName;
+        $studentForm->mothers_maiden_name = $motherName;
+        $studentForm->legal_guardians_name = $guardianName;
+        $studentForm->parents_contact = $request->input('fcontact') . ' ' . $request->input('mcontact') . ' ' . $request->input('gcontact');
         $studentForm->last_school_attended = $request->input('last_school');
         $studentForm->last_grade_level_completed = $request->input('last_level');
         $studentForm->last_school_year_completed = $request->input('last_sy');
         $studentForm->last_school_id = $request->input('last_schoolId');
 
-        
         // Handle file uploads
         if ($request->hasFile('card_of_previous_grade')) {
-            $cardOfPreviousGradePath = $request->file('card_of_previous_grade')->store('public/card_of_previous_grade');
+            $cardOfPreviousGradePath = $request->file('card_of_previous_grade')->store('public');
             $studentForm->card_of_previous_grade = $cardOfPreviousGradePath;
         }
 
         if ($request->hasFile('birth_certificate')) {
-            $birthCertificatePath = $request->file('birth_certificate')->store('public/birth_certificate');
+            $birthCertificatePath = $request->file('birth_certificate')->store('public');
             $studentForm->birth_certificate = $birthCertificatePath;
         }
-
 
         // Save the student form data to the database
         $studentForm->save();

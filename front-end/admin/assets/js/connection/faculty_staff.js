@@ -125,8 +125,7 @@ $(document).ready(function () {
     });
 
     function clearForm() {
-        // You can use AJAX to send a request to the server to clear data if needed
-        // or simply reset the form fields using JavaScript
+
         var form = document.getElementById('addFacultyForm');
         
         // Reset form fields
