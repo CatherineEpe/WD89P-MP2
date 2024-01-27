@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('student_forms', function (Blueprint $table) {
+        Schema::create('student_forms_shs', function (Blueprint $table) {
             $table->id();
             $table->string('lrn');
             $table->string('grade_level');
@@ -49,6 +49,10 @@ return new class extends Migration
             $table->string('last_grade_level_completed')->nullable();
             $table->string('last_school_year_completed')->nullable();
             $table->string('school_id')->nullable();
+            $table->string('first_semester')->nullable();
+            $table->string('second_semester')->nullable();
+            $table->string('track');
+            $table->string('strand');
             $table->string('card_of_previous_grade');
             $table->string('birth_certificate');
             $table->timestamps();
@@ -62,6 +66,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_forms');
+        Schema::dropIfExists('student_forms_shs');
     }
 };

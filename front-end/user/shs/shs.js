@@ -8,10 +8,10 @@
       // Function to combine and format names
       function combineAndFormatNames() {
         // Capitalize first letters of names
-        var lastName = capitalizeFirstLetter($('#last_name2').val());
-        var firstName = capitalizeFirstLetter($('#first_name2').val());
-        var middleName = capitalizeFirstLetter($('#middle_name2').val());
-        var extension = $('#extension2').val();
+        var lastName = capitalizeFirstLetter($('#last_name').val());
+        var firstName = capitalizeFirstLetter($('#first_name').val());
+        var middleName = capitalizeFirstLetter($('#middle_name').val());
+        var extension = $('#extension').val();
         var name = lastName + ' ' + firstName + ' ' + middleName + ' ' + extension;
   
         // Combine father's name
@@ -38,7 +38,7 @@
         formData.append('grade_level', $('#grade_level').val());
         formData.append('returnee', $('#returnee1').val());
         formData.append('name', name);
-        formData.append('gender', $('#gender2').val());
+        formData.append('gender', $('#gender').val());
         formData.append('birthdate', $('#datepicker3').val());
         formData.append('place_of_birth', $('#place_of_birth').val());
         formData.append('age', $('#age1').val());
@@ -68,6 +68,10 @@
         formData.append('last_grade_level_completed', $('#last_grade_level_completed').val());
         formData.append('last_school_year_completed', $('#last_school_year_completed').val());
         formData.append('school_id', $('#school_id').val());
+        formData.append('first_semester', $('#semester1').val());
+        formData.append('second_semester', $('#semester2').val());
+        formData.append('track', $('#track').val());
+        formData.append('strand', $('#strand').val());
         formData.append('card_of_previous_grade', $('#card_of_previous_grade')[0].files[0]);
         formData.append('birth_certificate', $('#birth_certificate')[0].files[0]);
   
@@ -97,7 +101,7 @@
                   $('#enrollmentForm').hide();
   
                   // Redirect to the messsage from the admin
-                  window.location.href = '../jhs/admin_message.html';
+                  window.location.href = '../shs/admin_message2.html';
   
             // Clear the form after successful submission
             $('#enrollmentForm')[0].reset();

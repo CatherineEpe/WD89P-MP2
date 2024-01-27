@@ -14,24 +14,6 @@
       var extension = $('#extension2').val();
       var name = lastName + ' ' + firstName + ' ' + middleName + ' ' + extension;
 
-      // Combine father's name
-      var fatherLastName = capitalizeFirstLetter($('#flast').val());
-      var fatherFirstName = capitalizeFirstLetter($('#ffirst').val());
-      var fatherMiddleName = capitalizeFirstLetter($('#fmiddle').val());
-      var fatherName = fatherLastName + ' ' + fatherFirstName + ' ' + fatherMiddleName;
-
-      // Combine mother's name
-      var motherLastName = capitalizeFirstLetter($('#mlast').val());
-      var motherFirstName = capitalizeFirstLetter($('#mfirst').val());
-      var motherMiddleName = capitalizeFirstLetter($('#mmiddle').val());
-      var motherName = motherLastName + ' ' + motherFirstName + ' ' + motherMiddleName;
-
-      // Combine guardian's name
-      var guardianLastName = capitalizeFirstLetter($('#glast').val());
-      var guardianFirstName = capitalizeFirstLetter($('#gfirst').val());
-      var guardianMiddleName = capitalizeFirstLetter($('#gmiddle').val());
-      var guardianName = guardianLastName + ' ' + guardianFirstName + ' ' + guardianMiddleName;
-
       // Prepare data for AJAX
       var formData = new FormData();
       formData.append('lrn', $('#lrn').val());
@@ -50,19 +32,25 @@
       formData.append('currentSitioStreet', $('#currentSitioStreet').val());
       formData.append('currentBarangay', $('#currentBarangay').val());
       formData.append('currentMunicipalityCity', $('#currentMunicipalityCity').val());
-      formData.append('currentProvince', $('#currentCountry').val());
-      formData.append('currentCountry', $('#currentZipCode').val());
+      formData.append('currentProvince', $('#currentProvince').val());
+      formData.append('currentCountry', $('#currentCountry').val());
       formData.append('permanentHouseNo', $('#permanentHouseNo').val());
       formData.append('permanentSitioStreet', $('#permanentSitioStreet').val());
       formData.append('permanentBarangay', $('#permanentBarangay').val());
       formData.append('permanentMunicipalityCity', $('#permanentMunicipalityCity').val());
-      formData.append('permanentProvince', $('#permanentCountry').val());
-      formData.append('permanentCountry', $('#permanentZipCode').val());
-      formData.append('fathers_name', fatherName);
+      formData.append('permanentProvince', $('#permanentProvince').val());
+      formData.append('permanentCountry', $('#permanentCountry').val());
+      formData.append('flast', $('#flast').val());
+      formData.append('ffirst', $('#ffirst').val());
+      formData.append('fmiddle', $('#fmiddle').val());
       formData.append('fcontact', $('#fcontact').val());
-      formData.append('mothers_maiden_name', motherName);
+      formData.append('mlast', $('#mlast').val());
+      formData.append('mfirst', $('#mfirst').val());
+      formData.append('mmiddle', $('#mmiddle').val());
       formData.append('mcontact', $('#mcontact').val());
-      formData.append('guardians_name', guardianName);
+      formData.append('glast', $('#glast').val());
+      formData.append('gfirst', $('#gfirst').val());
+      formData.append('gmiddle', $('#gmiddle').val());
       formData.append('gcontact', $('#gcontact').val());
       formData.append('last_school_attended', $('#last_school_attended').val());
       formData.append('last_grade_level_completed', $('#last_grade_level_completed').val());

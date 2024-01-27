@@ -57,8 +57,8 @@
             <h3>Your form was submitted. Please wait for the confirmation of the Admin. <br> Thank you and God Bless!</h3>
       </div>
 
-      <div class="container text-center mt-3 px-4 py-2"> <!-- Added text-center class to center the button -->
-        <button class="btn btn-danger">Logout</button>
+      <div class="container text-center mt-3 px-4 py-2">
+        <button class="btn btn-danger" id="logoutButton">Logout</button>
       </div>
 
     <footer>
@@ -68,6 +68,27 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src=""></script>
+
+
+    <script>
+      function logout() {
+        // Perform logout actions here, such as clearing session data or redirecting to a login page
+        Swal.fire({
+              icon: 'success',
+              title: 'Logout Successfully!',
+              text: '',
+            });
+        
+        window.location.href = "../../login/index.html";
+    }
+
+    // Attach event listener to logout button
+    document.getElementById("logoutButton").addEventListener("click", function() {
+        // Call the logout function when the logout button is clicked
+        logout();
+    });
+    </script>
 
 </body>
 

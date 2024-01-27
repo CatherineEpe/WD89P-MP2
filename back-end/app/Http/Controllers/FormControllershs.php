@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\StudentForm;
+use App\Models\StudentFormShs;
 use Illuminate\Support\Facades\Validator;
 
 class FormController extends Controller
 {
-    public function submitForm(Request $request)
+    public function submitFormshs(Request $request)
     {
         // Validate the request data
         $validator = Validator::make($request->all(), [
@@ -46,6 +46,10 @@ class FormController extends Controller
             'last_grade_level_completed' => 'nullable|string|max:255',
             'last_school_year_completed' => 'nullable|string|max:255',
             'school_id' => 'nullable|string|max:255',
+            'first_semester' => 'nullable|string|max:255',
+            'second_semster' => 'nullable|string|max:255',
+            'track' => 'nullable|string|max:255',
+            'strand' => 'nullable|string|max:255',
             'card_of_previous_grade' => 'required|file|max:10240', 
             'birth_certificate' => 'required|file|max:10240', 
         ]);

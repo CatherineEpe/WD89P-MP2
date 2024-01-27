@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FacultyStaffController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Models\FacultyStaff;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,4 +40,14 @@ Route::get('/delete-faculty-staff/{id}', [FacultyStaffController::class, 'edit']
 
 // Enrollment Form
 Route::post('/submit-form', [FormController::class, 'submitForm']);
+Route::post('/submit-form', [FormController::class, 'submitForm']);
+Route::get('/search', [FormController::class, 'search']);
+Route::get('/edit-old/{id}', [FormController::class, 'editOld']);
+Route::put('/edit-old/{id}', [FormController::class, 'updateOld']);
+
+
+// Route to initiate the password reset process
+Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword']);
+// Route to update the password
+Route::post('/update-password', [ResetPasswordController::class, 'updatePassword']);
 
