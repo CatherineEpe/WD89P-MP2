@@ -9,6 +9,8 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -59,12 +61,24 @@
                 <h5 class="card-title">Learner's Information</h5>
               </div>
               <div class="card-body">
-                <form action="#" method="post" id="enrollmentForm">
+                <form action="#" method="post" id="enrollmentForm" enctype="multipart/form-data">
                   <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="col-lg-3 col-md-3 col-sm-12">
                       <div class="form-group">
-                        <label class="form-label">Learner's Reference Number</label>
+                        <label class="form-label">Learner's Reference No.</label>
                         <input type="text" class="form-control" id="lrn" required>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                      <div class="form-group">
+                        <label class="form-label">Grade Level to Enroll</label>
+                        <select class="form-control" id="grade_level" required>
+                          <option></option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
@@ -219,14 +233,14 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                       <div class="form-group">
-                        <label class="form-label">Country</label>
-                        <input type="text" class="form-control" id="currentCountry" required>
+                        <label class="form-label">Province</label>
+                        <input type="text" class="form-control" id="currentProvince" required>
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                       <div class="form-group">
-                        <label class="form-label">Zip Code</label>
-                        <input type="text" class="form-control" id="currentZipCode" required>
+                        <label class="form-label">Country</label>
+                        <input type="text" class="form-control" id="currentCountry" required>
                       </div>
                     </div>
 
@@ -266,14 +280,14 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                       <div class="form-group">
-                        <label class="form-label">Country</label>
-                        <input type="text" class="form-control" id="permanentCountry" required>
+                        <label class="form-label">Province</label>
+                        <input type="text" class="form-control" id="permanentProvince" required>
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                       <div class="form-group">
-                        <label class="form-label">Zip Code</label>
-                        <input type="text" class="form-control" id="permanentZipCode" required>
+                        <label class="form-label">Country</label>
+                        <input type="text" class="form-control" id="permanentCountry" required>
                       </div>
                     </div>
                     <!-- Parent's Information -->
@@ -407,13 +421,13 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                       <div class="form-group">
                         <label class="form-label">Card of Previous Grade Level</label>
-                        <input type="file" class="form-control-file" id="cardOfPreviousGrade" accept=".pdf, .jpg, .jpeg, .png" required>
+                        <input type="file" name="card_of_previous_grade" class="form-control-file" id="card_of_previous_grade" accept=".pdf, .jpg, .jpeg, .png" required>
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                       <div class="form-group">
                         <label class="form-label">Birth Certificate/NSO/PSA</label>
-                        <input type="file" class="form-control-file" id="birthCertificate" accept=".pdf, .jpg, .jpeg, .png" required>
+                        <input type="file" name="birth_certificate" class="form-control-file" id="birth_certificate" accept=".pdf, .jpg, .jpeg, .png" required>
                       </div>
                     </div>
 
@@ -445,6 +459,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../jhs/jhs.js"></script>
 
     <script>
@@ -462,12 +477,12 @@
             // Copy current address to permanent address fields
             var currentAddressFields = [
               'currentHouseNo', 'currentSitioStreet', 'currentBarangay',
-              'currentMunicipalityCity', 'currentCountry', 'currentZipCode'
+              'currentMunicipalityCity', 'currentProvince', 'currentCountry'
             ];
 
             var permanentAddressFields = [
               'permanentHouseNo', 'permanentSitioStreet', 'permanentBarangay',
-              'permanentMunicipalityCity', 'permanentCountry', 'permanentZipCode'
+              'permanentMunicipalityCity', 'permanentProvince', 'permanentCountry'
             ];
 
             for (var i = 0; i < currentAddressFields.length; i++) {
@@ -478,7 +493,7 @@
             // Clear permanent address fields if checkbox is unchecked
             var permanentAddressFields = [
               'permanentHouseNo', 'permanentSitioStreet', 'permanentBarangay',
-              'permanentMunicipalityCity', 'permanentCountry', 'permanentZipCode'
+              'permanentMunicipalityCity', 'permanentProvince', 'permanentCountry'
             ];
 
             for (var i = 0; i < permanentAddressFields.length; i++) {
