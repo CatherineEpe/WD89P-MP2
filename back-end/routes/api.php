@@ -44,6 +44,8 @@ Route::post('/submit-form', [FormController::class, 'submitForm']);
 Route::get('/search', [FormController::class, 'search']);
 Route::get('/edit-old/{id}', [FormController::class, 'editOld']);
 Route::put('/edit-old/{id}', [FormController::class, 'updateOld']);
+Route::post('/search', [FormController::class, 'trySearch']);
+Route::post('/update', [FormController::class, 'tryUpdate']);
 
 
 // Route to initiate the password reset process

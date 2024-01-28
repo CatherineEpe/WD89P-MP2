@@ -94,25 +94,25 @@
                   <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="form-label">Last Name</label>
-                      <input type="text" class="form-control" id="last_name2" required>
+                      <input type="text" class="form-control" id="last_name3" required>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="form-label">First Name</label>
-                      <input type="text" class="form-control" id="first_name2" required>
+                      <input type="text" class="form-control" id="first_name3" required>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="form-label">Middle Name</label>
-                      <input type="text" class="form-control" id="middle_name2" required>
+                      <input type="text" class="form-control" id="middle_name3" required>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="form-label">Extension</label>
-                      <select class="form-control" id="extension2" required>
+                      <select class="form-control" id="extension3" required>
                         <option></option>
                         <option>-</option>
                         <option>Jr.</option>
@@ -128,7 +128,7 @@
                   <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="form-label">Gender</label>
-                      <select class="form-control" id="gender2" required>
+                      <select class="form-control" id="gender3" required>
                         <option></option>
                         <option>Male</option>
                         <option>Female</option>
@@ -138,7 +138,7 @@
                   <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="form-label">Date of Birth</label>
-                      <input name="datepicker" class="form-control" id="datepicker3" required>
+                      <input name="datepicker" class="form-control" id="datepicker4" required>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12">
@@ -467,84 +467,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-    <!-- <script>
-      function fetchDataAndDisplay() {
-        var enrollmentId = getEnrollmentIdFromUrl();
-        if (enrollmentId) {
-          // Check if enrollmentId contains ':', and split it if necessary
-          if (enrollmentId.includes(':')) {
-            enrollmentId = enrollmentId.split(':')[0];
-          }
-          $.ajax({
-            url: 'http://127.0.0.1:8000/api/edit-old/' + enrollmentId,
-            type: 'GET',
-            dataType: 'json',
-            success: function (response) {
-              // Populate form fields with response data
-              $('#lrn').val(response.lrn);
-              $('#grade_level').val(response.grade_level);
-              $('#returnee1').val(response.returnee);
-
-              var nameParts = facultyStaff.name.split(' ');
-              var last_name = nameParts[0];
-              var first_name = nameParts[1];
-              var middle_name = nameParts[2] || '';
-              var extension = nameParts[3] || '';
-
-              $('#first_name2').val(response.first_name);
-              $('#middle_name2').val(response.middle_name);
-              $('#last_name2').val(response.last_name);
-              $('#extension2').val(response.extension);
-
-              $('#gender2').val(response.gender);
-              $('#datepicker3').val(response.birthdate);
-              $('#place_of_birth').val(response.place_of_birth);
-              $('#age').val(response.age);
-              $('#m_tongue').val(response.mother_tongue);
-              $('#ip_member').val(response.ip_member);
-              $('#beneficiary').val(response.beneficiary);
-              $('#lwd').val(response.lwd);
-              $('#currentHouseNo').val(response.currentHouseNo);
-              $('#currentSitioStreet').val(response.currentSitioStreet);
-              $('#currentBarangay').val(response.currentBarangay);
-              $('#currentMunicipalityCity').val(response.currentMunicipalityCity);
-              $('#currentProvince').val(response.currentProvince);
-              $('#currentCountry').val(response.currentCountry);
-              $('#permanentHouseNo').val(response.permanentHouseNo);
-              $('#permanentSitioStreet').val(response.permanentSitioStreet);
-              $('#permanentBarangay').val(response.permanentBarangay);
-              $('#permanentMunicipalityCity').val(response.permanentMunicipalityCity);
-              $('#permanentProvince').val(response.permanentProvince);
-              $('#permanentCountry').val(response.permanentCountry);
-              $('#flast').val(response.flast);
-              $('#ffirst').val(response.ffirst);
-              $('#fmiddle').val(response.fmiddle);
-              $('#fcontact').val(response.fcontact);
-              $('#mlast').val(response.mlast);
-              $('#mfirst').val(response.mfirst);
-              $('#mmiddle').val(response.mmiddle);
-              $('#mcontact').val(response.mcontact);
-              $('#glast').val(response.glast);
-              $('#gfirst').val(response.gfirst);
-              $('#gmiddle').val(response.gmiddle);
-              $('#gcontact').val(response.gcontact);
-              $('#last_school_attended').val(response.last_school_attended);
-              $('#last_grade_level_completed').val(response.last_grade_level_completed);
-              $('#last_school_year_completed').val(response.last_school_year_completed);
-              $('#school_id').val(response.school_id);
-              $('#card_of_previous_grade').val(card_of_previous_grade);
-              $('#birth_certificate').val(birth_certificate);
-            },
-            error: function (xhr, status, error) {
-              console.error(xhr.responseText);
-              // Handle error
-            }
-          });
-        } else {
-          console.error('Enrollment ID not found in URL.');
-        }
-      }
-    </script> -->
 
 </body>
 

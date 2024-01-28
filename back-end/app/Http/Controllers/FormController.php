@@ -101,10 +101,18 @@ class FormController extends Controller
 
     public function editOld($id)
     {
-        // Fetch the enrollment data by ID
-        $enrollment = StudentForm::findOrFail($id);
-
+        try {
+            // Fetch the enrollment data by ID
+            $enrollment = StudentForm::findOrFail($id);
+            
+            // Return the enrollment data as JSON response
+            return response()->json($enrollment);
+        } catch (\Exception $e) {
+            // Handle any exceptions, such as the enrollment not found
+            return response()->json(['error' => 'Enrollment not found'], 404);
+        }
     }
+    
 
     public function updateOld(Request $request, $id)
     {
@@ -162,5 +170,32 @@ class FormController extends Controller
 
         // Return a response indicating success (you can customize the response as needed)
         return response()->json(['message' => 'Enrollment data updated successfully']);
+    }
+
+    public function trySearch(Request $request)
+    {
+        $lrn = $request->input('lrn');
+        $student = StudentForm::where('lrn', $lrn)->first();
+
+        if ($student) {
+            return response()->json(['success' => true, 'student' => $student]);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Student not found']);
+        }
+    }
+
+    public function tryUpdate(Request $request)
+    {
+        // Validation can be added here if needed
+        $lrn = $request->input('lrn');
+        $gradeLevel = $request->input('grade_level');
+        // Update other fields as needed
+
+        $student = StudentForm::where('lrn', $lrn)->first();
+        $student->grade_level = $gradeLevel;
+        // Update other fields as needed
+        $student->save();
+
+        return response()->json(['success' => true]);
     }
 }
