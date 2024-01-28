@@ -10,9 +10,6 @@ $(document).ready(function () {
             },
             success: function (response) {
                 if (response.success) {
-                    // Populate the form fields with student data
-                    // Assuming response.student.name is in the format "First Middle Last Extension"
-
                     $('#lrn').val(response.student.lrn);
                     $("#grade_level").val(response.student.grade_level);
                     $('#returnee1').val(response.student.returnee);
@@ -63,11 +60,12 @@ $(document).ready(function () {
                     $('#gfirst').val(response.student.gfirst);
                     $('#gmiddle').val(response.student.gmiddle);
                     $('#gcontact').val(response.student.gcontact);
-                    $('#last_school').val(response.student.last_school);
-                    $('#last_level').val(response.student.last_level);
-                    $('#last_sy').val(response.student.last_sy);
-                    $('#last_schoolId').val(response.student.last_schoolId);
+                    $('#last_school').val(response.student.last_school_attended);
+                    $('#last_level').val(response.student.last_grade_level_completed);
+                    $('#last_sy').val(response.student.last_school_year_completed);
+                    $('#last_schoolId').val(response.student.school_id);
 
+                    // Show success message using SweetAlert2
                     Swal.fire({
                         icon: 'success',
                         title: 'Success',
@@ -77,11 +75,11 @@ $(document).ready(function () {
                     $("#old_new").addClass("hidden");
                     $("#edit_form").removeClass("hidden");
                 } else {
-                     // Use SweetAlert2 for showing the alert
+                    // Show error message using SweetAlert2
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
-                        text: 'No student with the LRN' + ' '+ lrn + ' ' + 'is found!'
+                        text: 'No student with the LRN ' + lrn + ' is found!'
                     });
                 }
             },
@@ -94,30 +92,81 @@ $(document).ready(function () {
     $("#submitForm").click(function () {
         var lrn = $("#lrn").val();
         var gradeLevel = $("#grade_level").val();
-        // Get other form field values
-    
+        var returnee = $("#returnee1").val();
+        var age = $("#age1").val();
+        var beneficiary = $("#beneficiary").val();
+        var lwd = $("#lwd").val();
+        var currentHouseNo = $("#currentHouseNo").val();
+        var currentSitioStreet = $("#currentSitioStreet").val();
+        var currentBarangay = $("#currentBarangay").val();
+        var currentMunicipalityCity = $("#currentMunicipalityCity").val();
+        var currentProvince = $("#currentProvince").val();
+        var currentCountry = $("#currentCountry").val();
+        var permanentHouseNo = $("#permanentHouseNo").val();
+        var permanentSitioStreet = $("#permanentSitioStreet").val();
+        var permanentBarangay = $("#permanentBarangay").val();
+        var permanentMunicipalityCity = $("#permanentMunicipalityCity").val();
+        var permanentProvince = $("#permanentProvince").val();
+        var permanentCountry = $("#permanentCountry").val();
+        var fcontact = $("#fcontact").val();
+        var mcontact = $("#mcontact").val();
+        var glast = $("#glast").val();
+        var gfirst = $("#gfirst").val();
+        var gmiddle = $("#gmiddle").val();
+        var gcontact = $("#gcontact").val();
+        var lastSchool = $("#last_school").val();
+        var lastLevel = $("#last_level").val();
+        var lastSY = $("#last_sy").val();
+        var lastSchoolId = $("#last_schoolId").val();
+
         $.ajax({
             url: "http://127.0.0.1:8000/api/update",
             type: "POST",
             data: {
                 lrn: lrn,
-                grade_level: gradeLevel
-                // Add other form field values as needed
+                grade_level: gradeLevel,
+                returnee: returnee,
+                age: age,
+                beneficiary: beneficiary,
+                lwd: lwd,
+                currentHouseNo: currentHouseNo,
+                currentSitioStreet: currentSitioStreet,
+                currentBarangay: currentBarangay,
+                currentMunicipalityCity: currentMunicipalityCity,
+                currentProvince: currentProvince,
+                currentCountry: currentCountry,
+                permanentHouseNo: permanentHouseNo,
+                permanentSitioStreet: permanentSitioStreet,
+                permanentBarangay: permanentBarangay,
+                permanentMunicipalityCity: permanentMunicipalityCity,
+                permanentProvince: permanentProvince,
+                permanentCountry: permanentCountry,
+                fcontact: fcontact,
+                mcontact: mcontact,
+                glast: glast,
+                gfirst: gfirst,
+                gmiddle: gmiddle,
+                gcontact: gcontact,
+                last_school: lastSchool,
+                last_level: lastLevel,
+                last_sy: lastSY,
+                last_schoolId: lastSchoolId
             },
+
             success: function (response) {
                 if (response.success) {
-                    // Use SweetAlert2 for success message
+                    // Show success message using SweetAlert2
                     Swal.fire({
                         icon: 'success',
                         title: 'Success',
                         text: 'Update successful!',
                         showConfirmButton: false,
                         timer: 1500 // Close alert after 1.5 seconds
-                    }).then(function() {
+                    }).then(function () {
                         window.location.href = "admin_message.html";
                     });
                 } else {
-                    // Use SweetAlert2 for error message
+                    // Show error message using SweetAlert2
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
@@ -127,7 +176,7 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 console.error(error);
-                // Use SweetAlert2 for error message
+                // Show error message using SweetAlert2
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
@@ -135,5 +184,7 @@ $(document).ready(function () {
                 });
             }
         });
+
     });
+
 });

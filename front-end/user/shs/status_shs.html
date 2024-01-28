@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>VNHS Online Enrollment System</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="../shs/shs.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caprasimo&family=Caveat:wght@700&family=Concert+One&family=Fredericka+the+Great&family=Handlee&family=Julee&family=Lobster&family=Noto+Sans+KR:wght@100&family=Passion+One&family=Patrick+Hand&family=Press+Start+2P&family=Quicksand:wght@300&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
+
+  <!--  jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <!--  SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+      <img src="../logo1.svg" alt="logo" width="300px">
+    </nav>
+
+    <div class="container-fluid">
+      <h1>Senior High School Department</h1>
+    </div>
+
+    <div class="container-fluid" id="old_new2">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-4 offset-md-4 mb-4 text-center align-items-center">
+            <a href="../shs/shs.html">
+              <img src="../shsNew.svg" alt="Junior High School" class="img-fluid linked-picture">
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-12">
+              <h6>For Old Students and Returnees</h6>
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" id="lrnSearchInput2" class="form-control"
+                placeholder="Search by Learner's Reference Number">
+              <button class="btn btn-primary" id="lrnSearchButton2" type="button">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+        <div class="container-fluid hidden" id="edit_form2">
+          <div class="row">
+            <div class="col-xl-12 col-xxl-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title">Learner's Information</h5>
+                </div>
+                <div class="card-body">
+                  <form action="#" method="post" id="edit_old2" enctype="multipart/form-data">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Learner's Reference No.</label>
+                          <input type="text" class="form-control" id="lrn5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Grade Level to Enroll</label>
+                          <select class="form-control" id="grade_level5" required>
+                            <option></option>
+                            <option>11</option>
+                            <option>12</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Are you a Returnee (Balik-aral), Transferee or Move In?</label>
+                          <select class="form-control" id="returnee5" required>
+                            <option></option>
+                            <option>Yes</option>
+                            <option>No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Last Name</label>
+                          <input type="text" class="form-control" id="last_name5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">First Name</label>
+                          <input type="text" class="form-control" id="first_name5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Middle Name</label>
+                          <input type="text" class="form-control" id="middle_name5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Extension</label>
+                          <select class="form-control" id="extension5" required>
+                            <option></option>
+                            <option>-</option>
+                            <option>Jr.</option>
+                            <option>Sr.</option>
+                            <option>III</option>
+                            <option>IV</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!-- Hidden input for my combined name -->
+                      <input type="hidden" id="combined_name2" name="combined_name">
+                      <!-- Gender, Birth date, Place of Birth, Age -->
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Gender</label>
+                          <select class="form-control" id="gender5" required>
+                            <option></option>
+                            <option>Male</option>
+                            <option>Female</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Date of Birth</label>
+                          <input name="datepicker" class="form-control" id="datepicker5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Place of Birth</label>
+                          <input type="text" class="form-control" id="place_of_birth5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Age</label>
+                          <input type="number" class="form-control" id="age5" required>
+                        </div>
+                      </div>
+                      <!-- Gender, Birth date, Place of Birth, Age -->
+                      <div class="col-lg-2 col-md-2 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Mother Tongue</label>
+                          <input type="text" class="form-control" id="m_tongue5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">IP Member?</label>
+                          <select class="form-control" id="ip_member5" required>
+                            <option></option>
+                            <option>Yes</option>
+                            <option>No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">4Ps Member?</label>
+                          <select class="form-control" id="beneficiary5" required>
+                            <option></option>
+                            <option>Yes</option>
+                            <option>No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Learner With Disability?</label>
+                          <select class="form-control" id="lwd5" required>
+                            <option></option>
+                            <option>No</option>
+                            <option>Visual Impairment</option>
+                            <option>Hearing Impairment</option>
+                            <option>Learning Disability</option>
+                            <option>Cerebral Palsy</option>
+                            <option>Orthopedic/Physical Handicap</option>
+                            <option>Autism Spectrum Disorder</option>
+                            <option>Speech/Language Disorder</option>
+                            <option>Emotional-Behavioral Disorder</option>
+                            <option>Intellectual Disability</option>
+                            <option>Special Health Problem/Chronic Disease</option>
+                            <option>Multiple Disorder</option>
+                          </select>
+                        </div>
+                      </div>
+    
+                      <!-- Current Address -->
+                      <div class="card-header">
+                        <h5 class="card-title">Current Address</h5>
+                      </div>
+                      <div class="card-header">
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">House No.</label>
+                          <input type="text" class="form-control" id="currentHouseNo5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Sitio/Street name</label>
+                          <input type="text" class="form-control" id="currentSitioStreet5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Barangay</label>
+                          <input type="text" class="form-control" id="currentBarangay5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Municipality/City</label>
+                          <input type="text" class="form-control" id="currentMunicipalityCity5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Province</label>
+                          <input type="text" class="form-control" id="currentProvince5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Country</label>
+                          <input type="text" class="form-control" id="currentCountry5" required>
+                        </div>
+                      </div>
+    
+                      <!-- Permanent Address -->
+                      <div class="card-header">
+                        <h5 class="card-title">Permanent Address</h5>
+                      </div>
+                      <div class="card-header">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="copyCurrent">
+                          <label class="form-check-label" for="copyCurrent">Same as Current Address</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">House No.</label>
+                          <input type="text" class="form-control" id="permanentHouseNo5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Sitio/Street name</label>
+                          <input type="text" class="form-control" id="permanentSitioStreet5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Barangay</label>
+                          <input type="text" class="form-control" id="permanentBarangay5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Municipality/City</label>
+                          <input type="text" class="form-control" id="permanentMunicipalityCity5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Province</label>
+                          <input type="text" class="form-control" id="permanentProvince5" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Country</label>
+                          <input type="text" class="form-control" id="permanentCountry5" required>
+                        </div>
+                      </div>
+                      <!-- Parent's Information -->
+                      <div class="card-header">
+                        <h5 class="card-title">Parent's Information</h5>
+                      </div>
+                      <div class="card-header">
+                      </div>
+                      <!-- Father's Name -->
+                      <div class="card-header">
+                        <small class="card-title">Father's Name:</small>
+                      </div>
+                      <div class="card-header">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Last Name</label>
+                          <input type="text" class="form-control" id="flast5">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">First Name</label>
+                          <input type="text" class="form-control" id="ffirst5">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Middle Name</label>
+                          <input type="text" class="form-control" id="fmiddle5">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Contact Number</label>
+                          <input type="text" class="form-control" id="fcontact5">
+                        </div>
+                      </div>
+                      <!-- Mother's Maiden Name -->
+                      <div class="card-header">
+                        <small class="card-title">Mother's Maiden Name:</small>
+                      </div>
+                      <div class="card-header">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Last Name</label>
+                          <input type="text" class="form-control" id="mlast5">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">First Name</label>
+                          <input type="text" class="form-control" id="mfirst5">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Middle Name</label>
+                          <input type="text" class="form-control" id="mmiddle5">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Contact Number</label>
+                          <input type="text" class="form-control" id="mcontact5">
+                        </div>
+                      </div>
+                      <!-- Legal Guardian's name -->
+                      <div class="card-header">
+                        <small class="card-title">Legal Guardian's Name:</small>
+                      </div>
+                      <div class="card-header">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Last Name</label>
+                          <input type="text" class="form-control" id="glast5">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">First Name</label>
+                          <input type="text" class="form-control" id="gfirst5">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Middle Name</label>
+                          <input type="text" class="form-control" id="gmiddle5">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Contact Number</label>
+                          <input type="text" class="form-control" id="gcontact5">
+                        </div>
+                      </div>
+                      <!-- For Returnees -->
+                      <div class="card-header">
+                        <h5 class="card-title returnees-section">For Returnee's (Balik-aral), Transferees and Move In</h5>
+                      </div>
+                      <div class="card-header returnees-section">
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 returnees-section">
+                        <div class="form-group">
+                          <label class="form-label">Last School Attended</label>
+                          <input type="text" class="form-control" id="last_school5">
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12 returnees-section">
+                        <div class="form-group">
+                          <label class="form-label">Last Grade Level Completed</label>
+                          <input type="text" class="form-control" id="last_level5">
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12 returnees-section">
+                        <div class="form-group">
+                          <label class="form-label">Last School Year Completed</label>
+                          <input type="text" class="form-control" id="last_sy5">
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12 returnees-section5">
+                        <div class="form-group">
+                          <label class="form-label">School Id</label>
+                          <input type="text" class="form-control" id="last_schoolId5">
+                        </div>
+                      </div>
+    
+                      <!-- Tracks and Strands -->
+                      <div class="card-header">
+                        <h5 class="card-title">Tracks and Strands</h5>
+                      </div>
+                      <div class="card-header">
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group form-check-inline">
+                          <label class="form-label">Select Semester(s)</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="semester1" name="semester[]" value="1">
+                            <label class="form-check-label" for="semester1">1st Semester</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="semester2" name="semester[]" value="2">
+                            <label class="form-check-label" for="semester2">2nd Semester</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Track</label>
+                          <select class="form-control" id="track" required>
+                            <option></option>
+                            <option>Academic Track</option>
+                            <option>Technical-Vocational-Livelihood (TVL) Track</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Strand</label>
+                          <select class="form-control" id="strand" required>
+                            <option></option>
+                            <option>Accountancy, Business and Management Strand (ABM) Strand</option>
+                            <option>Science, Technology, Engineering and Mathematics (STEM) Strand </option>
+                            <option>General Academic Strand (GAS)</option>
+                            <option>Electrical Installation and Maintenance (EIM)</option>
+                            <option>Automotive Servicing (ATS)</option>
+                            <option>Refrigeration and Air Conditioning (RAC)</option>
+                          </select>
+                        </div>
+                      </div>
+    
+                      <!-- Files to upload -->
+                      <div class="card-header">
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Card of Previous Grade Level</label>
+                          <input type="file" name="card_of_previous_grade" class="form-control-file"
+                            id="card_of_previous_grade5" accept=".pdf, .jpg, .jpeg, .png" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Birth Certificate/NSO/PSA</label>
+                          <input type="file" name="birth_certificate" class="form-control-file" id="birth_certificate5"
+                            accept=".pdf, .jpg, .jpeg, .png" required>
+                        </div>
+                      </div>
+    
+                      <div class="card-header">
+                      </div>
+                      <div class="card-header">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="certificationCheckbox" required>
+                          <label class="form-check-label" for="certificationCheckbox">I hereby certify that the above
+                            information given is true and correct to the best of my knowledge, and I allow the DepEd to use
+                            my child's details in the Learner Information System. The information herein shall be treated as
+                            confidential in compliance with the <a href="#">Data Privacy Act of 2012</a>.</label>
+                        </div>
+                      </div>
+    
+                      <div class="card-header">
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <button type="submit" class="btn btn-primary" id="submitForm2">Submit</button>
+                        <button type="button" class="btn btn-light" id="cancelButton1">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    <footer>
+      <h6>VNHS - copyright 2023 All Rights Reserved.</h6>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <script src="./status_shs.js"></script>
+
+    <script>
+      // Datepicker
+      var picker = new Pikaday({
+        field: document.getElementById('datepicker5'),
+        format: 'YYYY-MM-DD',
+        showYearDropdown: true,
+        yearRange: [1900, moment().year()],
+      });
+      // Use JavaScript to handle the checkbox functionality
+      $(document).ready(function () {
+        $('#copyCurrent').change(function () {
+          if (this.checked) {
+            // Copy current address to permanent address fields
+            var currentAddressFields = [
+              'currentHouseNo', 'currentSitioStreet', 'currentBarangay',
+              'currentMunicipalityCity', 'currentProvince', 'currentCountry'
+            ];
+
+            var permanentAddressFields = [
+              'permanentHouseNo', 'permanentSitioStreet', 'permanentBarangay',
+              'permanentMunicipalityCity', 'permanentProvince', 'permanentCountry'
+            ];
+
+            for (var i = 0; i < currentAddressFields.length; i++) {
+              var currentField = $('#' + currentAddressFields[i]).val();
+              $('#' + permanentAddressFields[i]).val(currentField);
+            }
+          } else {
+            // Clear permanent address fields if checkbox is unchecked
+            var permanentAddressFields = [
+              'permanentHouseNo', 'permanentSitioStreet', 'permanentBarangay',
+              'permanentMunicipalityCity', 'permanentProvince', 'permanentCountry'
+            ];
+
+            for (var i = 0; i < permanentAddressFields.length; i++) {
+              $('#' + permanentAddressFields[i]).val('');
+            }
+          }
+
+
+          // Additional code to handle certification checkbox
+          var certificationCheckbox = $('#certificationCheckbox');
+
+          // Enable or disable submit button based on certification checkbox
+          $('button[type="submit"]').prop('disabled', !certificationCheckbox.prop('checked'));
+        });
+
+        $('#certificationCheckbox').change(function () {
+          // Enable or disable submit button based on certification checkbox
+          $('button[type="submit"]').prop('disabled', !$(this).prop('checked'));
+        });
+
+        // Handle file input change events
+        $('#card_of_previous_grade, #birth_certificate').change(function () {
+          validateFileInputs();
+        });
+
+        function validateFileInputs() {
+          // Check if both file inputs are filled
+          var cardOfPreviousGrade = $('#card_of_previous_grade').get(0).files.length > 0;
+          var birthCertificate = $('#birth_certificate').get(0).files.length > 0;
+
+          // Enable or disable submit button based on file inputs
+          $('button[type="submit"]').prop('disabled', !(cardOfPreviousGrade && birthCertificate));
+        }
+
+        // For Returnees
+        // Initial check on page load
+        toggleReturneesSection();
+
+        // Handle change event on the Returnee dropdown
+        $('#returnee1').change(function () {
+          toggleReturneesSection();
+        });
+
+        function toggleReturneesSection() {
+          var returneeOption = $('#returnee1').val();
+
+          // Check if the selected option is "No"
+          if (returneeOption && returneeOption.toLowerCase() === 'no') {
+            // Hide the "For Returnees" section
+            $('.returnees-section').hide();
+          } else {
+            // Show the "For Returnees" section
+            $('.returnees-section').show();
+          }
+        }
+      });
+
+    </script>
+
+</body>
+
+</html>

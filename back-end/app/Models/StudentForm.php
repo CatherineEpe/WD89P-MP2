@@ -48,6 +48,8 @@ class StudentForm extends Model
         'last_school_year_completed',
         'school_id',
         'card_of_previous_grade', 
-        'birth_certificate', 
+        'birth_certificate',
+        'status',
+        'enrollmentStatus', 
     ];
 }

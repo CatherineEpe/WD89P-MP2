@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('student_forms_shs', function (Blueprint $table) {
+        Schema::create('student_form_shs', function (Blueprint $table) {
             $table->id();
             $table->string('lrn');
             $table->string('grade_level');
@@ -39,12 +39,18 @@ return new class extends Migration
             $table->string('permanentMunicipalityCity');
             $table->string('permanentProvince');
             $table->string('permanentCountry');
-            $table->string('fathers_name')->nullable();
-            $table->string('fcontact')->nullable();
-            $table->string('mothers_maiden_name')->nullable();
-            $table->string('mcontact')->nullable();
-            $table->string('guardians_name')->nullable();
-            $table->string('gcontact')->nullable();
+            $table->string('flast');
+            $table->string('ffirst');
+            $table->string('fmiddle');
+            $table->string('fcontact');
+            $table->string('mlast');
+            $table->string('mfirst');
+            $table->string('mmiddle');
+            $table->string('mcontact');
+            $table->string('glast');
+            $table->string('gfirst');
+            $table->string('gmiddle');
+            $table->string('gcontact');
             $table->string('last_school_attended')->nullable();
             $table->string('last_grade_level_completed')->nullable();
             $table->string('last_school_year_completed')->nullable();
@@ -66,6 +72,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_forms_shs');
+        Schema::dropIfExists('student_form_shs');
     }
 };

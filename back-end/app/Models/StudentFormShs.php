@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class StudentForm extends Model
+class StudentFormShs extends Model
 {
     protected $fillable = [
         'lrn',
@@ -52,6 +52,8 @@ class StudentForm extends Model
         'track',
         'strand',
         'card_of_previous_grade', 
-        'birth_certificate', 
+        'birth_certificate',
+        'status',
+        'enrollmentStatus',
     ];
 }

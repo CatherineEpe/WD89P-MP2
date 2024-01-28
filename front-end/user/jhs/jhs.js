@@ -79,7 +79,7 @@
           Swal.fire({
             icon: 'success',
             title: 'Form Submitted Successfully!',
-            text: response.message,
+            text: 'Thank you for applying!',
           });
                 // Hide the form
                 $('#enrollmentForm').hide();

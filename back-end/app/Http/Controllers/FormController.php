@@ -87,91 +87,6 @@ class FormController extends Controller
         return response()->json(['message' => 'Form submitted successfully'], 201);
     }
 
-    public function search(Request $request)
-    {
-        // Get the learner's reference number from the request
-        $lrn = $request->input('lrn');
-
-        // Perform the search in the database
-        $enrollment = StudentForm::where('lrn', $lrn)->first();
-
-        // Return the search results (you can customize this based on your database structure)
-        return response()->json($enrollment);
-    }
-
-    public function editOld($id)
-    {
-        try {
-            // Fetch the enrollment data by ID
-            $enrollment = StudentForm::findOrFail($id);
-            
-            // Return the enrollment data as JSON response
-            return response()->json($enrollment);
-        } catch (\Exception $e) {
-            // Handle any exceptions, such as the enrollment not found
-            return response()->json(['error' => 'Enrollment not found'], 404);
-        }
-    }
-    
-
-    public function updateOld(Request $request, $id)
-    {
-        // Find the enrollment by ID
-        $enrollment = StudentForm::findOrFail($id);
-
-        // Validate the request data (you can customize the validation rules)
-        $validatedData = $request->validate([
-            'lrn' => 'required',
-            'grade_level' => 'required',
-            'returnee' => 'required',
-            'name' => 'required|string',
-            'gender' => 'required|string|in:Male,Female',
-            'birthdate' => 'required|date',
-            'place_of_birth' => 'required|string|max:255',
-            'age' => 'required|integer|min:0',
-            'mother_tongue' => 'required|string|max:255',
-            'ip_member' => 'required|string|in:Yes,No',
-            'beneficiary' => 'required|string|in:Yes,No',
-            'lwd' => 'required|string|max:255',
-            'currentHouseNo' => 'required|string|max:255',
-            'currentSitioStreet' => 'required|string|max:255',
-            'currentBarangay' => 'required|string|max:255',
-            'currentMunicipalityCity' => 'required|string|max:255',
-            'currentProvince' => 'required|string|max:255',
-            'currentCountry' => 'required|string|max:255',
-            'permanentHouseNo' => 'required|string|max:255',
-            'permanentSitioStreet' => 'required|string|max:255',
-            'permanentBarangay' => 'required|string|max:255',
-            'permanentMunicipalityCity' => 'required|string|max:255',
-            'permanentProvince' => 'required|string|max:255',
-            'permanentCountry' => 'required|string|max:255',
-            'flast' => 'required|string|max:255',
-            'ffirst' => 'required|string|max:255',
-            'fmiddle' => 'required|string|max:255',
-            'fcontact' => 'required|string|max:255',
-            'mlast' => 'required|string|max:255',
-            'mfirst' => 'required|string|max:255',
-            'mmiddle' => 'required|string|max:255',
-            'mcontact' => 'required|string|max:255',
-            'glast' => 'required|string|max:255',
-            'gfirst' => 'required|string|max:255',
-            'gmiddle' => 'required|string|max:255',
-            'gcontact' => 'required|string|max:255',
-            'last_school_attended' => 'nullable|string|max:255',
-            'last_grade_level_completed' => 'nullable|string|max:255',
-            'last_school_year_completed' => 'nullable|string|max:255',
-            'school_id' => 'nullable|string|max:255',
-            'card_of_previous_grade' => 'required|file|max:10240', 
-            'birth_certificate' => 'required|file|max:10240',
-        ]);
-
-        // Update the enrollment data with validated data
-        $enrollment->update($validatedData);
-
-        // Return a response indicating success (you can customize the response as needed)
-        return response()->json(['message' => 'Enrollment data updated successfully']);
-    }
-
     public function trySearch(Request $request)
     {
         $lrn = $request->input('lrn');
@@ -186,16 +101,80 @@ class FormController extends Controller
 
     public function tryUpdate(Request $request)
     {
-        // Validation can be added here if needed
         $lrn = $request->input('lrn');
         $gradeLevel = $request->input('grade_level');
-        // Update other fields as needed
-
+        $returnee = $request->input('returnee');
+        $age = $request->input('age');
+        $beneficiary = $request->input('beneficiary');
+        $lwd = $request->input('lwd');
+        $currentHouseNo = $request->input('currentHouseNo');
+        $currentSitioStreet = $request->input('currentSitioStreet');
+        $currentBarangay = $request->input('currentBarangay');
+        $currentMunicipalityCity = $request->input('currentMunicipalityCity');
+        $currentProvince = $request->input('currentProvince');
+        $currentCountry = $request->input('currentCountry');
+        $permanentHouseNo = $request->input('permanentHouseNo');
+        $permanentSitioStreet = $request->input('permanentSitioStreet');
+        $permanentBarangay = $request->input('permanentBarangay');
+        $permanentMunicipalityCity = $request->input('permanentMunicipalityCity');
+        $permanentProvince = $request->input('permanentProvince');
+        $permanentCountry = $request->input('permanentCountry');
+        $fcontact = $request->input('fcontact');
+        $mcontact = $request->input('mcontact');
+        $glast = $request->input('glast');
+        $gfirst = $request->input('gfirst');
+        $gmiddle = $request->input('gmiddle');
+        $gcontact = $request->input('gcontact');
+        $lastSchool = $request->input('last_school');
+        $lastLevel = $request->input('last_level');
+        $lastSY = $request->input('last_sy');
+        $lastSchoolId = $request->input('last_schoolId');
+    
         $student = StudentForm::where('lrn', $lrn)->first();
         $student->grade_level = $gradeLevel;
-        // Update other fields as needed
-        $student->save();
+        $student->returnee = $returnee;
+        $student->age = $age;
+        $student->beneficiary = $beneficiary;
+        $student->lwd = $lwd;
+        $student->currentHouseNo = $currentHouseNo;
+        $student->currentSitioStreet = $currentSitioStreet;
+        $student->currentBarangay = $currentBarangay;
+        $student->currentMunicipalityCity = $currentMunicipalityCity;
+        $student->currentProvince = $currentProvince;
+        $student->currentCountry = $currentCountry;
+        $student->permanentHouseNo = $permanentHouseNo;
+        $student->permanentSitioStreet = $permanentSitioStreet;
+        $student->permanentBarangay = $permanentBarangay;
+        $student->permanentMunicipalityCity = $permanentMunicipalityCity;
+        $student->permanentProvince = $permanentProvince;
+        $student->permanentCountry = $permanentCountry;
+        $student->fcontact = $fcontact;
+        $student->mcontact = $mcontact;
+        $student->glast = $glast;
+        $student->gfirst = $gfirst;
+        $student->gmiddle = $gmiddle;
+        $student->gcontact = $gcontact;
+        $student->last_school_attended = $lastSchool;
+        $student->last_grade_level_completed = $lastLevel;
+        $student->last_school_year_completed = $lastSY;
+        $student->school_id = $lastSchoolId;
 
+        if ($student) {
+            // Update existing student data
+            $student->fill($request->all());
+            $student->status = 'old'; // Set status to 'old' for updated data
+            $student->enrollmentStatus = 'pending';
+        } else {
+            // Create new student data
+            $student = new StudentForm($request->all());
+            $student->status = 'new'; // Set status to 'new' for new data
+            $student->enrollmentStatus = 'pending';
+        }
+    
+        $student->save();
+    
         return response()->json(['success' => true]);
     }
+
 }
+

@@ -1,49 +1,4 @@
-/*
-    1. Abstracts
-        _bs-custom
-        _inheritance
-        _maps
-        _mixin
-        _variable
 
-    2. bootstrap 
-        -Here goes all official bootstrap scss files
-
-    3. Global/Base
-        _color
-        _custom-grid
-        _fonts
-        _helper
-        _reset
-
-    4. layout
-        +footer
-        +header
-        +rtl
-        +sidebar
-        +tables
-        +theme
-        +version-dark
-
-    5. Conponents
-        +app
-        +charts
-        +forms
-        +map
-        +uc
-        +ui
-        +widget
-
-    6. Page
-        _index-1
-        _page-error
-        _page-register
-        _page-signin
-        _page-user-lock
-        _page-user-lock
-
-*/
-/*$primary  : #7356f1 !default;*/
 @import url("../icons/simple-line-icons/css/simple-line-icons.css");
 @import url("../icons/font-awesome-old/css/font-awesome.min.css");
 @import url("../icons/material-design-iconic-font/css/materialdesignicons.min.css");
@@ -183,22 +138,7 @@
   background: linear-gradient(to right, #ff5c6c 0%, #fdf782 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a15cff', endColorstr='#ce82fd',GradientType=1 ); }
 
-/*
-0 - 600: Phone
-600 - 900: Tablet portrait
-900 - 1200: Tablet landscape
-1200 - 1800: Normal styles
-1800+ : Big Desktop
-1em = 16px
-The smaller device rules always should write below the bigger device rules
-Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
-*/
-/*!
- * Bootstrap v4.5.3 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors
- * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+
 :root {
   --blue: #5e72e4;
   --indigo: #6610f2;
@@ -363,9 +303,6 @@ img {
 svg {
   overflow: hidden;
   vertical-align: middle; }
-
-table {
-  border-collapse: collapse; }
 
 caption {
   padding-top: 0.75rem;
@@ -2266,15 +2203,15 @@ textarea.form-control {
 
 .btn {
   display: inline-block;
-  font-weight: 400;
+  font-weight: 300;
   color: #444;
   text-align: center;
   vertical-align: middle;
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 0.375rem 0.60rem;
-  font-size: 0.900rem;
+  padding: 0.375rem 0.50rem;
+  font-size: 0.800rem;
   line-height: 1.5;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
@@ -2661,7 +2598,7 @@ fieldset:disabled a.btn {
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.3rem 0.35rem;
-  font-size: 0.70rem;
+  font-size: 0.50rem;
   margin-top: 0.1rem;
   line-height: 1.3;
   border-radius: 0.2rem; }
@@ -22304,7 +22241,7 @@ button {
   padding-bottom: .2rem; }
 
 .btn-sm, .btn-group-sm > .btn {
-  font-size: 0.85rem !important; }
+  font-size: 0.70rem !important;}
 
 .btn-lg, .btn-group-lg > .btn {
   padding: 0.58rem 1rem;
@@ -26839,6 +26776,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     position: sticky;
     top: 0%;
     background-color:white;
+    text-align: center;
   }
 
   #professorTable thead th {
