@@ -36,6 +36,7 @@ $(document).ready(function () {
         method: "GET",
         success: function (response) {
             $("#pendingEnrollment tbody").empty();
+            
 
             response.forEach(function (enrollment) {
                 var row = "<tr>" +
@@ -124,5 +125,6 @@ $(document).ready(function () {
         }
     });
 
+    
     
 });

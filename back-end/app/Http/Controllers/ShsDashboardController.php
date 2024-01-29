@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Validator;
 
 class ShsDashboardController extends Controller
 {
-    public function getConfirmedEnrollments() {
-        $enrollment = StudentFormShs::select('lrn', 'name', 'grade_level', 'status', 'returnee')
+    public function getConfirmedEnrollmentsshs() {
+        $enrollment = StudentFormShs::select('lrn', 'name', 'grade_level', 'gender', 'birthdate', 'age', 'beneficiary', 'status', 'returnee')
+                        ->where('enrollmentStatus', 'confirmed')
                         ->get();
         return response()->json($enrollment);
     }

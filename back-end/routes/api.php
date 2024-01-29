@@ -79,7 +79,7 @@ Route::get('/get-pending-enrollments', [EnrollmentController::class, 'getpending
 Route::post('/confirm-enrollment', [EnrollmentController::class, 'confirmEnrollment']);
 Route::get('/get-confirmed-enrollments', [ConfirmedEnrollmentController::class, 'getConfirmedEnrollments']);
 
-Route::get('/get-pending-enrollments-shs', [EnrollmentController::class, 'getpendingEnrollments']);
+Route::get('/get-pending-enrollments-shs', [EnrollmentControllershs::class, 'getpendingEnrollmentsshs']);
 Route::post('/confirm-enrollment-shs', [EnrollmentControllershs::class, 'confirmEnrollmentshs']);
 Route::get('/get-confirmed-enrollments-shs', [ConfirmedEnrollmentControllershs::class, 'getConfirmedEnrollmentsshs']);
 
@@ -87,6 +87,6 @@ Route::get('/get-confirmed-enrollments', [JhsDashboardController::class, 'getCon
 Route::post('/confirm-enrollment', [JhsDashboardController::class, 'confirmEnrollment']);
 Route::get('/get-teachers-staffjhs', [JhsDashboardController::class, 'getTeachersStaffjhs']);
 
-Route::get('/get-confirmed-enrollments-shs', [ShsDashboardController::class, 'getConfirmedEnrollments']);
+Route::get('/get-confirmed-enrollments-shs', [ShsDashboardController::class, 'getConfirmedEnrollmentsshs']);
 Route::post('/confirm-enrollment-shs', [ShsDashboardController::class, 'confirmEnrollment']);
 Route::get('/get-teachers-staff-shs', [ShsDashboardController::class, 'getTeachersStaff']);

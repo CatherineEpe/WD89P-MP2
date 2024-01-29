@@ -9,7 +9,7 @@ class ConfirmedEnrollmentController extends Controller
 {
     public function getConfirmedEnrollments() {
         $enrollment = StudentForm::select('lrn', 'name', 'grade_level', 'gender', 'birthdate', 'age', 'beneficiary', 'returnee', 'status')
-                        ->where('enrollmentStatus', 'confirmed') // Fetch pending enrollment
+                        ->where('enrollmentStatus', 'confirmed') // Fetch confirmed enrollment
                         ->get();
 
         return response()->json($enrollment);

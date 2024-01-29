@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Validator;
 class EnrollmentController extends Controller
 {
     public function getPendingEnrollments() {
-        $enrollmentjhs = StudentForm::select('lrn', 'name', 'grade_level', 'status', 'returnee')
+        $enrollment = StudentForm::select('lrn', 'name', 'grade_level', 'status', 'returnee')
                         ->where('enrollmentStatus', 'pending') // Fetch pending enrollment
                         ->get();
-        return response()->json($enrollmentjhs);
+        return response()->json($enrollment);
     }
 
     public function confirmEnrollment(Request $request) {
