@@ -57,5 +57,6 @@ Route::post('/update-form-status-shs', [FormControllershs::class, 'updateFormSta
 Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword']);
 Route::post('/update-password', [ResetPasswordController::class, 'updatePassword']);
 
-
 Route::get('/get-pending-enrollments', [EnrollmentController::class, 'getpendingEnrollments']);
+
+

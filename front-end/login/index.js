@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
           Swal.fire({
             icon: 'error',
             title: 'Login Failed!',
-            text: error.responseJSON.error || 'Something went wrong. Please try again.',
+            text: 'Something went wrong. Please try again.',
           });
         },
       });

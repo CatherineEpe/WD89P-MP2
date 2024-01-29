@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../admin/assets/images/favicon.png">
 
     <link href="../admin/assets/vendor/fullcalendar/css/fullcalendar.min.css" rel="stylesheet">
-    	<link href="../admin/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../admin/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="../admin/assets/css/style.css" rel="stylesheet">
 
 </head>
@@ -70,80 +70,20 @@
                                 </span>
                                 <div class="dropdown-menu p-0 m-0">
                                     <form>
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                        <input class="form-control" type="search" placeholder="Search"
+                                            aria-label="Search">
                                     </form>
                                 </div>
                             </div>
                         </div>
 
                         <ul class="navbar-nav header-right">
-                            <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link bell ai-icon" href="#" role="button" data-toggle="dropdown">
-                                    <svg id="icon-user" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
-										<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-										<path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-									</svg>
-                                    <div class="pulse-css"></div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <ul class="list-unstyled">
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-user"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Captain America</strong><strong>submitted</strong>an enrollment form.
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="danger"><i class="ti-bookmark"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Iron Man's enrollment</strong> marked as<strong>pending</strong>.
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-heart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Thor</strong> has been enrolled.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-image"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Captain Marvel</strong> has been enrolled as<strong>Grade 11</strong> successfully.
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                    </ul>
-                                    <a class="all-notification" href="#">See all notifications <i class="ti-arrow-right"></i></a>
-                                </div>
-                            </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img src="../admin/assets/images/logopic.png" width="20" alt="">
+                                    <i class="la la-user"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="../admin/app-profile.html" class="dropdown-item ai-icon">
-                                        <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                        <span class="ml-2">Profile </span>
-                                    </a>
-                                    <a href="../admin/email-inbox.html" class="dropdown-item ai-icon">
-                                        <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                        <span class="ml-2">Inbox </span>
-                                    </a>
-                                    <a href="../admin/page-login.html" class="dropdown-item ai-icon">
+                                    <a href="../login/index.html" class="dropdown-item ai-icon">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -166,33 +106,33 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-							<i class="la la-home"></i>
-							<span class="nav-text">Dashboards</span>
-						</a>
+                            <i class="la la-home"></i>
+                            <span class="nav-text">Dashboards</span>
+                        </a>
                         <ul aria-expanded="false">
                             <li><a href="../admin/admin.html">Admin Dashboard</a></li>
                             <li><a href="../admin/index-2.html">JHS Dashboard</a></li>
                             <li><a href="../admin/index-3.html">SHS Dashboard</a></li>
                         </ul>
                     </li>
-					<li><a class="ai-icon" href="../admin/event-management.html" aria-expanded="false">
-							<i class="la la-calendar"></i>
-							<span class="nav-text">Calendar of Activities</span>
-						</a>
+                    <li><a class="ai-icon" href="../admin/event-management.html" aria-expanded="false">
+                            <i class="la la-calendar"></i>
+                            <span class="nav-text">Calendar of Activities</span>
+                        </a>
                     </li>
-					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-							<i class="la la-user"></i>
-							<span class="nav-text">Faculty and Staff</span>
-						</a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-user"></i>
+                            <span class="nav-text">Faculty and Staff</span>
+                        </a>
                         <ul aria-expanded="false">
                             <li><a href="../admin/all-professors.html">All Faculty and Staff</a></li>
                             <li><a href="../admin/add-professor.html">Add Faculty or Staff</a></li>
                         </ul>
                     </li>
-					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-							<i class="la la-users"></i>
-							<span class="nav-text">Students</span>
-						</a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-users"></i>
+                            <span class="nav-text">Students</span>
+                        </a>
                         <ul aria-expanded="false">
                             <li><a href="../admin/all-students.html">All Students</a></li>
                             <li><a href="../admin/edit-student.html">Edit Student's Information</a></li>
@@ -200,20 +140,20 @@
                     </li>
 
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-dollar"></i>
-                        <span class="nav-text">School Funds and Donations</span>
+                            <i class="la la-dollar"></i>
+                            <span class="nav-text">School Funds and Donations</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="../admin/fees-collection.html">All School Funds and Donations</a></li>
                             <li><a href="../admin/add-fees.html">Add Fund or Donation</a></li>
                             <li><a href="../admin/fees-receipt.html">Receipt</a></li>
                         </ul>
-                    </li>					
+                    </li>
                     <li class="nav-label">Apps</li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-							<i class="la la-users"></i>
-							<span class="nav-text">Apps</span>
-						</a>
+                            <i class="la la-users"></i>
+                            <span class="nav-text">Apps</span>
+                        </a>
                         <ul aria-expanded="false">
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                                 <ul aria-expanded="false">
@@ -225,7 +165,7 @@
                             <li><a href="../admin/app-calender.html">Calendar</a></li>
                         </ul>
                     </li>
-				</ul>
+                </ul>
             </div>
         </div>
         <!--**********************************
@@ -241,7 +181,7 @@
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
                             <h4>Hi, welcome back!</h4>
-                            <p class="mb-0">Your business dashboard template</p>
+                            <p class="mb-0">Your Calendar of Activities</p>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -253,8 +193,11 @@
                 </div>
                 <!-- row -->
 
+                <div class="container">
+                    <h4 style="text-align: center;">To be updated. Stay with us for more updates.</h4>
+                </div>
 
-                <div class="row">
+                <div class="row hidden">
                     <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
@@ -263,18 +206,23 @@
                                 <div class="">
                                     <div id="external-events" class="my-3">
                                         <p>Drag and drop your event or click in the calendar</p>
-                                        <div class="external-event" data-class="bg-primary"><i class="fa fa-move"></i>New Theme Release</div>
-                                        <div class="external-event" data-class="bg-success"><i class="fa fa-move"></i>My Event
+                                        <div class="external-event" data-class="bg-primary"><i
+                                                class="fa fa-move"></i>New Theme Release</div>
+                                        <div class="external-event" data-class="bg-success"><i class="fa fa-move"></i>My
+                                            Event
                                         </div>
-                                        <div class="external-event" data-class="bg-warning"><i class="fa fa-move"></i>Meet manager</div>
-                                        <div class="external-event" data-class="bg-dark"><i class="fa fa-move"></i>Create New theme</div>
+                                        <div class="external-event" data-class="bg-warning"><i
+                                                class="fa fa-move"></i>Meet manager</div>
+                                        <div class="external-event" data-class="bg-dark"><i
+                                                class="fa fa-move"></i>Create New theme</div>
                                     </div>
                                     <!-- checkbox -->
-									<div class="checkbox custom-control checkbox-event custom-checkbox pt-3 pb-5">
-										<input type="checkbox" class="custom-control-input" id="drop-remove">
-										<label class="custom-control-label" for="drop-remove">Remove After Drop</label>
-									</div>
-                                    <a href="javascript:void()" data-toggle="modal" data-target="#add-category" class="btn btn-primary btn-event w-100">
+                                    <div class="checkbox custom-control checkbox-event custom-checkbox pt-3 pb-5">
+                                        <input type="checkbox" class="custom-control-input" id="drop-remove">
+                                        <label class="custom-control-label" for="drop-remove">Remove After Drop</label>
+                                    </div>
+                                    <a href="javascript:void()" data-toggle="modal" data-target="#add-category"
+                                        class="btn btn-primary btn-event w-100">
                                         <span class="align-middle"><i class="ti-plus"></i></span> Create New
                                     </a>
                                 </div>
@@ -297,11 +245,14 @@
                                 </div>
                                 <div class="modal-body"></div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-success save-event waves-effect waves-light">Create
+                                    <button type="button" class="btn btn-default waves-effect"
+                                        data-dismiss="modal">Close</button>
+                                    <button type="button"
+                                        class="btn btn-success save-event waves-effect waves-light">Create
                                         event</button>
 
-                                    <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+                                    <button type="button" class="btn btn-danger delete-event waves-effect waves-light"
+                                        data-dismiss="modal">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -318,11 +269,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="control-label">Category Name</label>
-                                                <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name">
+                                                <input class="form-control form-white" placeholder="Enter name"
+                                                    type="text" name="category-name">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="control-label">Choose Category Color</label>
-                                                <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                                                <select class="form-control form-white"
+                                                    data-placeholder="Choose a color..." name="category-color">
                                                     <option value="success">Success</option>
                                                     <option value="danger">Danger</option>
                                                     <option value="info">Info</option>
@@ -335,8 +288,10 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+                                    <button type="button" class="btn btn-default waves-effect"
+                                        data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-danger waves-effect waves-light save-category"
+                                        data-dismiss="modal">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -362,7 +317,7 @@
             Footer end
         ***********************************-->
 
-        
+
 
 
     </div>
@@ -375,19 +330,20 @@
     ***********************************-->
     <!-- Required vendors -->
     <script src="../admin/assets/vendor/global/global.min.js"></script>
-	<script src="../admin/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../admin/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <script src="../admin/assets/js/custom.min.js"></script>
     <script src="../admin/assets/js/dlabnav-init.js"></script>
     <!--removeIf(production)-->
 
-	<!-- Svganimation scripts -->
+    <!-- Svganimation scripts -->
     <script src="../admin/assets/vendor/svganimation/vivus.min.js"></script>
     <script src="../admin/assets/vendor/svganimation/svg.animation.js"></script>
-	
+
     <script src="../admin/assets/vendor/jqueryui/js/jquery-ui.min.js"></script>
     <script src="../admin/assets/vendor/moment/moment.min.js"></script>
 
     <script src="../admin/assets/vendor/fullcalendar/js/fullcalendar.min.js"></script>
     <script src="../admin/assets/js/plugins-init/fullcalendar-init.js"></script>
 </body>
+
 </html>

@@ -30,41 +30,12 @@ $(document).ready(function () {
         });
     });
 
-    // AJAX request to populate pending enrollments
-    $.ajax({
-        url: "http://127.0.0.1:8000/api/get-pending-enrollments",
-        method: "GET",
-        success: function (response) {
-            $("#pendingEnrollment tbody").empty();
-
-            response.forEach(function (enrollment) {
-                var row = "<tr>" +
-                    "<td>" + enrollment.lrn + "</td>" +
-                    "<td>" + enrollment.name + "</td>" +
-                    "<td>" + enrollment.grade_level + "</td>" +
-                    "<td>" + enrollment.status + "</td>" +
-                    "<td>" + enrollment.returnee + "</td>" +
-                    "<td>" +
-                    "<a href='javascript:void(0);' class='btn btn-sm btn-primary view-pdf' data-pdf-url='" + enrollment.pdf_url + "'>Review</a>" +
-                    "<button class='btn btn-sm btn-primary confirm-enrollment' data-lrn='" + enrollment.lrn + "'>Confirm</button>" + // Pass LRN as data attribute
-                    "</td>" +
-                    "</tr>";
-
-                $("#pendingEnrollment tbody").append(row);
-            });
-
-        },
-        error: function (xhr, status, error) {
-            console.error(error);
-        }
-    });
-
     // AJAX request to populate confirmed enrollments
     $.ajax({
         url: "http://127.0.0.1:8000/api/get-confirmed-enrollments",
         method: "GET",
         success: function (response) {
-            $("#confirmedEnrollment tbody").empty();
+            $("#confirmedEnrollment2 tbody").empty();
 
             response.forEach(function (enrollment) {
                 var row = "<tr>" +
@@ -82,7 +53,7 @@ $(document).ready(function () {
                     "</td>" +
                     "</tr>";
 
-                $("#confirmedEnrollment tbody").append(row);
+                $("#confirmedEnrollment2 tbody").append(row);
             });
 
         },
@@ -93,10 +64,10 @@ $(document).ready(function () {
 
     // AJAX request to populate confirmed enrollments
     $.ajax({
-        url: "http://127.0.0.1:8000/api/get-teachers-staff",
+        url: "http://127.0.0.1:8000/api/get-teachers-staffjhs",
         method: "GET",
         success: function (response) {
-            $("#AdminTeachersList tbody").empty();
+            $("#AdminTeachersList2 tbody").empty();
 
             response.forEach(function (teachersStaff) {
                 var row = "<tr>" +
@@ -115,7 +86,7 @@ $(document).ready(function () {
                     "</td>" +
                     "</tr>";
 
-                $("#AdminTeachersList tbody").append(row);
+                $("#AdminTeachersList2 tbody").append(row);
             });
 
         },

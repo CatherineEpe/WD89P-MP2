@@ -75,17 +75,22 @@
           console.log('AJAX success');
           console.log(response);
 
-          // Show success message using a library like SweetAlert
+          // Show success message using SweetAlert
           Swal.fire({
             icon: 'success',
             title: 'Form Submitted Successfully!',
             text: 'Thank you for applying!',
           });
+
                 // Hide the form
                 $('#enrollmentForm').hide();
 
-                // Redirect to the messsage from the admin
-                window.location.href = '../jhs/admin_message.html';
+            // Check if submission status flag is set in the session
+            if (response.data_submitted) {
+              window.location.href = '../jhs/admin_message.html';
+          } else {
+              // Handle success response as needed
+          }
 
           // Clear the form after successful submission
           $('#enrollmentForm')[0].reset();

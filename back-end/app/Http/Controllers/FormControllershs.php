@@ -67,6 +67,12 @@ class FormControllershs extends Controller
         // Create a new StudentForm instance
         $studentForm = new StudentFormShs();
 
+        // Set status to 'new' for new data
+        $studentForm->status = 'new';
+
+        // Set enrollmentStatus to 'pending'
+        $studentForm->enrollmentStatus = 'pending';
+
         // Assign individual attributes
         $studentForm->fill($request->except(['card_of_previous_grade', 'birth_certificate']));
 
@@ -98,8 +104,6 @@ class FormControllershs extends Controller
 
         if ($student) {
             return response()->json(['success' => true, 'student' => $student]);
-        } else {
-            return response()->json(['success' => false, 'message' => 'Student not found']);
         }
     }
 
@@ -177,12 +181,11 @@ class FormControllershs extends Controller
             // Update existing student data
             $student->fill($request->all());
             $student->status = 'old'; // Set status to 'old' for updated data
-            $student->enrollmentStatus = 'pending'; //All new transactions in the database will set enrollmentStatus to 'pending'
+            $student->enrollmentStatus = 'pending';
         } else {
             // Create new student data
-            $student = new StudentForm($request->all());
-            $student->status = 'new'; // Set status to 'new' for new data
-            $student->enrollmentStatus = 'pending'; //All new transactions in the database will set enrollmentStatus to 'pending'
+            $student = new StudentFormshs($request->all());
+;
         }
 
         $student->save();

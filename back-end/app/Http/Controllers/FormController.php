@@ -63,6 +63,11 @@ class FormController extends Controller
         // Create a new StudentForm instance
         $studentForm = new StudentForm();
 
+        $studentForm->status = 'new';
+
+        // Set enrollmentStatus to 'pending'
+        $studentForm->enrollmentStatus = 'pending';
+
         // Assign individual attributes
         $studentForm->fill($request->except(['card_of_previous_grade', 'birth_certificate']));
 
@@ -83,6 +88,12 @@ class FormController extends Controller
 
         // Save the student form data to the database
         $studentForm->save();
+
+         // Store submission status flag in session
+         session(['data_submitted' => true]);
+
+         // Return response indicating submission status
+         return response()->json(['data_submitted' => true]);
 
         return response()->json(['message' => 'Form submitted successfully'], 201);
     }
@@ -163,11 +174,6 @@ class FormController extends Controller
             // Update existing student data
             $student->fill($request->all());
             $student->status = 'old'; // Set status to 'old' for updated data
-            $student->enrollmentStatus = 'pending';
-        } else {
-            // Create new student data
-            $student = new StudentForm($request->all());
-            $student->status = 'new'; // Set status to 'new' for new data
             $student->enrollmentStatus = 'pending';
         }
     
